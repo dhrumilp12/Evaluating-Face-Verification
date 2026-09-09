@@ -2,8 +2,9 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-Initial project setup and experimental planning.
-No dataset has been downloaded and no experiments have been run yet.
+Dataset research and initial protocol planning are complete.
+LFW funneled images are selected for the baseline, pending local
+download and validation. No experiments have been run yet.
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -38,12 +39,14 @@ or incorrectly accept a different person. Measuring these errors helps
 us understand the system's limitations.
 
 ### Candidate Datasets
-- Labeled Faces in the Wild (LFW): proposed primary dataset.
+- Labeled Faces in the Wild (LFW), funneled images: selected primary dataset,
+  pending local download and validation.
 - SCface: possible extension using surveillance images.
 - QMUL-SurvFace: possible extension using low-resolution surveillance faces.
 
-Dataset sources, access requirements, and the final selection will be
-documented in docs/dataset_research.md during the next stage.
+Dataset sources, access requirements, selection rationale, and the
+planned verification protocol are documented in
+[Dataset Research](docs/dataset_research.md).
 
 ### Planned Experiments
 1. Inspect the selected dataset and verification protocol.
@@ -54,9 +57,12 @@ documented in docs/dataset_research.md during the next stage.
 6. Compare results and document limitations.
 
 Keep the reference image and recognition model fixed across conditions.
-Select decision thresholds using development data, without tuning them
-on the held-out evaluation pairs. Record the exact split before running
-experiments.
+Use development pairs to finalize the model, degradation levels, and
+threshold-selection rule. During 10-fold evaluation, calibrate each
+threshold on original-condition scores from the other nine folds, then
+keep it fixed across the held-out original and degraded conditions.
+Never tune thresholds on the held-out fold. Preserve the supplied folds
+and record the exact protocol before running experiments.
 
 Brightness reduction is a controlled simulation; it does not reproduce
 all effects of real low-light camera capture.
