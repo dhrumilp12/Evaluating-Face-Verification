@@ -179,3 +179,25 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Local settings: allow a shareable example
+.env.*
+!.env.example
+
+# Local datasets: keep setup documentation
+/data/*
+!/data/README.md
+
+# Downloaded model weights
+/models/
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Submission archives
+*.zip
