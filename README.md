@@ -2,9 +2,12 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-Dataset research and initial protocol planning are complete.
-LFW funneled images are selected for the baseline, pending local
-download and validation. No experiments have been run yet.
+LFW funneled images have been downloaded and validated.
+Dataset exploration is documented in
+[notebooks/01_dataset_exploration.ipynb](notebooks/01_dataset_exploration.ipynb).
+No face-verification performance has been measured yet.
+
+Setup instructions: [Commit 3 setup](docs/commit3_setup.md).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -39,8 +42,8 @@ or incorrectly accept a different person. Measuring these errors helps
 us understand the system's limitations.
 
 ### Candidate Datasets
-- Labeled Faces in the Wild (LFW), funneled images: selected primary dataset,
-  pending local download and validation.
+- Labeled Faces in the Wild (LFW), funneled images: selected primary dataset;
+  local download and validation are complete.
 - SCface: possible extension using surveillance images.
 - QMUL-SurvFace: possible extension using low-resolution surveillance faces.
 
@@ -49,7 +52,7 @@ planned verification protocol are documented in
 [Dataset Research](docs/dataset_research.md).
 
 ### Planned Experiments
-1. Inspect the selected dataset and verification protocol.
+1. Inspect the selected dataset and verification protocol (completed).
 2. Establish performance using original images.
 3. Reduce probe-image resolution.
 4. Apply Gaussian blur to probe images.
@@ -83,7 +86,9 @@ all effects of real low-light camera capture.
 - requirements.txt: dependencies, added as the implementation develops
 
 ### Reproducibility
-Setup and execution instructions will be added when working code exists.
+Use Python 3.13 and follow the [setup and execution instructions](docs/commit3_setup.md).
+The resolved environment is recorded in [docs/environment_commit3.txt](docs/environment_commit3.txt).
+Actual dataset checks are saved in [results/metrics/dataset_summary.json](results/metrics/dataset_summary.json).
 Datasets, model weights, and virtual environments will not be committed.
 Experiment records will describe configurations, results, failures, and
 decisions. Git history will track actual changes as the project develops.

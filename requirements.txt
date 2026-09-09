@@ -1,1 +1,2 @@
-# Dependencies will be added and versioned during implementation.
+# Project dependencies; resolved environment recorded in docs/environment_commit3.txt.
+-r requirements-commit3.txt

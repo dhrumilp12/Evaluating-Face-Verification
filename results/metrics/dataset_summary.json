@@ -1,0 +1,86 @@
+{
+  "run_at_utc": "2026-09-09T02:41:47.735201+00:00",
+  "image_version": "LFW funneled",
+  "git_head_before_commit": "f87ac55f296343e3f893014df49f89d2596769b7",
+  "python": "3.13.7",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "packages": {
+    "Pillow": "11.2.1",
+    "matplotlib": "3.10.3",
+    "jupyterlab": "4.4.3",
+    "ipykernel": "6.29.5",
+    "certifi": "2026.7.22"
+  },
+  "image_count": 13233,
+  "identity_count": 5749,
+  "identities_with_two_or_more_images": 1680,
+  "images_per_identity_min": 1,
+  "images_per_identity_max": 530,
+  "dimensions": {
+    "250x250": 13233
+  },
+  "color_modes": {
+    "RGB": 13233
+  },
+  "pairs": {
+    "pairsDevTrain.txt": {
+      "total": 2200,
+      "same": 1100,
+      "different": 1100,
+      "folds": 1
+    },
+    "pairsDevTest.txt": {
+      "total": 1000,
+      "same": 500,
+      "different": 500,
+      "folds": 1
+    },
+    "pairs.txt": {
+      "total": 6000,
+      "same": 3000,
+      "different": 3000,
+      "folds": 10
+    }
+  },
+  "unreadable_images": [],
+  "missing_pair_references": [],
+  "checks": {
+    "expected_image_count": true,
+    "expected_identity_count": true,
+    "all_images_250x250": true,
+    "all_images_readable": true,
+    "all_pair_paths_exist": true
+  },
+  "all_checks_passed": true,
+  "helper_sha256": "5e5d919b3c4240a6fd5b9ee8dc7f9aa29108294794d6212db2e76d6d491e9efd",
+  "download_manifest": {
+    "lfw-funneled.tgz": {
+      "url": "https://ndownloader.figshare.com/files/5976015",
+      "sha256": "b47c8422c8cded889dc5a13418c4bc2abbda121092b3533a83306f90d900100a",
+      "bytes": 243346528,
+      "downloaded_at_utc": "2026-09-09T02:41:38.536493+00:00",
+      "verified_at_utc": "2026-09-09T02:41:38.536515+00:00"
+    },
+    "pairsDevTrain.txt": {
+      "url": "https://ndownloader.figshare.com/files/5976012",
+      "sha256": "1d454dada7dfeca0e7eab6f65dc4e97a6312d44cf142207be28d688be92aabfa",
+      "bytes": 56579,
+      "downloaded_at_utc": "2026-09-09T02:41:39.758801+00:00",
+      "verified_at_utc": "2026-09-09T02:41:39.758829+00:00"
+    },
+    "pairsDevTest.txt": {
+      "url": "https://ndownloader.figshare.com/files/5976009",
+      "sha256": "7cb06600ea8b2814ac26e946201cdb304296262aad67d046a16a7ec85d0ff87c",
+      "bytes": 26002,
+      "downloaded_at_utc": "2026-09-09T02:41:40.720942+00:00",
+      "verified_at_utc": "2026-09-09T02:41:40.721037+00:00"
+    },
+    "pairs.txt": {
+      "url": "https://ndownloader.figshare.com/files/5976006",
+      "sha256": "ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592",
+      "bytes": 155335,
+      "downloaded_at_utc": "2026-09-09T02:41:41.869044+00:00",
+      "verified_at_utc": "2026-09-09T02:41:41.869094+00:00"
+    }
+  }
+}
