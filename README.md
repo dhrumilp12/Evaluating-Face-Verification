@@ -7,7 +7,7 @@ Dataset exploration is documented in
 [notebooks/01_dataset_exploration.ipynb](notebooks/01_dataset_exploration.ipynb).
 No face-verification performance has been measured yet.
 
-Setup instructions: [Commit 3 setup](docs/commit3_setup.md).
+Setup instructions: [Setup and execution](#setup-and-execution).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -80,15 +80,90 @@ all effects of real low-light camera capture.
 - docs/: research notes and experiment log
 - notebooks/: dataset exploration and experimental notebooks
 - src/: reusable Python code
-- data/: dataset setup instructions and local data
+- data/: local datasets and caches, excluded from Git
 - results/figures/: generated plots
 - results/metrics/: generated evaluation results
-- requirements.txt: dependencies, added as the implementation develops
+- requirements.txt: pinned Python dependencies
+
+### Setup and Execution
+
+Use Python 3.13 (validated with 3.13.7). From the repository root on macOS/Linux:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m ipykernel install --sys-prefix --name biometrics-project1 --display-name "Biometrics Project 1"
+python -m jupyterlab
+```
+
+The named kernel is installed inside `.venv`, so launch Jupyter from that
+environment. Open [the exploration notebook](notebooks/01_dataset_exploration.ipynb),
+select **Biometrics Project 1**, and run the cells in order. The first download is
+approximately 232 MiB; allow at least 1 GB of disk space for the archive,
+extracted images, and outputs.
+
+For Windows Git Bash, create the environment with `python -m venv .venv`
+and activate with `source .venv/Scripts/activate`. In PowerShell, activate with
+`.venv\Scripts\Activate.ps1`.
+
+To execute and save the complete notebook from an activated terminal:
+
+```bash
+python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/01_dataset_exploration.ipynb
+```
+
+To download and validate inputs without generating notebook figures:
+
+```bash
+python src/lfw_dataset.py --download
+```
+
+Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
+reuses verified downloads, and restores extracted archive members on each run.
+This directory contains `lfw-funneled.tgz`, `pairsDevTrain.txt`,
+`pairsDevTest.txt`, `pairs.txt`, and `download_manifest.json`. Extracted images
+are under `data/lfw_home/lfw_funneled/<identity>/`.
+
+The manifest records download URLs, timestamps, file sizes, and checksums;
+a copy is included in the dataset summary. JPEGs are read individually with
+Pillow, preserving source dimensions and color mode. RGB conversion is used
+only for displaying examples. Model-specific preprocessing remains a later stage.
+
+Validation checks image and identity counts, readability, dimensions, pair
+counts and class order, and every referenced image path. The supplied evaluation
+folds and pair order are preserved. For future model evaluation, read images in
+batches and cache embeddings for repeated images.
+
+Review source usage notices and retain dataset citations. A download mirror
+does not establish unrestricted rights to the photographs. See
+[Dataset Research](docs/dataset_research.md) for sources and selection rationale.
+
+The notebook saves [dataset checks](results/metrics/dataset_summary.json) and the
+[identity distribution plot](results/figures/lfw_identity_distribution.png).
+After a rerun, update its observations cell, save the notebook, and record actual
+findings and any errors in [the experiment log](docs/experiment_log.md).
+
+If setup or execution fails:
+
+- Missing module or wrong Python: activate `.venv`, install `requirements.txt`,
+  and select the **Biometrics Project 1** kernel.
+- Connection or checksum failure: record the error and rerun. Failed partial
+  downloads are removed; persistent checksum mismatches need investigation.
+- Certificate error: confirm the pinned `certifi` package is installed in the
+  active environment. The downloader adds its CA bundle to Python's default
+  trust roots while retaining certificate and hostname verification.
+- Missing or corrupt images: rerun the download cell to restore archive members.
+  Unexpected extra JPEGs need inspection; the helper does not delete them.
 
 ### Reproducibility
-Use Python 3.13 and follow the [setup and execution instructions](docs/commit3_setup.md).
-The resolved environment is recorded in [docs/environment_commit3.txt](docs/environment_commit3.txt).
+
+Dependency changes are tracked in Git. Python and main package versions are recorded with each dataset summary.
+Indirect dependencies are resolved during installation and may vary between runs.
 Actual dataset checks are saved in [results/metrics/dataset_summary.json](results/metrics/dataset_summary.json).
+Reruns replace the current summary and plot; Git retains committed versions.
+The summary's `git_head_before_commit` identifies HEAD at execution time, and
+`helper_sha256` records the helper file used, including any uncommitted changes.
 Datasets, model weights, and virtual environments will not be committed.
 Experiment records will describe configurations, results, failures, and
 decisions. Git history will track actual changes as the project develops.

@@ -184,9 +184,8 @@ cython_debug/
 .env.*
 !.env.example
 
-# Local datasets: keep setup documentation
-/data/*
-!/data/README.md
+# Local datasets and caches
+/data/
 
 # Downloaded model weights
 /models/

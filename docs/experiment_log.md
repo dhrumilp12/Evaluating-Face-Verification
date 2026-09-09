@@ -86,7 +86,6 @@ and a Jupyter exploration notebook.
 
 ### Saved Outputs
 - notebooks/01_dataset_exploration.ipynb
-- docs/environment_commit3.txt
 - results/metrics/dataset_summary.json
 - results/figures/lfw_identity_distribution.png
 
@@ -107,7 +106,7 @@ resolved the error. Certificate and hostname verification stayed enabled.
 All four downloads then matched their published SHA-256 checksums. No HTTP 403
 occurred locally. All six notebook code cells completed successfully.
 
-The installed environment is captured in docs/environment_commit3.txt.
+Python and main package versions are recorded in results/metrics/dataset_summary.json.
 Data and the virtual environment remain excluded from Git. The UTC run date
 above corresponds to 2026-09-08 in America/New_York.
 
