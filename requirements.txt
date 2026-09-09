@@ -1,7 +1,11 @@
 # Python 3.13. Direct project dependencies; changes are tracked in Git.
-# Python and main package versions are recorded in the dataset summary.
+# Python and main package versions are recorded with experiment results.
+numpy==2.5.3
 Pillow==11.2.1
 matplotlib==3.10.3
 jupyterlab==4.4.3
 ipykernel==6.29.5
 certifi==2026.7.22
+torch==2.8.0
+torchvision==0.23.0
+facenet-pytorch==2.5.3

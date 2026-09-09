@@ -1,0 +1,749 @@
+{
+  "run_id": "20260909T214720243224Z",
+  "status": "completed",
+  "config": {
+    "model": "InceptionResnetV1",
+    "pretrained": "vggface2",
+    "embedding_size": 512,
+    "device": "cpu",
+    "image_size": 160,
+    "margin": 0,
+    "min_face_size": 20,
+    "thresholds": [
+      0.6,
+      0.7,
+      0.7
+    ],
+    "factor": 0.709,
+    "minimum_detection_probability": 0.9,
+    "selection": "highest-probability box containing image center",
+    "crop": "MTCNN.extract bounding-box crop, PIL bilinear resize; no landmark rotation",
+    "standardization": "(RGB pixel value - 127.5) / 128.0",
+    "seed": 42
+  },
+  "subset": "first 10 same-person and first 10 different-person development-training pairs",
+  "requested_pairs": 20,
+  "unique_images": 33,
+  "dataset_summary_sha256": "c1616b38a23cf110a0d92691d60e195fa210b81520ab9f148bf280cc2df942a6",
+  "pair_file_sha256": "1d454dada7dfeca0e7eab6f65dc4e97a6312d44cf142207be28d688be92aabfa",
+  "cache_directory": "data/processed/commit4/20260909T214720243224Z",
+  "python": "3.13.7",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "model_source_url": "https://github.com/timesler/facenet-pytorch/releases/download/v2.2.9/20180402-114759-vggface2.pt",
+  "images": [
+    {
+      "path": "AJ_Cook/AJ_Cook_0001.jpg",
+      "input_sha256": "89e26bbdee124e38b4d26929ea5de8ce74ae04bc6f713d76a0f5445bbf294466",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        79.87400817871094,
+        58.75582504272461,
+        176.62840270996094,
+        193.78988647460938
+      ],
+      "probability": 0.9999662637710571,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_000.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Aaron_Peirsol/Aaron_Peirsol_0001.jpg",
+      "input_sha256": "afb428f9939e4b545fc9982488afec825d262a4510b791f565bf3c4237605679",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        78.03115844726562,
+        65.74486541748047,
+        169.96908569335938,
+        189.2277069091797
+      ],
+      "probability": 0.9998880624771118,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_001.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Aaron_Peirsol/Aaron_Peirsol_0002.jpg",
+      "input_sha256": "1b60c628765d7d681e2f1669b02be0f19476910b496d7768898ae4fd3720181d",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        69.6851806640625,
+        61.39684295654297,
+        170.13290405273438,
+        196.53375244140625
+      ],
+      "probability": 0.9999980926513672,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_002.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Aaron_Peirsol/Aaron_Peirsol_0003.jpg",
+      "input_sha256": "cf287da7a9efeb4135d79844542c67a5b1ff3c3e0e73c73ea10e63c3e2f69323",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        75.65730285644531,
+        63.007781982421875,
+        171.87464904785156,
+        190.13302612304688
+      ],
+      "probability": 0.9999997615814209,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_003.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Aaron_Peirsol/Aaron_Peirsol_0004.jpg",
+      "input_sha256": "d7ae381dec9be6a1777cc0d6784094b94eefd92aaa8e6255b57fe8d4de03da68",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        86.54154968261719,
+        65.77363586425781,
+        172.5403594970703,
+        195.55697631835938
+      ],
+      "probability": 0.9993805885314941,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_004.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Aaron_Sorkin/Aaron_Sorkin_0001.jpg",
+      "input_sha256": "e65489450d6bb80ae2ef5d7f1f9ae5584794008ec2cbee280fa8931867a98044",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        74.8211441040039,
+        65.84429931640625,
+        169.8806915283203,
+        188.9013671875
+      ],
+      "probability": 0.9999908208847046,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_005.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Aaron_Sorkin/Aaron_Sorkin_0002.jpg",
+      "input_sha256": "f4b2c4802f4a19664e01c9cd7d7ba6fb3a623c3201d9d40514d7b3c4d0bd0194",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        74.73839569091797,
+        64.23013305664062,
+        173.84339904785156,
+        187.02474975585938
+      ],
+      "probability": 0.9999892711639404,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_006.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdel_Nasser_Assidi/Abdel_Nasser_Assidi_0001.jpg",
+      "input_sha256": "518cfc74d7b7197df31940b5500a69e6a3447dbb774159be9233dad692df6f8e",
+      "status": "ok",
+      "detected_faces": 3,
+      "box": [
+        77.19099426269531,
+        62.953819274902344,
+        174.266845703125,
+        192.79359436035156
+      ],
+      "probability": 0.9999823570251465,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_007.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdel_Nasser_Assidi/Abdel_Nasser_Assidi_0002.jpg",
+      "input_sha256": "82e3515c50360dc3cf140cd6f4fb9ec9d5ac19c22af37c43b2090964c1166967",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        76.2339096069336,
+        68.62213897705078,
+        176.61708068847656,
+        196.1737823486328
+      ],
+      "probability": 0.9999943971633911,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_008.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdoulaye_Wade/Abdoulaye_Wade_0004.jpg",
+      "input_sha256": "e928ae58c5f2f7123180c22c403c7b871198c38fb9768f142dea56d46460e527",
+      "status": "ok",
+      "detected_faces": 2,
+      "box": [
+        66.7125244140625,
+        49.85211944580078,
+        177.31430053710938,
+        202.023681640625
+      ],
+      "probability": 0.9999905824661255,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_009.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Abdul_Rahman/Abdul_Rahman_0001.jpg",
+      "input_sha256": "1d0658bfa4abc2b594ded7143fd9154091f78bd8cc5b30740f215d16712c2ba6",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        74.8862533569336,
+        64.17948913574219,
+        174.61048889160156,
+        196.1899871826172
+      ],
+      "probability": 0.9999938011169434,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_010.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Abdullah/Abdullah_0001.jpg",
+      "input_sha256": "f8d91a6bd00172d57b06ea8c27cf8770830dfa00b1c7da14a1de7ecade6a2d48",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        75.75284576416016,
+        66.18817138671875,
+        170.7750701904297,
+        184.1369171142578
+      ],
+      "probability": 0.9999978542327881,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_011.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdullah/Abdullah_0002.jpg",
+      "input_sha256": "c377070618a0d52738fb513d9e9ca44a1133c2f47b0b252faf76ed2ba6872efe",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        80.93692779541016,
+        62.548946380615234,
+        177.455810546875,
+        176.60577392578125
+      ],
+      "probability": 0.9998741149902344,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_012.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdullah/Abdullah_0003.jpg",
+      "input_sha256": "95510ea4de29122a433db56208dd03db50a6450310fd6d05d4c50aa4ab5a3b5a",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        75.5887451171875,
+        62.351715087890625,
+        174.48585510253906,
+        187.3367919921875
+      ],
+      "probability": 0.9999451637268066,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_013.npy",
+      "embedding_norm": 1.0000001192092896
+    },
+    {
+      "path": "Abdullah/Abdullah_0004.jpg",
+      "input_sha256": "4e9903e61638e7b947a49cb483f0f899a96b8e6afab8a75c182caf0b9ecdcd2d",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        69.31214141845703,
+        64.89035034179688,
+        170.86227416992188,
+        198.06253051757812
+      ],
+      "probability": 0.9999948740005493,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_014.npy",
+      "embedding_norm": 1.0000001192092896
+    },
+    {
+      "path": "Abdullah_Nasseef/Abdullah_Nasseef_0001.jpg",
+      "input_sha256": "a88b8da265ab434f4743a48499f555c91474a084457271d57fefecae2bcca850",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        91.12263488769531,
+        83.07185363769531,
+        162.68258666992188,
+        190.3736572265625
+      ],
+      "probability": 0.9999954700469971,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_015.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0001.jpg",
+      "input_sha256": "afa76582fd3da0526a11a5ba8036086be4853f00d79cb7f8ed48a388c5311ccc",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        67.96556854248047,
+        38.72957992553711,
+        172.7564697265625,
+        197.08755493164062
+      ],
+      "probability": 0.9993022680282593,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_016.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0002.jpg",
+      "input_sha256": "9931301a348b9eb5bdebf4f09e51379232fd64cc2b751cab087eb0b337a36377",
+      "status": "ok",
+      "detected_faces": 3,
+      "box": [
+        71.06377410888672,
+        65.55438232421875,
+        170.12753295898438,
+        189.64556884765625
+      ],
+      "probability": 0.9999736547470093,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_017.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0003.jpg",
+      "input_sha256": "0269f0ae6134e2cd3d40ff1f693de17170d76c16ae15a08d4b2503199e0a5ae4",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        72.05752563476562,
+        39.55830383300781,
+        188.89910888671875,
+        191.04055786132812
+      ],
+      "probability": 0.999936580657959,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_018.npy",
+      "embedding_norm": 0.9999998807907104
+    },
+    {
+      "path": "Abel_Pacheco/Abel_Pacheco_0001.jpg",
+      "input_sha256": "8b6fff626f3d778d34027e19fc88c521a9e1307cf735b22a1406c17e55e8a967",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        74.9780502319336,
+        64.43144226074219,
+        174.60728454589844,
+        193.47865295410156
+      ],
+      "probability": 0.9999967813491821,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_019.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abel_Pacheco/Abel_Pacheco_0003.jpg",
+      "input_sha256": "eddfdb6a72739f7b64049a6e236f5b998edf574a0c3ebc7c867d97375cddd379",
+      "status": "ok",
+      "detected_faces": 2,
+      "box": [
+        73.09391784667969,
+        70.9391098022461,
+        166.48912048339844,
+        188.59083557128906
+      ],
+      "probability": 0.9998468160629272,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_020.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Abel_Pacheco/Abel_Pacheco_0004.jpg",
+      "input_sha256": "8050daa859e7e05aedd5c7ec3851e5d5bddcb2b9797d23958664ec2958a230ae",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        84.2233657836914,
+        72.3687744140625,
+        175.54910278320312,
+        189.44004821777344
+      ],
+      "probability": 0.9999877214431763,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_021.npy",
+      "embedding_norm": 0.9999998807907104
+    },
+    {
+      "path": "Abner_Martinez/Abner_Martinez_0001.jpg",
+      "input_sha256": "e7775c2f4eb43efd14b44aaed068e8a584ca83ff10974aa827746a86ef38a606",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        72.89279174804688,
+        65.1200942993164,
+        172.66236877441406,
+        191.38990783691406
+      ],
+      "probability": 0.9999923706054688,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_022.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Aidan_Quinn/Aidan_Quinn_0001.jpg",
+      "input_sha256": "7f4b3a402ec6a4ce6c1f8e2fbcf8a8ddd99d664815ab828e12e6b1760ea65454",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        79.5521240234375,
+        67.49671936035156,
+        173.04066467285156,
+        194.24588012695312
+      ],
+      "probability": 0.9999839067459106,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_023.npy",
+      "embedding_norm": 1.0000001192092896
+    },
+    {
+      "path": "Dwain_Kyles/Dwain_Kyles_0001.jpg",
+      "input_sha256": "a2fcd07bd711f4f8a055fd538332895734bddb1d46717c4c26a053e41d521aa4",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        76.34892272949219,
+        65.30096435546875,
+        171.33811950683594,
+        192.60360717773438
+      ],
+      "probability": 0.9999985694885254,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_024.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Frank_Solich/Frank_Solich_0005.jpg",
+      "input_sha256": "1061392af2153a64c466174450f14f0d13111feb90694ac7bbfde80d9da1ffcc",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        84.35166931152344,
+        62.83793258666992,
+        173.0020294189453,
+        186.06649780273438
+      ],
+      "probability": 0.9998242259025574,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_025.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Hilary_McKay/Hilary_McKay_0001.jpg",
+      "input_sha256": "327432fcd50b2472d119ccc6f079c8897419ed4efed9fe0cf95ba25be860ffe7",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        74.51097869873047,
+        72.89153289794922,
+        165.02578735351562,
+        187.3862762451172
+      ],
+      "probability": 0.9999444484710693,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_026.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Hipolito_Mejia/Hipolito_Mejia_0003.jpg",
+      "input_sha256": "5a17017f48af21e827b5784ec3ca3310bb5b0171573ec7493c406e8ef671bfa2",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        77.70883178710938,
+        67.30148315429688,
+        169.49490356445312,
+        191.85430908203125
+      ],
+      "probability": 0.9999877214431763,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_027.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Linda_Dano/Linda_Dano_0001.jpg",
+      "input_sha256": "cd8e8341222dfbc9a2d819cf1c03719d2ac622492cd16dc358da1ed00186afd6",
+      "status": "ok",
+      "detected_faces": 2,
+      "box": [
+        81.34126281738281,
+        57.18206024169922,
+        179.75515747070312,
+        195.6309051513672
+      ],
+      "probability": 0.9998167157173157,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_028.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Lucio_Stanca/Lucio_Stanca_0001.jpg",
+      "input_sha256": "a66f011a33bc97e9491b4a4f694e326efbd2eaa93f72bde0b94ca085502a169b",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        71.8291015625,
+        63.807823181152344,
+        173.5074005126953,
+        190.9096221923828
+      ],
+      "probability": 0.9997510313987732,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_029.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Magui_Serna/Magui_Serna_0001.jpg",
+      "input_sha256": "f64d4b5e113c011d02718463908c64ebc560df38ece0ac8f3d9ebf6883ad0131",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        81.5804672241211,
+        51.649017333984375,
+        201.27359008789062,
+        201.6232452392578
+      ],
+      "probability": 0.9999910593032837,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_030.npy",
+      "embedding_norm": 1.0
+    },
+    {
+      "path": "Marsha_Thomason/Marsha_Thomason_0001.jpg",
+      "input_sha256": "38a77c5c1e368836e9a0c64617dafd50455ac9883bc3d55f11309d1a49266069",
+      "status": "ok",
+      "detected_faces": 1,
+      "box": [
+        80.07350158691406,
+        64.69479370117188,
+        173.40786743164062,
+        191.84805297851562
+      ],
+      "probability": 0.9999815225601196,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_031.npy",
+      "embedding_norm": 0.9999999403953552
+    },
+    {
+      "path": "Matt_Roney/Matt_Roney_0001.jpg",
+      "input_sha256": "acc0633d52081495fc46f156a3c36966ff094c970be9ea5024031259f4e764b7",
+      "status": "ok",
+      "detected_faces": 2,
+      "box": [
+        79.47341918945312,
+        66.39579010009766,
+        184.9849853515625,
+        196.02001953125
+      ],
+      "probability": 0.9999290704727173,
+      "crop_path": "data/processed/commit4/20260909T214720243224Z/crop_032.npy",
+      "embedding_norm": 1.0
+    }
+  ],
+  "pairs": [
+    {
+      "pair_index": 0,
+      "fold": 0,
+      "reference": "Aaron_Peirsol/Aaron_Peirsol_0001.jpg",
+      "probe": "Aaron_Peirsol/Aaron_Peirsol_0002.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.8257167339324951
+    },
+    {
+      "pair_index": 1,
+      "fold": 0,
+      "reference": "Aaron_Peirsol/Aaron_Peirsol_0003.jpg",
+      "probe": "Aaron_Peirsol/Aaron_Peirsol_0004.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.6792358756065369
+    },
+    {
+      "pair_index": 2,
+      "fold": 0,
+      "reference": "Aaron_Sorkin/Aaron_Sorkin_0001.jpg",
+      "probe": "Aaron_Sorkin/Aaron_Sorkin_0002.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.6131268739700317
+    },
+    {
+      "pair_index": 3,
+      "fold": 0,
+      "reference": "Abdel_Nasser_Assidi/Abdel_Nasser_Assidi_0001.jpg",
+      "probe": "Abdel_Nasser_Assidi/Abdel_Nasser_Assidi_0002.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.9180705547332764
+    },
+    {
+      "pair_index": 4,
+      "fold": 0,
+      "reference": "Abdullah/Abdullah_0001.jpg",
+      "probe": "Abdullah/Abdullah_0003.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.8060819506645203
+    },
+    {
+      "pair_index": 5,
+      "fold": 0,
+      "reference": "Abdullah/Abdullah_0002.jpg",
+      "probe": "Abdullah/Abdullah_0004.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.770911455154419
+    },
+    {
+      "pair_index": 6,
+      "fold": 0,
+      "reference": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0001.jpg",
+      "probe": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0003.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.827843427658081
+    },
+    {
+      "pair_index": 7,
+      "fold": 0,
+      "reference": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0002.jpg",
+      "probe": "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0003.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.8768744468688965
+    },
+    {
+      "pair_index": 8,
+      "fold": 0,
+      "reference": "Abel_Pacheco/Abel_Pacheco_0001.jpg",
+      "probe": "Abel_Pacheco/Abel_Pacheco_0004.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.7451061606407166
+    },
+    {
+      "pair_index": 9,
+      "fold": 0,
+      "reference": "Abel_Pacheco/Abel_Pacheco_0003.jpg",
+      "probe": "Abel_Pacheco/Abel_Pacheco_0004.jpg",
+      "label": 1,
+      "status": "scored",
+      "cosine_similarity": 0.8238084316253662
+    },
+    {
+      "pair_index": 1100,
+      "fold": 0,
+      "reference": "AJ_Cook/AJ_Cook_0001.jpg",
+      "probe": "Marsha_Thomason/Marsha_Thomason_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.053635042160749435
+    },
+    {
+      "pair_index": 1101,
+      "fold": 0,
+      "reference": "Aaron_Sorkin/Aaron_Sorkin_0002.jpg",
+      "probe": "Frank_Solich/Frank_Solich_0005.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.049712710082530975
+    },
+    {
+      "pair_index": 1102,
+      "fold": 0,
+      "reference": "Abdel_Nasser_Assidi/Abdel_Nasser_Assidi_0002.jpg",
+      "probe": "Hilary_McKay/Hilary_McKay_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.25881779193878174
+    },
+    {
+      "pair_index": 1103,
+      "fold": 0,
+      "reference": "Abdoulaye_Wade/Abdoulaye_Wade_0004.jpg",
+      "probe": "Linda_Dano/Linda_Dano_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.20552459359169006
+    },
+    {
+      "pair_index": 1104,
+      "fold": 0,
+      "reference": "Abdul_Rahman/Abdul_Rahman_0001.jpg",
+      "probe": "Magui_Serna/Magui_Serna_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": -0.030191758647561073
+    },
+    {
+      "pair_index": 1105,
+      "fold": 0,
+      "reference": "Abdullah/Abdullah_0001.jpg",
+      "probe": "Dwain_Kyles/Dwain_Kyles_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.22222083806991577
+    },
+    {
+      "pair_index": 1106,
+      "fold": 0,
+      "reference": "Abdullah_Nasseef/Abdullah_Nasseef_0001.jpg",
+      "probe": "Hipolito_Mejia/Hipolito_Mejia_0003.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": -0.11480532586574554
+    },
+    {
+      "pair_index": 1107,
+      "fold": 0,
+      "reference": "Abel_Pacheco/Abel_Pacheco_0001.jpg",
+      "probe": "Matt_Roney/Matt_Roney_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.035597845911979675
+    },
+    {
+      "pair_index": 1108,
+      "fold": 0,
+      "reference": "Abel_Pacheco/Abel_Pacheco_0004.jpg",
+      "probe": "Lucio_Stanca/Lucio_Stanca_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": 0.2766810655593872
+    },
+    {
+      "pair_index": 1109,
+      "fold": 0,
+      "reference": "Abner_Martinez/Abner_Martinez_0001.jpg",
+      "probe": "Aidan_Quinn/Aidan_Quinn_0001.jpg",
+      "label": 0,
+      "status": "scored",
+      "cosine_similarity": -0.2533688247203827
+    }
+  ],
+  "training_overlap": "VGGFace2/LFW identity or image overlap has not been independently audited.",
+  "source_sha256": {
+    "lfw_dataset.py": "5e5d919b3c4240a6fd5b9ee8dc7f9aa29108294794d6212db2e76d6d491e9efd",
+    "face_embedding.py": "d20718d087cd20eafb6882903548f2ce87eaa09d84870367353cb54fc1322a7d",
+    "embedding_smoke_test.py": "061bf48a0819995fa557b39ed3100c067c7a7ebc43a5ee627335adb7992124dc"
+  },
+  "git_head_before_commit": "21adf9c672d80d13ff527b38426e4d8ab4bb06cf",
+  "packages": {
+    "facenet-pytorch": "2.5.3",
+    "torch": "2.8.0",
+    "torchvision": "0.23.0",
+    "numpy": "2.5.3",
+    "Pillow": "11.2.1"
+  },
+  "checkpoint_sha256": "281cebca8662831adb987a874bdcb36e73f5b1c6dc5ee5878f305e985625d99b",
+  "detector_weight_sha256": {
+    "onet.pt": "165bfbe42940416ccfb977545cf0e976d5bf321f67083ae2aaaa5c764280118d",
+    "pnet.pt": "a2a71925e0b9996a42f63e47efc1ca19043e69558b5c523b978d611dfae49c8f",
+    "rnet.pt": "bbb937de72efc9ef83b186c49f5f558467a1d7e3453a8ece0d71a886633f6a86"
+  },
+  "successful_images": 33,
+  "failed_images": 0,
+  "scored_pairs": 20,
+  "excluded_pairs": 0,
+  "scored_same_pairs": 10,
+  "scored_different_pairs": 10,
+  "repeat_max_abs_difference": 0.0,
+  "self_similarity": 1.0,
+  "checks": {
+    "finite_unit_512d_embeddings": true,
+    "repeat_embedding_close": true,
+    "self_similarity_near_one": true,
+    "both_pair_classes_scored": true
+  },
+  "checks_passed": true,
+  "interpretation": "Small pipeline check only. No decision threshold, accuracy, FMR, or FNMR estimated. Inspect the selected crops visually.",
+  "elapsed_seconds": 15.965
+}
