@@ -2,8 +2,8 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-The original-quality LFW baseline and the resolution, Gaussian blur, and
-brightness experiments are complete.
+The original-quality LFW baseline, resolution, Gaussian blur, and brightness
+experiments, and score-distribution/ROC/DET analysis are complete.
 The fixed VGGFace2-pretrained embedding pipeline processed 7,700 of 7,701 unique evaluation images and scored
 5,999 of 6,000 pairs across all 10 supplied folds.
 
@@ -53,12 +53,36 @@ brightness at 75% and 50% produced small accuracy increases on these pairs.
 These increases do not establish a general benefit from dimming. Different
 quality scales are not severity-matched. Results and examples are saved in
 [the blur and brightness notebook](notebooks/05_blur_brightness.ipynb).
-Score-distribution and ROC/DET analysis remains pending.
+
+Pooled score analysis across the same 5,999 eligible pairs:
+
+| Condition | Pooled AUC | Pooled interpolated EER |
+|---|---:|---:|
+| Original | 0.999116 | 0.900% |
+| Resolution 80 × 80 | 0.999039 | 0.867% |
+| Resolution 40 × 40 | 0.998535 | 1.267% |
+| Resolution 20 × 20 | 0.984612 | 6.002% |
+| Blur σ = 1 | 0.999051 | 0.834% |
+| Blur σ = 2 | 0.998729 | 1.233% |
+| Blur σ = 3 | 0.997686 | 1.867% |
+| Brightness × 0.75 | 0.999161 | 0.867% |
+| Brightness × 0.50 | 0.999098 | 0.867% |
+| Brightness × 0.25 | 0.998527 | 1.333% |
+
+Resolution 20 × 20 shows the largest loss of score separation among these
+settings: the mean genuine cosine score falls from 0.751540 to 0.536432,
+while the mean impostor score changes from 0.022740 to 0.032296. These
+threshold-sweep summaries complement the earlier fixed-threshold tables,
+which remain the primary operational comparison. AUC is not accuracy, and
+interpolated EER does not establish a deployable threshold. Small differences
+between mild conditions do not establish a significant improvement.
+See [the executed analysis notebook](notebooks/06_score_analysis.ipynb).
 
 Setup instructions: [Setup and execution](#setup-and-execution).
 Baseline instructions: [Original-quality baseline](#original-quality-baseline).
 Resolution instructions: [Probe resolution experiment](#probe-resolution-experiment).
 Blur/brightness instructions: [Blur and brightness experiment](#blur-and-brightness-experiment).
+Score-analysis instructions: [Score distributions and ROC/DET analysis](#score-distributions-and-rocdet-analysis).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -108,7 +132,7 @@ planned verification protocol are documented in
 3. Reduce probe-image resolution (completed).
 4. Apply Gaussian blur to probe images (completed).
 5. Reduce probe-image brightness (completed).
-6. Compare results and document limitations.
+6. Compare scores with ROC/DET curves and AUC/EER; document limitations (completed).
 
 Keep the reference image and recognition model fixed across conditions.
 Use development pairs to finalize the model, degradation levels, and
@@ -126,6 +150,7 @@ all effects of real low-light camera capture.
 - False Match Rate (FMR): fraction of different-person comparisons accepted
 - False Non-Match Rate (FNMR): fraction of same-person comparisons rejected
 - ROC and DET curves
+- Pooled and per-fold ROC AUC and interpolated EER
 
 ### Repository Organization
 - docs/: research notes and experiment log
@@ -156,12 +181,17 @@ The named kernel is installed inside `.venv`, so launch Jupyter from that
 environment. Run [the dataset notebook](notebooks/01_dataset_exploration.ipynb)
 first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb),
 then [the baseline notebook](notebooks/03_baseline_verification.ipynb),
-[the resolution notebook](notebooks/04_resolution_degradation.ipynb), and
-[the blur and brightness notebook](notebooks/05_blur_brightness.ipynb).
+[the resolution notebook](notebooks/04_resolution_degradation.ipynb),
+[the blur and brightness notebook](notebooks/05_blur_brightness.ipynb), and
+[the score-analysis notebook](notebooks/06_score_analysis.ipynb).
 Select **Biometrics Project 1** and run each notebook's cells in order. The LFW download is
 approximately 232 MiB; allow several GB of disk space for the archive,
 extracted images, model weights, cached crops, and outputs. The recognition checkpoint is
 downloaded on the first embedding run and reused later.
+
+To reproduce only the score analysis, run notebook 06 directly using the
+committed score exports. It requires no dataset, model download, or local
+inference cache; the first five notebooks do not need to run again.
 
 For Windows Git Bash, create the environment with `python -m venv .venv`
 and activate with `source .venv/Scripts/activate`. In PowerShell, activate with
@@ -175,9 +205,10 @@ python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreproces
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/03_baseline_verification.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/04_resolution_degradation.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/05_blur_brightness.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/06_score_analysis.ipynb
 ```
 
-To run the experiments without notebook figures:
+To run the helpers from the terminal (the score-analysis helper also saves its plots):
 
 ```bash
 python src/lfw_dataset.py --download
@@ -185,6 +216,7 @@ python src/embedding_smoke_test.py
 python src/baseline_verification.py
 python src/resolution_experiment.py
 python src/quality_experiment.py
+python src/score_analysis.py
 ```
 
 Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
@@ -449,6 +481,69 @@ settings; they do not establish significance. Resolution, blur, and brightness
 levels have different severity scales, so their results do not establish a
 universal ranking of degradation types. Training-data overlap remains unaudited.
 
+### Score Distributions and ROC/DET Analysis
+
+Run [the score-analysis notebook](notebooks/06_score_analysis.ipynb) in the
+existing Python 3.13 environment, or run `python src/score_analysis.py` from
+the repository root. No dependencies change. The nine analysis tests are
+included in the full 36-test suite and can also be run separately:
+
+```bash
+python -m unittest discover -s tests -p test_score_analysis.py -v
+```
+
+This stage reads seven committed files under `results/metrics/`:
+`baseline_summary.json`, `baseline_thresholds.json`, `baseline_scores.csv`,
+`resolution_summary.json`, `resolution_predictions.csv`, `quality_summary.json`,
+and `quality_predictions.csv`. It validates their provenance and export hashes,
+pair indices, labels, folds, exclusions, control scores, and saved threshold
+decisions. A separate local check reproduced every analysis CSV and PNG in a
+temporary directory containing only these inputs and the analysis helper.
+
+The original condition is counted once, giving ten distinct conditions with
+2,999 genuine and 3,000 impostor comparisons each. No face inference, model
+training, or threshold calibration runs. The earlier fixed-threshold accuracy,
+FMR, FNMR, and error counts must reproduce before the analysis proceeds.
+
+The empirical ROC accepts `score >= threshold`, groups equal scores, and
+includes reject-all and accept-all endpoints. AUC integrates the full curve.
+EER linearly interpolates adjacent empirical points where FMR equals FNMR;
+the interpolated point may not be attainable by a deterministic threshold.
+Pooled metrics combine all scored pairs; the fold CSV reports each supplied
+fold separately, and the comparison also includes unweighted fold means and
+sample SD. These summaries describe evaluation scores and do not select a
+new operating threshold. Small changes in AUC and EER need not rank conditions
+identically.
+
+The ROC plot zooms to FMR 0–5% and true match rate 75–100% for readability;
+this zoom does not limit AUC integration. The DET plot uses standard-normal
+quantiles of FMR and FNMR, omitting zero/one rates only from display. The curve
+CSV retains those endpoints unchanged. Score distributions use common bins
+and axes, with each class normalized separately to a density. Method references:
+[ROC definitions](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html)
+and [DET interpretation](https://scikit-learn.org/stable/auto_examples/model_selection/plot_det.html).
+The helper computes the metrics directly with NumPy; scikit-learn is not a dependency.
+
+Saved outputs are the [analysis summary and fingerprints](results/metrics/analysis_summary.json),
+[ten-condition comparison](results/metrics/analysis_comparison.csv),
+[100 fold summaries](results/metrics/analysis_folds.csv),
+[59,990 empirical curve points](results/metrics/analysis_curves.csv),
+[class score statistics](results/metrics/analysis_score_statistics.csv),
+[ROC plot](results/figures/analysis_roc.png), [DET plot](results/figures/analysis_det.png),
+and [score distributions](results/figures/analysis_score_distributions.png).
+Reruns replace these outputs. Require `status=completed` and matching output
+hashes, then save notebook observations and update the experiment log. If an
+input validation fails, investigate the affected prior export and its source
+experiment before rerunning; do not bypass the integrity checks.
+
+With 3,000 impostor pairs, one false match changes pooled FMR by 0.0333
+percentage points; lower plot ticks do not create additional measurement
+precision. Repeated images/identities and overlapping calibration folds limit
+independence, and no significance test was performed. Evaluation scores were
+already used in earlier stages. Synthetic post-crop transformations, the one
+baseline exclusion, unmatched severity scales, and unaudited training-data
+overlap retain their earlier limitations.
+
 ### Reproducibility
 
 Dependency changes are tracked in Git. Python and main package versions are recorded with each experiment summary.
@@ -456,7 +551,8 @@ Indirect dependencies are resolved during installation and may vary between runs
 Actual dataset checks are saved in [results/metrics/dataset_summary.json](results/metrics/dataset_summary.json).
 Reruns replace the current summary and plot; Git retains committed versions.
 The summary's `git_head_before_commit` identifies HEAD at execution time, and
-`helper_sha256` records the helper file used, including any uncommitted changes.
+`helper_sha256` or `source_sha256` records the helper code used, including any
+uncommitted changes.
 Datasets, model weights, and virtual environments will not be committed.
 Experiment records will describe configurations, results, failures, and
 decisions. Git history will track actual changes as the project develops.

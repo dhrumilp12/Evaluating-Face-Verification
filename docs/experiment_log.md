@@ -462,3 +462,93 @@ Synthetic post-crop transformations do not reproduce all real camera effects. Br
 
 ### Next step
 Inspect score distributions and ROC/DET curves, retaining the fixed-threshold results as the primary operational comparison.
+
+## Stage 008 — Score distributions and ROC/DET analysis
+
+Analysis run (UTC): 2026-09-11T17:29:28.739298+00:00
+
+### Goal and method
+Analyze saved cosine similarities for ten conditions without rerunning the face model. Validate input hashes, common pair membership, labels, exclusions, controls, and fixed baseline threshold decisions. Compute pooled and per-fold ROC AUC and linearly interpolated EER; plot descriptive pooled ROC/DET curves and score distributions.
+
+### Results
+
+| Condition | Pooled AUC | Pooled interpolated EER | Mean fold AUC |
+|---|---:|---:|---:|
+| Original | 0.999116 | 0.900% | 0.999069 |
+| Resolution 80 × 80 | 0.999039 | 0.867% | 0.999006 |
+| Resolution 40 × 40 | 0.998535 | 1.267% | 0.998471 |
+| Resolution 20 × 20 | 0.984612 | 6.002% | 0.984411 |
+| Blur σ = 1 | 0.999051 | 0.834% | 0.999026 |
+| Blur σ = 2 | 0.998729 | 1.233% | 0.998680 |
+| Blur σ = 3 | 0.997686 | 1.867% | 0.997635 |
+| Brightness × 0.75 | 0.999161 | 0.867% | 0.999130 |
+| Brightness × 0.50 | 0.999098 | 0.867% | 0.999062 |
+| Brightness × 0.25 | 0.998527 | 1.333% | 0.998509 |
+
+Every condition uses 5999/6000 pairs (2999 genuine and 3000 impostor). Existing fixed-threshold metrics were reproduced and preserved.
+
+### Saved outputs
+
+- `notebooks/06_score_analysis.ipynb`
+- `results/metrics/analysis_summary.json`
+- `results/metrics/analysis_comparison.csv`
+- `results/metrics/analysis_folds.csv`
+- `results/metrics/analysis_curves.csv`
+- `results/metrics/analysis_score_statistics.csv`
+- `results/figures/analysis_roc.png`
+- `results/figures/analysis_det.png`
+- `results/figures/analysis_score_distributions.png`
+
+### Observations
+
+The local analysis completed on Python 3.13.7 in 1.164 seconds using the
+committed scores from Stage 007. All ten conditions retained the same 5,999
+eligible pairs (2,999 genuine and 3,000 impostor); the original control was
+counted once. No images, model weights, or inference caches were loaded. The
+original fixed-threshold results reproduced exactly, including 13 false matches
+and 37 false non-matches.
+
+The ROC, DET, and common-bin score-distribution plots were inspected. The
+20 × 20 condition has the clearest loss of separation: pooled AUC decreases
+from 0.999116 to 0.984612 and interpolated EER rises from 0.900% to 6.002%.
+Its genuine-score mean shifts from 0.751540 to 0.536432, while the impostor
+mean shifts from 0.022740 to 0.032296. The broader genuine distribution and
+its lower-score tail overlap the impostor distribution more visibly. Its
+ROC is lower and DET error rates are higher over the displayed low-FMR region.
+
+Blur σ = 3 also shifts genuine scores lower (mean 0.669063), with pooled AUC
+0.997686 and EER 1.867%. Brightness × 0.25 has a genuine-score mean of 0.706034,
+AUC 0.998527, and EER 1.333%. These results support the earlier fixed-threshold
+findings for the tested settings. Resolution, blur, and brightness scales are
+not severity-matched, so this is not a universal ordering of degradation types.
+
+Mild changes have small, nonmonotonic differences. Brightness × 0.75 has the
+highest pooled AUC here (0.999161); blur σ = 1 has the lowest interpolated EER
+(0.834%) despite a slightly lower AUC than the original. AUC averages ranking
+performance over the full curve, whereas EER describes its equal-error crossing.
+Neither observation establishes a significant benefit. Pooled and mean-fold
+metrics are reported separately and need not be equal or rank settings alike.
+
+EER is a descriptive threshold-sweep result, not a newly calibrated operating
+point. For example, the 20 × 20 condition still has mean fold accuracy 89.982%,
+FMR 0.967%, and FNMR 19.071% at the frozen baseline fold thresholds. Its pooled
+EER of 6.002% uses a different evaluation summary and does not replace those
+operational rates. The ROC display is zoomed, but AUC uses every curve point;
+DET omits zero/one rates only from the plot, retaining them in the CSV.
+
+All 36 regression tests passed, including the nine new analysis tests. An
+independent audit checked AUC by genuine–impostor score comparisons, every
+one of the 59,990 ROC points by class-specific threshold counts, interpolated
+EER, all 100 fold summaries, 20 score-statistic rows, and fixed-threshold
+metrics. All four CSVs reproduced the supplied analysis within absolute
+floating-point tolerance 1e-12. A separate run with only the helper and seven
+saved inputs reproduced all four CSVs and three PNGs byte for byte. Source,
+input, and output hashes passed, and all 23 earlier result files were unchanged.
+All eight notebook code cells completed without errors. No package changes or
+runtime fixes were needed; setup instructions remain in README.md.
+
+### Limitations
+Pooled AUC/EER are descriptive evaluation summaries, not new validated operating thresholds. Interpolated EER may lie between attainable deterministic points. Finite pair counts limit low-FMR precision, and fold dependence prevents treating fold spread as an independent significance test. Earlier synthetic-degradation and exclusion limitations remain.
+
+### Next step
+Review the completed findings and reproduction instructions, then prepare the submission archive including Git history.
