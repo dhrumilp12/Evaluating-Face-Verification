@@ -2,15 +2,27 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-The pretrained face embedding pipeline has been tested on a small development
-subset. All 33 unique images produced valid 512-dimensional embeddings, and all
-20 pairs were scored with no preprocessing failures. Detection outcomes,
-embedding checks, crop examples, and sample cosine similarities are recorded in
-[the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb).
+The original-quality LFW baseline is complete. The fixed VGGFace2-pretrained
+embedding pipeline processed 7,700 of 7,701 unique evaluation images and scored
+5,999 of 6,000 pairs across all 10 supplied folds.
 
-Full baseline verification performance has not yet been measured.
+| Metric | Measured result |
+|---|---:|
+| Mean fold accuracy | 99.167% |
+| Accuracy standard error | 0.188 percentage points |
+| Mean fold FMR | 0.433% |
+| Mean fold FNMR | 1.234% |
+| Pair coverage | 99.983% |
+
+Recognition rates condition on successful preprocessing. One image failed the
+fixed detection-confidence cutoff, excluding one genuine pair. Across scored
+pairs, there were 13 false matches and 37 false non-matches. Results and
+observations are saved in [the baseline notebook](notebooks/03_baseline_verification.ipynb)
+and [experiment log](docs/experiment_log.md). Controlled degradation experiments
+have not yet been run.
 
 Setup instructions: [Setup and execution](#setup-and-execution).
+Baseline instructions: [Original-quality baseline](#original-quality-baseline).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -56,7 +68,7 @@ planned verification protocol are documented in
 
 ### Planned Experiments
 1. Inspect the selected dataset and verification protocol (completed).
-2. Establish performance using original images.
+2. Establish performance using original images (completed).
 3. Reduce probe-image resolution.
 4. Apply Gaussian blur to probe images.
 5. Reduce probe-image brightness.
@@ -83,7 +95,7 @@ all effects of real low-light camera capture.
 - docs/: research notes and experiment log
 - notebooks/: dataset exploration and experimental notebooks
 - src/: reusable Python code
-- tests/: regression checks for preprocessing, embeddings, and download handling
+- tests/: regression checks for preprocessing, embeddings, downloads, and evaluation
 - data/: local datasets and caches, excluded from Git
 - models/: downloaded recognition weights, excluded from Git
 - results/figures/: generated plots
@@ -106,28 +118,31 @@ python -m jupyterlab
 
 The named kernel is installed inside `.venv`, so launch Jupyter from that
 environment. Run [the dataset notebook](notebooks/01_dataset_exploration.ipynb)
-first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb).
+first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb),
+then [the baseline notebook](notebooks/03_baseline_verification.ipynb).
 Select **Biometrics Project 1** and run each notebook's cells in order. The LFW download is
-approximately 232 MiB; allow at least 1 GB of disk space for the archive,
-extracted images, model weights, and outputs. The recognition checkpoint is
+approximately 232 MiB; allow several GB of disk space for the archive,
+extracted images, model weights, cached crops, and outputs. The recognition checkpoint is
 downloaded on the first embedding run and reused later.
 
 For Windows Git Bash, create the environment with `python -m venv .venv`
 and activate with `source .venv/Scripts/activate`. In PowerShell, activate with
 `.venv\Scripts\Activate.ps1`.
 
-To execute and save both notebooks from an activated terminal:
+To execute and save the notebooks from an activated terminal:
 
 ```bash
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/01_dataset_exploration.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/02_face_embedding_pipeline.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/03_baseline_verification.ipynb
 ```
 
-To run the data validation and embedding check without generating notebook figures:
+To run the data validation, embedding check, and baseline without notebook figures:
 
 ```bash
 python src/lfw_dataset.py --download
 python src/embedding_smoke_test.py
+python src/baseline_verification.py
 ```
 
 Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
@@ -217,9 +232,78 @@ Run the regression checks with:
 python -m unittest discover -s tests -v
 ```
 
+### Original-Quality Baseline
+
+Run [the baseline notebook](notebooks/03_baseline_verification.ipynb) after the
+dataset validation and development embedding check pass. Use the same Python
+3.13 environment; this stage adds no dependencies. To check the evaluation code:
+
+```bash
+python -m pip check
+python -m unittest discover -s tests -p test_evaluation.py -v
+```
+
+The notebook evaluates all 6,000 pairs from the verified `pairs.txt`, preserving
+the supplied 10 folds of 300 same-person and 300 different-person comparisons.
+It uses the frozen model and preprocessing from the development check on original
+funneled images, with no synthetic degradation or model training. The runner
+checks the preprocessing configuration, helper source, and model weight hashes
+against the completed development run before processing evaluation images.
+
+Following the [LFW ten-fold calibration approach](https://people.cs.umass.edu/~elm/papers/lfw.pdf),
+each fold's threshold maximizes accuracy on successfully scored pairs from the
+other nine folds. Candidate thresholds are midpoints between distinct calibration
+scores and endpoints accepting or rejecting all scores. Ties choose the largest
+candidate threshold. A pair is accepted when cosine similarity is at least the
+threshold. A fold's test scores and labels never select its own threshold.
+
+Recognition metrics condition on successful preprocessing: accuracy is correct
+decisions divided by scored pairs, FMR is accepted different-person pairs divided
+by scored different-person pairs, and FNMR is rejected same-person pairs divided
+by scored same-person pairs. Reports include unweighted fold means, sample SD
+(`ddof=1`), and SE (`SD / sqrt(10)`), plus separate pooled out-of-fold metrics.
+The run stops if either class lacks usable calibration or test scores in a fold.
+
+Coverage is scored pairs divided by requested pairs, with separate genuine and
+impostor coverage per fold. Failures remain in image and pair exports, with no
+score or prediction for excluded pairs. The fold report also describes a separate
+hypothetical policy that rejects failed comparisons; its genuine rejection rate
+includes preprocessing failures and is distinct from conditional FNMR.
+
+Processing prints progress every 50 images and checkpoints every 25. Rerun the
+baseline cell to resume an interruption; up to 24 images may be recomputed. Reuse
+requires matching input hashes, model/preprocessing/environment fingerprints,
+and verified crop/embedding payloads. Failed detections are cached too; restoring
+a missing or changed image triggers reprocessing. Keep the computer awake and
+run only one baseline process against a cache at a time.
+
+The local cache is `data/processed/baseline/<fingerprint>/`, excluded from Git.
+Retain its original crops and embeddings for degradation experiments. Saved
+results include the [summary](results/metrics/baseline_summary.json),
+[image outcomes](results/metrics/baseline_images.json),
+[pair scores](results/metrics/baseline_scores.csv),
+[fold metrics](results/metrics/baseline_folds.csv),
+[held-out predictions](results/metrics/baseline_predictions.csv),
+[thresholds and eligible pair indices](results/metrics/baseline_thresholds.json),
+and [fold plot](results/figures/baseline_fold_metrics.png).
+
+Reruns replace current reports. Only use a summary with `status=completed` and
+matching exported-file hashes; an interrupted run may leave older CSVs or a plot.
+After a successful run, update the notebook observations, README results, and
+[experiment log](docs/experiment_log.md). Git preserves committed experiments.
+
+This is evaluation with an externally pretrained VGGFace2 model, not a claim of
+training only on LFW's restricted pairs. Training-data overlap remains unaudited,
+and the supplied pair folds are not asserted to be identity-disjoint. Fold SE is
+descriptive because calibration sets overlap and images/identities recur.
+
+For the next experiment, reduce probe-crop resolution while keeping references,
+original crops, model, baseline fold thresholds, and baseline eligible pairs
+fixed. Document any later model or preprocessing revision as evaluation reuse.
+
 ### Reproducibility
 
-Dependency changes are tracked in Git. Python and main package versions are recorded with each dataset summary.
+Dependency changes are tracked in Git. Python and main package versions are recorded with each experiment summary.
 Indirect dependencies are resolved during installation and may vary between runs.
 Actual dataset checks are saved in [results/metrics/dataset_summary.json](results/metrics/dataset_summary.json).
 Reruns replace the current summary and plot; Git retains committed versions.

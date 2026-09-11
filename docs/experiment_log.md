@@ -182,3 +182,90 @@ in README.md and requirements.txt; versions and source hashes are in the report.
 This was a small development check. No threshold, accuracy, FMR, or FNMR
 was estimated. Training-data overlap remains unaudited. Next, run the
 original-quality verification baseline with a documented calibration protocol.
+
+## Stage 005 — Original-Quality Verification Baseline
+
+### Run (UTC)
+2026-09-11T03:34:32.405142+00:00
+
+### Method
+Used the fixed Commit 4 model on LFW's supplied 6,000 pairs in 10 folds.
+For each held-out fold, selected a threshold using only scored pairs from
+the other nine folds. Accepted similarities at or above the threshold.
+No model training or synthetic degradation was performed.
+
+### Measured Results
+- Successful images: 7700 / 7701
+- Scored pairs: 5999 / 6000
+- Excluded pairs: 1
+- Pair coverage: 99.98%
+- Mean fold accuracy: 99.167%
+- Accuracy SD: 0.593 percentage points
+- Accuracy SE: 0.188 percentage points
+- Mean fold FMR: 0.433%
+- Mean fold FNMR: 1.234%
+
+### Saved Outputs
+- notebooks/03_baseline_verification.ipynb
+- results/metrics/baseline_summary.json
+- results/metrics/baseline_images.json
+- results/metrics/baseline_scores.csv
+- results/metrics/baseline_folds.csv
+- results/metrics/baseline_predictions.csv
+- results/metrics/baseline_thresholds.json
+- results/figures/baseline_fold_metrics.png
+- Verified original crops and embeddings under the baseline cache directory recorded
+  in the summary (local data/processed/baseline/, excluded from Git).
+
+### Observations and Problems
+All 10 folds completed on 2026-09-10 (America/New_York), using Python
+3.13.7 on macOS-26.6.2-arm64-arm-64bit-Mach-O. The CPU model and preprocessing were unchanged
+from the development check. No packages were added or changed.
+
+Mean fold accuracy was 99.167%, FMR 0.433%, and FNMR
+1.234%. Across all scored pairs there were 2,962 true accepts, 2,987
+true rejects, 13 false matches, and 37 false non-matches. Pooled accuracy was
+99.166528%, pooled FMR 0.433333%, and pooled FNMR
+1.233745%; these are separate from unweighted fold means.
+
+One of 7,701 images failed the fixed 0.90 detector-confidence cutoff:
+`Princess_Aiko/Princess_Aiko_0001.jpg`. This excluded genuine pair index 818
+(zero-based) in displayed fold 2 (internal fold 1). Overall genuine coverage was
+2,999/3,000 (99.967%); impostor coverage was 3,000/3,000 (100%). The source image
+was visually reviewed: it is soft and includes another partially visible face
+at the right edge. This observation does not establish the cause of low detector
+confidence. The cutoff and face-selection rule were retained.
+
+Fold accuracy ranged from 98.333% to 99.667%, FMR from 0% to 1%, and FNMR from
+0% to 3%. Accuracy SD was 0.593 percentage points and SE was
+0.188 percentage points. The fold plot was visually checked. No
+model or threshold-selection rule was tuned after inspecting these results.
+
+The first complete inference run started at 2026-09-11T03:28:35.349431+00:00 and took
+276.501 seconds (4.61 minutes). Review found that the supplied CSV
+writer used CRLF line endings, which Git would normalize and invalidate the
+recorded file hashes on checkout. Setting the CSV writer to LF fixed this.
+The final notebook rerun took 11.500 seconds, reused all 7,701 verified cached
+image outcomes, and processed 0 fresh images. All fold thresholds, metrics,
+and failure counts were identical. There were no notebook execution errors.
+
+All 8 evaluation tests passed, alongside the 8 existing embedding tests.
+Local synthetic integration checks verified 6,000-pair exports, failure accounting,
+cache reuse, corrupt-payload recovery, changed-image invalidation, and recovery
+from an injected interruption. An independent audit checked all input/cache/output
+hashes, all 6,000 scores and decisions, and recalculated every fold threshold and
+confusion count. All six notebook code cells completed successfully.
+
+This establishes an original-quality baseline for subsequent controlled quality
+experiments. It does not establish performance on degraded images or other
+populations; external model training overlap remains unaudited. Setup remains in
+README.md and dependencies in requirements.txt; the report records actual versions.
+
+### Limitations
+Recognition rates condition on successful preprocessing; failure coverage
+and an explicit reject-on-failure policy are reported separately. Model
+training overlap remains unaudited. Fold errors are not fully independent.
+
+### Next Step
+Apply controlled resolution degradation to probe crops. Keep the reference
+images, model, baseline fold thresholds, and baseline eligible pairs fixed.
