@@ -2,8 +2,8 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-The original-quality LFW baseline is complete. The fixed VGGFace2-pretrained
-embedding pipeline processed 7,700 of 7,701 unique evaluation images and scored
+The original-quality LFW baseline and probe resolution experiment are complete.
+The fixed VGGFace2-pretrained embedding pipeline processed 7,700 of 7,701 unique evaluation images and scored
 5,999 of 6,000 pairs across all 10 supplied folds.
 
 | Metric | Measured result |
@@ -18,11 +18,26 @@ Recognition rates condition on successful preprocessing. One image failed the
 fixed detection-confidence cutoff, excluding one genuine pair. Across scored
 pairs, there were 13 false matches and 37 false non-matches. Results and
 observations are saved in [the baseline notebook](notebooks/03_baseline_verification.ipynb)
-and [experiment log](docs/experiment_log.md). Controlled degradation experiments
-have not yet been run.
+and [experiment log](docs/experiment_log.md).
+
+Resolution comparison (unweighted means across the same 10 folds):
+
+| Probe resolution | Accuracy | FMR | FNMR | Accuracy change (pp) |
+|---|---:|---:|---:|---:|
+| 160 x 160 | 99.167% | 0.433% | 1.234% | +0.000 |
+| 80 x 80 | 99.117% | 0.433% | 1.334% | -0.050 |
+| 40 x 40 | 98.833% | 0.467% | 1.867% | -0.333 |
+| 20 x 20 | 89.982% | 0.967% | 19.071% | -9.185 |
+
+All four conditions score the same 5,999 pairs at the saved baseline thresholds.
+At 20 x 20, accuracy decreased by 9.185 percentage points; false non-matches
+increased from 37 to 572, while false matches increased from 13 to 29.
+Measured outputs and crop examples are in [the resolution notebook](notebooks/04_resolution_degradation.ipynb).
+Gaussian blur and brightness experiments remain pending.
 
 Setup instructions: [Setup and execution](#setup-and-execution).
 Baseline instructions: [Original-quality baseline](#original-quality-baseline).
+Resolution instructions: [Probe resolution experiment](#probe-resolution-experiment).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -69,7 +84,7 @@ planned verification protocol are documented in
 ### Planned Experiments
 1. Inspect the selected dataset and verification protocol (completed).
 2. Establish performance using original images (completed).
-3. Reduce probe-image resolution.
+3. Reduce probe-image resolution (completed).
 4. Apply Gaussian blur to probe images.
 5. Reduce probe-image brightness.
 6. Compare results and document limitations.
@@ -119,7 +134,8 @@ python -m jupyterlab
 The named kernel is installed inside `.venv`, so launch Jupyter from that
 environment. Run [the dataset notebook](notebooks/01_dataset_exploration.ipynb)
 first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb),
-then [the baseline notebook](notebooks/03_baseline_verification.ipynb).
+then [the baseline notebook](notebooks/03_baseline_verification.ipynb), and finally
+[the resolution notebook](notebooks/04_resolution_degradation.ipynb).
 Select **Biometrics Project 1** and run each notebook's cells in order. The LFW download is
 approximately 232 MiB; allow several GB of disk space for the archive,
 extracted images, model weights, cached crops, and outputs. The recognition checkpoint is
@@ -135,14 +151,16 @@ To execute and save the notebooks from an activated terminal:
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/01_dataset_exploration.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/02_face_embedding_pipeline.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/03_baseline_verification.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/04_resolution_degradation.ipynb
 ```
 
-To run the data validation, embedding check, and baseline without notebook figures:
+To run the experiments without notebook figures:
 
 ```bash
 python src/lfw_dataset.py --download
 python src/embedding_smoke_test.py
 python src/baseline_verification.py
+python src/resolution_experiment.py
 ```
 
 Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
@@ -297,9 +315,60 @@ training only on LFW's restricted pairs. Training-data overlap remains unaudited
 and the supplied pair folds are not asserted to be identity-disjoint. Fold SE is
 descriptive because calibration sets overlap and images/identities recur.
 
-For the next experiment, reduce probe-crop resolution while keeping references,
-original crops, model, baseline fold thresholds, and baseline eligible pairs
-fixed. Document any later model or preprocessing revision as evaluation reuse.
+The resolution experiment below keeps references, original crops, model,
+baseline fold thresholds, and baseline eligible pairs fixed. Document any later
+model or preprocessing revision as evaluation reuse.
+
+### Probe Resolution Experiment
+
+Run [the resolution notebook](notebooks/04_resolution_degradation.ipynb) in the
+same Python 3.13 environment after completing the baseline. No new packages are
+required. Its tests are included in the full regression suite, or run them with:
+
+```bash
+python -m unittest discover -s tests -p test_resolution.py -v
+```
+
+The four conditions use probe crops at 160, 80, 40, and 20 pixels per side.
+The 160-pixel control reuses the original embeddings. Each reduced condition
+uses Pillow BOX downsampling followed by BILINEAR enlargement to 160 x 160.
+Channels stay in float32 mode F, avoiding extra uint8 quantization; the existing
+embedding helper standardizes the transformed crop once. The enlarged crops
+have the required input dimensions but retain less spatial detail.
+
+Reference embeddings, original crop selection, model, saved fold thresholds,
+and the same 5,999 eligible pairs stay fixed. No detection, recropping, training,
+or threshold calibration runs on degraded images. The excluded baseline pair
+remains in each condition's predictions with no score or decision. Any invalid
+degraded embedding stops the run rather than changing pair eligibility.
+
+The runner verifies baseline export and cache hashes, model/environment
+fingerprints, and cached control scores. A fresh forward pass on one original
+probe must match its cached embedding, and control metrics and error counts
+must reproduce the baseline. A fresh clone needs its baseline reproduced
+locally first: Git does not contain the cached crops and embeddings.
+
+Progress prints every 100 unique probes. Each completed degraded embedding is
+cached with a hash receipt under `data/processed/resolution/<fingerprint>/`,
+excluded from Git. Rerun the notebook cell to reuse verified work; corrupted
+degraded payloads are recomputed. Baseline payload corruption stops execution
+and should be repaired through the original baseline workflow. Run only one
+experiment against the cache at a time. Reruns replace reports; use only a
+completed summary with matching output hashes.
+
+Outputs are the [resolution summary](results/metrics/resolution_summary.json),
+[condition comparison](results/metrics/resolution_comparison.csv),
+[fold metrics](results/metrics/resolution_folds.csv),
+[pair predictions](results/metrics/resolution_predictions.csv), and
+[comparison plot](results/figures/resolution_comparison.png). The notebook also
+displays one illustrative probe under all four transformations. Update its
+observations and the experiment log after a rerun.
+
+Rates are unweighted means across the same 10 folds, conditional on baseline
+preprocessing success. Changes from the 160-pixel control are in percentage
+points. Fold SD/SE are descriptive; means alone do not establish significance.
+This experiment measures synthetic detail loss after cropping, not detection
+on low-resolution inputs or every effect of a real low-resolution camera.
 
 ### Reproducibility
 

@@ -269,3 +269,93 @@ training overlap remains unaudited. Fold errors are not fully independent.
 ### Next Step
 Apply controlled resolution degradation to probe crops. Keep the reference
 images, model, baseline fold thresholds, and baseline eligible pairs fixed.
+
+## Stage 006 — Probe Resolution Degradation
+
+### Run (UTC)
+2026-09-11T15:14:43.285240+00:00
+
+### Method
+Reduced probe crops to 80, 40, and 20 pixels with BOX downsampling,
+then enlarged to 160 pixels using BILINEAR interpolation. Retained
+float32 pixels and applied the existing normalization once afterward.
+Kept reference embeddings, original face crops, the model, baseline
+eligible pairs, and baseline fold thresholds fixed.
+
+### Measured Results
+
+| Probe pixels | Scored pairs | Accuracy | FMR | FNMR | Accuracy change (pp) |
+|---:|---:|---:|---:|---:|---:|
+| 160 | 5999 | 99.167% | 0.433% | 1.234% | +0.000 |
+| 80 | 5999 | 99.117% | 0.433% | 1.334% | -0.050 |
+| 40 | 5999 | 98.833% | 0.467% | 1.867% | -0.333 |
+| 20 | 5999 | 89.982% | 0.967% | 19.071% | -9.185 |
+
+### Saved Outputs
+
+- notebooks/04_resolution_degradation.ipynb
+- results/metrics/resolution_summary.json
+- results/metrics/resolution_comparison.csv
+- results/metrics/resolution_folds.csv
+- results/metrics/resolution_predictions.csv
+- results/figures/resolution_comparison.png
+- Local degraded embeddings under data/processed/resolution/ (excluded from Git).
+
+### Observations and Problems
+The experiment started on 2026-09-11 at 11:14:43 EDT, using the same
+Python 3.13.7 CPU environment and frozen model as the baseline. All four
+conditions finished in 205.242 seconds (3.42 minutes). Each reduced condition
+processed 4,575 unique probes, producing 13,725 fresh degraded embeddings in total.
+The 160px control reused baseline embeddings; its additional real forward check
+had maximum absolute difference 0.0 from the cached vector.
+
+The 160px condition exactly reproduced the baseline: 99.167% mean fold accuracy,
+0.433% FMR, 1.234% FNMR, 13 false matches, and 37 false non-matches. All four
+conditions retained the same 5,999 eligible pairs out of 6,000 (99.983% coverage),
+with the same genuine pair excluded in fold 2. There were no additional exclusions.
+All reference embeddings and saved fold thresholds stayed fixed.
+
+At 80px, accuracy was 99.117%, a decrease of 0.050 percentage points. FMR remained
+0.433%, while FNMR rose to 1.334%; error counts were 13 false matches and 40 false
+non-matches. At 40px, accuracy was 98.833%, down 0.333 percentage points, with
+0.467% FMR and 1.867% FNMR (14 false matches and 56 false non-matches).
+
+The strongest tested reduction, 20px, had the largest accuracy decrease:
+9.185 percentage points, to 89.982%. FMR rose by 0.533 percentage points to 0.967%,
+and FNMR rose by 17.838 percentage points to 19.071%. This condition had 29 false
+matches and 572 false non-matches. The main deterioration at the fixed operating
+thresholds was rejection of genuine comparisons. These are descriptive results;
+no significance test was performed and the means do not prove a general cutoff.
+
+Visual inspection of the notebook's example crops showed progressively softer
+edges and less detail around the glasses, eyes, and mouth, especially at 20px.
+Enlargement restored the input dimensions without restoring that visible detail.
+The displayed probe is one illustrative example, not a representative sample.
+The comparison chart was reviewed; accuracy labels were moved below the points
+to avoid touching the upper axis border. Only the plot cell was re-executed from
+the saved metrics, so inference results and metric reports were unchanged.
+
+All 5 resolution tests and all 16 earlier regression tests passed. The supplied
+synthetic integration test checked cache reuse, baseline immutability, and
+rejection of corrupt baseline payloads. Independent checks verified all 24,000
+prediction rows, all 40 fold results, all 13,725 cached degraded embeddings and
+receipts, fixed thresholds and eligibility, and the aggregate means, SD/SE,
+error counts, and percentage-point changes. Nine additional real-probe checks
+used independent block averaging before enlargement and reproduced cached
+embeddings within 1e-6. Baseline report, manifest, and original payload hashes
+were unchanged. All five notebook code cells completed without execution errors.
+
+No dependency changes, installation fixes, or model/preprocessing changes were
+needed. The existing LF CSV writer preserved the recorded output hashes.
+Instructions remain in README.md; model/environment and source fingerprints
+are in the result JSON. The result measures synthetic loss of spatial detail
+after cropping. It does not evaluate detection on degraded photographs or all
+camera artifacts; training-data overlap with LFW remains independently unaudited.
+
+### Limitations
+The same baseline exclusions apply at every level. This experiment measures
+synthetic resolution loss after face cropping, not degraded-image detection.
+Training-data overlap remains independently unaudited.
+
+### Next Step
+Apply Gaussian blur to probe crops using the same baseline comparison protocol.
