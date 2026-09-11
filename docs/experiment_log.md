@@ -359,3 +359,106 @@ Training-data overlap remains independently unaudited.
 
 ### Next Step
 Apply Gaussian blur to probe crops using the same baseline comparison protocol.
+
+## Stage 007 — Gaussian blur and reduced brightness
+
+Run timestamp (UTC): 2026-09-11T16:56:57.204309+00:00
+
+### Goal and method
+Evaluate independent Gaussian blur (σ = 1, 2, 3 pixels) and encoded RGB brightness scaling (0.75, 0.50, 0.25) on original probe crops. Keep original references, the model, eligible pairs, and ten baseline fold thresholds fixed. No detection or threshold recalibration on degraded images.
+
+### Results
+
+| Condition | Accuracy | FMR | FNMR | Accuracy change (pp) |
+|---|---:|---:|---:|---:|
+| Original | 99.167% | 0.433% | 1.234% | +0.000 |
+| Blur σ = 1 px | 99.117% | 0.433% | 1.334% | -0.050 |
+| Blur σ = 2 px | 98.917% | 0.433% | 1.734% | -0.250 |
+| Blur σ = 3 px | 97.816% | 0.533% | 3.834% | -1.350 |
+| Brightness × 0.75 | 99.217% | 0.367% | 1.200% | +0.050 |
+| Brightness × 0.50 | 99.200% | 0.333% | 1.267% | +0.033 |
+| Brightness × 0.25 | 98.566% | 0.433% | 2.434% | -0.600 |
+
+Every condition scored 5999/6000 pairs; 1 baseline exclusion(s) retained. Original control reproduced the baseline. Run completed in 6.07 minutes (cache reuse is recorded in the summary).
+
+### Saved outputs
+
+- notebooks/05_blur_brightness.ipynb
+- results/metrics/quality_summary.json
+- results/metrics/quality_comparison.csv
+- results/metrics/quality_folds.csv
+- results/metrics/quality_predictions.csv
+- results/figures/quality_examples.png
+- results/figures/quality_comparison.png
+- Local degraded embeddings under data/processed/quality/ (excluded from Git).
+
+### Observations and problems encountered
+The run started on 2026-09-11 at 12:56:57 EDT and completed in
+364.024 seconds (6.07 minutes) using the unchanged Python 3.13.7 CPU
+environment. Each of the six degraded conditions processed 4,575 original probe
+crops, producing 27,450 fresh embeddings. No degraded embeddings were reused
+on this first run. The control reused baseline embeddings and its additional
+forward check had maximum absolute difference 0.0 from the cached vector.
+
+All seven conditions scored the same 5,999 of 6,000 pairs (99.983% coverage).
+The original control reproduced 99.167% mean fold accuracy, 0.433% FMR,
+1.234% FNMR, 13 false matches, and 37 false non-matches. The baseline's one
+excluded genuine pair remained excluded in every condition; there were no new
+failures or exclusions. Reference embeddings and all ten thresholds stayed fixed.
+
+Increasing blur reduced accuracy at each tested step: 99.117%, 98.917%, and
+97.816% for sigma 1, 2, and 3. FNMR rose to 1.334%, 1.734%, and 3.834%.
+FMR stayed at 0.433% through sigma 2, then rose to 0.533% at sigma 3.
+False non-matches numbered 40, 52, and 115; false matches numbered 13, 13,
+and 16. Thus most added errors were genuine rejections. Sigma 3 had the largest
+accuracy decrease among these six new conditions: 1.350 percentage points.
+Changes are computed from unrounded rates, so subtracting displayed rounded
+percentages can differ by 0.001 percentage points.
+
+Brightness results were not monotonic relative to the original control.
+Retaining 75% of RGB values increased accuracy by 0.050 percentage points to
+99.217%, with 11 false matches and 36 false non-matches. At 50%, accuracy was
+99.200% (+0.033 percentage points), with 10 false matches and 38 false
+non-matches. These conditions had 47 and 48 errors versus 50 at the control.
+At 25%, accuracy fell to 98.566% (-0.600 percentage points), with 13 false
+matches and 73 false non-matches; FMR was 0.433% and FNMR was 2.434%.
+The small increases at 75% and 50% were retained as measured; they do not
+establish that dimming generally improves verification. No significance test
+or condition-specific threshold tuning was performed.
+
+All blur and brightness conditions had higher accuracy than the earlier
+20 x 20 resolution condition (89.982%). These severity scales are not matched,
+so this observation applies only to the chosen settings and does not rank the
+degradation types universally. Future comparisons should retain this limitation.
+
+Visual review of the example figure showed softer glasses, eye, and mouth edges
+with increasing blur. The brightness panels became darker while retaining the
+original edge structure. Both rows start from the same original probe; the
+display preserves absolute brightness rather than rescaling each panel. This
+single probe illustrates the transforms and is not a representative sample.
+The performance plots were also reviewed; their vertical axis ranges differ,
+so the labeled rates and table should guide comparisons between panels.
+
+All 6 new quality tests and all 21 earlier tests passed. The synthetic integration
+test exercised frozen thresholds, pair membership, cache reuse and repair,
+invalid-embedding failure, and rejection of corrupt baseline payloads. Independent
+checks matched all 42,000 prediction rows, all 70 fold results, all 27,450 cached
+vectors and receipts, fixed eligibility and thresholds, error counts, means,
+SD/SE, and percentage-point changes. Eighteen additional real-probe forward
+checks used independently computed convolutions or pixel scaling and matched
+cached vectors within 1e-6. Prior baseline and resolution reports, the baseline
+manifest, and all original crop/embedding payload hashes were unchanged.
+
+All six notebook code cells completed without execution errors. No package
+installation, dependency changes, model changes, or runtime fixes were needed.
+Setup references were consolidated in README.md, and actual model/environment,
+source, and output fingerprints are retained in the JSON report. This is a
+synthetic post-crop study conditional on baseline preprocessing success; RGB
+scaling does not simulate camera exposure or sensor noise, and degraded-input
+face detection was not measured. Training-data overlap with LFW remains unaudited.
+
+### Limitations
+Synthetic post-crop transformations do not reproduce all real camera effects. Brightness scaling does not simulate exposure or added sensor noise. Rates are conditional on baseline preprocessing successes. Different degradation scales are not severity-matched; comparisons apply to these tested settings. Fold SD/SE are descriptive.
+
+### Next step
+Inspect score distributions and ROC/DET curves, retaining the fixed-threshold results as the primary operational comparison.

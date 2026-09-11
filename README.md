@@ -2,7 +2,8 @@
 ## Evaluating Face Verification Under Degraded Image Quality
 
 ### Project Status
-The original-quality LFW baseline and probe resolution experiment are complete.
+The original-quality LFW baseline and the resolution, Gaussian blur, and
+brightness experiments are complete.
 The fixed VGGFace2-pretrained embedding pipeline processed 7,700 of 7,701 unique evaluation images and scored
 5,999 of 6,000 pairs across all 10 supplied folds.
 
@@ -33,11 +34,31 @@ All four conditions score the same 5,999 pairs at the saved baseline thresholds.
 At 20 x 20, accuracy decreased by 9.185 percentage points; false non-matches
 increased from 37 to 572, while false matches increased from 13 to 29.
 Measured outputs and crop examples are in [the resolution notebook](notebooks/04_resolution_degradation.ipynb).
-Gaussian blur and brightness experiments remain pending.
+
+Blur and brightness comparison (mean fold rates at the same baseline thresholds):
+
+| Condition | Accuracy | FMR | FNMR | Accuracy change (pp) |
+|---|---:|---:|---:|---:|
+| Original | 99.167% | 0.433% | 1.234% | +0.000 |
+| Blur σ = 1 px | 99.117% | 0.433% | 1.334% | -0.050 |
+| Blur σ = 2 px | 98.917% | 0.433% | 1.734% | -0.250 |
+| Blur σ = 3 px | 97.816% | 0.533% | 3.834% | -1.350 |
+| Brightness × 0.75 | 99.217% | 0.367% | 1.200% | +0.050 |
+| Brightness × 0.50 | 99.200% | 0.333% | 1.267% | +0.033 |
+| Brightness × 0.25 | 98.566% | 0.433% | 2.434% | -0.600 |
+
+Each condition independently uses the original probe crop and the same 5,999
+eligible pairs. Blur at sigma 3 caused the largest decrease in this run, while
+brightness at 75% and 50% produced small accuracy increases on these pairs.
+These increases do not establish a general benefit from dimming. Different
+quality scales are not severity-matched. Results and examples are saved in
+[the blur and brightness notebook](notebooks/05_blur_brightness.ipynb).
+Score-distribution and ROC/DET analysis remains pending.
 
 Setup instructions: [Setup and execution](#setup-and-execution).
 Baseline instructions: [Original-quality baseline](#original-quality-baseline).
 Resolution instructions: [Probe resolution experiment](#probe-resolution-experiment).
+Blur/brightness instructions: [Blur and brightness experiment](#blur-and-brightness-experiment).
 
 ### Problem Statement
 This project studies how image quality affects face verification.
@@ -85,8 +106,8 @@ planned verification protocol are documented in
 1. Inspect the selected dataset and verification protocol (completed).
 2. Establish performance using original images (completed).
 3. Reduce probe-image resolution (completed).
-4. Apply Gaussian blur to probe images.
-5. Reduce probe-image brightness.
+4. Apply Gaussian blur to probe images (completed).
+5. Reduce probe-image brightness (completed).
 6. Compare results and document limitations.
 
 Keep the reference image and recognition model fixed across conditions.
@@ -134,8 +155,9 @@ python -m jupyterlab
 The named kernel is installed inside `.venv`, so launch Jupyter from that
 environment. Run [the dataset notebook](notebooks/01_dataset_exploration.ipynb)
 first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb),
-then [the baseline notebook](notebooks/03_baseline_verification.ipynb), and finally
-[the resolution notebook](notebooks/04_resolution_degradation.ipynb).
+then [the baseline notebook](notebooks/03_baseline_verification.ipynb),
+[the resolution notebook](notebooks/04_resolution_degradation.ipynb), and
+[the blur and brightness notebook](notebooks/05_blur_brightness.ipynb).
 Select **Biometrics Project 1** and run each notebook's cells in order. The LFW download is
 approximately 232 MiB; allow several GB of disk space for the archive,
 extracted images, model weights, cached crops, and outputs. The recognition checkpoint is
@@ -152,6 +174,7 @@ python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreproces
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/02_face_embedding_pipeline.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/03_baseline_verification.ipynb
 python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/04_resolution_degradation.ipynb
+python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/05_blur_brightness.ipynb
 ```
 
 To run the experiments without notebook figures:
@@ -161,6 +184,7 @@ python src/lfw_dataset.py --download
 python src/embedding_smoke_test.py
 python src/baseline_verification.py
 python src/resolution_experiment.py
+python src/quality_experiment.py
 ```
 
 Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
@@ -369,6 +393,61 @@ preprocessing success. Changes from the 160-pixel control are in percentage
 points. Fold SD/SE are descriptive; means alone do not establish significance.
 This experiment measures synthetic detail loss after cropping, not detection
 on low-resolution inputs or every effect of a real low-resolution camera.
+
+### Blur and Brightness Experiment
+
+Run [the blur and brightness notebook](notebooks/05_blur_brightness.ipynb) in
+the same Python 3.13 environment, retaining the original baseline crop cache.
+No dependency changes are required. The six new tests are included in the full
+suite and can also be run separately:
+
+```bash
+python -m unittest discover -s tests -p test_quality.py -v
+```
+
+Seven conditions compare the original crop with Gaussian blur at sigma 1, 2,
+and 3 pixels and brightness factors 0.75, 0.50, and 0.25. Each transform starts
+independently from the original 160 x 160 probe crop. Degradations are never
+combined or accumulated. Reference embeddings, model, crop selection, the same
+5,999 eligible pairs, and all ten saved baseline thresholds remain fixed.
+
+Blur uses a normalized sampled Gaussian kernel along each spatial axis, with
+radius `ceil(3 * sigma)`. NumPy reflect padding excludes the repeated edge pixel;
+channels are filtered separately with float64 accumulation and float32 output.
+Brightness directly multiplies the encoded RGB float32 values by the factor,
+preserving that fraction of the original values. Neither transform quantizes
+to uint8. The unchanged model standardization runs once after transformation.
+
+The runner reuses baseline validation and fixed-threshold scoring from the
+resolution helper. It does not run the resolution experiment. Original control
+scores, metrics, and error counts must match the baseline, and one new control
+forward pass must match its cached vector. Original crops and reference
+embeddings remain read-only. No detection or threshold recalibration runs on
+degraded inputs; an invalid embedding aborts instead of dropping another pair.
+
+The six degraded conditions each process 4,575 unique eligible probes on the
+first run. Progress prints every 100 probes. Hash-verified completed embeddings
+are stored under `data/processed/quality/<fingerprint>/<condition>/`, excluded
+from Git. Rerun the execution cell to resume; valid entries are reused and
+corrupted degraded payloads are recomputed. Keep one process per cache/output.
+Use only a completed summary with matching CSV hashes; failed reruns can leave
+older plots or exports. A fresh clone must reproduce its baseline cache first.
+
+Saved outputs are the [quality summary](results/metrics/quality_summary.json),
+[seven-condition comparison](results/metrics/quality_comparison.csv),
+[70 fold rows](results/metrics/quality_folds.csv),
+[42,000 pair records](results/metrics/quality_predictions.csv),
+[example transformations](results/figures/quality_examples.png), and
+[performance plots](results/figures/quality_comparison.png). Every condition
+retains the same baseline exclusion as an empty score/prediction. Save actual
+observations in the notebook and experiment log after a completed rerun.
+
+These transformations study synthetic quality changes after cropping. RGB
+scaling does not simulate exposure, gamma conversion, sensor noise, or other
+low-light camera effects. Fold means and SD/SE describe these tested pairs and
+settings; they do not establish significance. Resolution, blur, and brightness
+levels have different severity scales, so their results do not establish a
+universal ranking of degradation types. Training-data overlap remains unaudited.
 
 ### Reproducibility
 
