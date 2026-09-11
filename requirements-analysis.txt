@@ -1,0 +1,4 @@
+# CLI score analysis and repository checks only; same numerical pins as requirements.txt.
+# Jupyter is available through the full requirements.txt environment.
+numpy==2.5.3
+matplotlib==3.10.3

@@ -1,0 +1,141 @@
+{
+  "run_at_utc": "2026-09-11T17:55:39.267689+00:00",
+  "profile": "full",
+  "git_check_requested": true,
+  "python": "3.13.7",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "checks": [
+    {
+      "check": "required_files",
+      "status": "pass",
+      "detail": "42 required code/document/notebook files present"
+    },
+    {
+      "check": "links:README.md",
+      "status": "pass",
+      "detail": "Relative Markdown file targets exist; external URLs and section anchors are not checked"
+    },
+    {
+      "check": "links:docs/dataset_research.md",
+      "status": "pass",
+      "detail": "Relative Markdown file targets exist; external URLs and section anchors are not checked"
+    },
+    {
+      "check": "links:docs/experiment_log.md",
+      "status": "pass",
+      "detail": "Relative Markdown file targets exist; external URLs and section anchors are not checked"
+    },
+    {
+      "check": "links:docs/repository_guide.md",
+      "status": "pass",
+      "detail": "Relative Markdown file targets exist; external URLs and section anchors are not checked"
+    },
+    {
+      "check": "links:docs/reproducibility.md",
+      "status": "pass",
+      "detail": "Relative Markdown file targets exist; external URLs and section anchors are not checked"
+    },
+    {
+      "check": "notebook:01_dataset_exploration.ipynb",
+      "status": "pass",
+      "detail": "6 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "notebook:02_face_embedding_pipeline.ipynb",
+      "status": "pass",
+      "detail": "5 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "notebook:03_baseline_verification.ipynb",
+      "status": "pass",
+      "detail": "6 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "notebook:04_resolution_degradation.ipynb",
+      "status": "pass",
+      "detail": "5 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "notebook:05_blur_brightness.ipynb",
+      "status": "pass",
+      "detail": "6 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "notebook:06_score_analysis.ipynb",
+      "status": "pass",
+      "detail": "8 code cells have execution counts and no saved errors; this does not establish freshness"
+    },
+    {
+      "check": "requirements_consistency",
+      "status": "pass",
+      "detail": "Analysis pins match full requirements; indirect dependencies are not locked"
+    },
+    {
+      "check": "installed_dependencies",
+      "status": "pass",
+      "detail": "9 installed direct dependencies match requirements.txt"
+    },
+    {
+      "check": "initial_stage_reports",
+      "status": "pass",
+      "detail": "Historical dataset and embedding smoke reports record passing checks; no image revalidation performed"
+    },
+    {
+      "check": "outputs:baseline",
+      "status": "pass",
+      "detail": "Completed summary; 5 exported file hashes match"
+    },
+    {
+      "check": "outputs:resolution",
+      "status": "pass",
+      "detail": "Completed summary; 3 exported file hashes match"
+    },
+    {
+      "check": "outputs:quality",
+      "status": "pass",
+      "detail": "Completed summary; 3 exported file hashes match"
+    },
+    {
+      "check": "outputs:analysis",
+      "status": "pass",
+      "detail": "Completed summary; 7 exported file hashes match"
+    },
+    {
+      "check": "saved_score_consistency",
+      "status": "pass",
+      "detail": "Ten conditions reproduce fixed-threshold and AUC/EER summaries from saved scores"
+    },
+    {
+      "check": "git_history",
+      "status": "pass",
+      "detail": "Git objects verified; 10 commits; working tree has changes (expected before this commit)"
+    }
+  ],
+  "scope": "File organization, saved outputs, dependencies, and Git when requested. No new inference, network downloads, or archive creation.",
+  "checked_versions": {
+    "numpy": "2.5.3",
+    "Pillow": "11.2.1",
+    "matplotlib": "3.10.3",
+    "jupyterlab": "4.4.3",
+    "ipykernel": "6.29.5",
+    "certifi": "2026.7.22",
+    "torch": "2.8.0",
+    "torchvision": "0.23.0",
+    "facenet-pytorch": "2.5.3"
+  },
+  "numerical_summary": {
+    "conditions": 10,
+    "scored_pairs_per_condition": 5999,
+    "baseline_false_matches": 13,
+    "baseline_false_nonmatches": 37
+  },
+  "git": {
+    "head": "91cce44b1f7508db7ebbe383f910055d0fab6962",
+    "commit_count": 10,
+    "working_tree_clean": false
+  },
+  "passed": 21,
+  "failed": 0,
+  "skipped": 0,
+  "status": "passed"
+}

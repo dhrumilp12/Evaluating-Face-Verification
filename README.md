@@ -1,6 +1,8 @@
 # Biometrics Project 1
 ## Evaluating Face Verification Under Degraded Image Quality
 
+[Reproduce the work](docs/reproducibility.md) · [Repository guide](docs/repository_guide.md) · [Experiment history](docs/experiment_log.md)
+
 ### Project Status
 The original-quality LFW baseline, resolution, Gaussian blur, and brightness
 experiments, and score-distribution/ROC/DET analysis are complete.
@@ -126,7 +128,7 @@ Dataset sources, access requirements, selection rationale, and the
 planned verification protocol are documented in
 [Dataset Research](docs/dataset_research.md).
 
-### Planned Experiments
+### Experimental Design
 1. Inspect the selected dataset and verification protocol (completed).
 2. Establish performance using original images (completed).
 3. Reduce probe-image resolution (completed).
@@ -145,7 +147,7 @@ and record the exact protocol before running experiments.
 Brightness reduction is a controlled simulation; it does not reproduce
 all effects of real low-light camera capture.
 
-### Planned Evaluation
+### Evaluation Metrics
 - Verification accuracy
 - False Match Rate (FMR): fraction of different-person comparisons accepted
 - False Non-Match Rate (FNMR): fraction of same-person comparisons rejected
@@ -161,100 +163,41 @@ all effects of real low-light camera capture.
 - models/: downloaded recognition weights, excluded from Git
 - results/figures/: generated plots
 - results/metrics/: generated evaluation results
-- requirements.txt: pinned Python dependencies
+- requirements.txt: full pinned direct Python dependencies
+- requirements-analysis.txt: CLI score-analysis dependency subset
+- scripts/: repository checks and reporting
 
 ### Setup and Execution
 
-Use Python 3.13 (validated with 3.13.7). Stop project Jupyter servers and kernels
-before updating their environment. From the repository root on macOS/Linux:
+The [reproduction guide](docs/reproducibility.md) is the single source for setup,
+notebook order, terminal commands, dataset/cache layout, and troubleshooting.
+The [repository guide](docs/repository_guide.md) explains file organization and
+what must be included in the final submission.
+
+From the existing working environment:
 
 ```bash
-python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
 python -m pip check
-python -m ipykernel install --sys-prefix --name biometrics-project1 --display-name "Biometrics Project 1"
-python -m jupyterlab
+python -m unittest discover -s tests -v
+python scripts/check_repository.py --profile full --output results/metrics/repository_check.json
 ```
 
-The named kernel is installed inside `.venv`, so launch Jupyter from that
-environment. Run [the dataset notebook](notebooks/01_dataset_exploration.ipynb)
-first, then [the embedding notebook](notebooks/02_face_embedding_pipeline.ipynb),
-then [the baseline notebook](notebooks/03_baseline_verification.ipynb),
-[the resolution notebook](notebooks/04_resolution_degradation.ipynb),
-[the blur and brightness notebook](notebooks/05_blur_brightness.ipynb), and
-[the score-analysis notebook](notebooks/06_score_analysis.ipynb).
-Select **Biometrics Project 1** and run each notebook's cells in order. The LFW download is
-approximately 232 MiB; allow several GB of disk space for the archive,
-extracted images, model weights, cached crops, and outputs. The recognition checkpoint is
-downloaded on the first embedding run and reused later.
+Commit 9 local verification: all 41 tests passed, and the full repository
+checker passed 21 checks with zero failures or skips, including installed
+dependencies and Git history. See the [saved check report](results/metrics/repository_check.json)
+and [Stage 009 record](docs/experiment_log.md#stage-009--reproduction-documentation-and-repository-checks).
 
-To reproduce only the score analysis, run notebook 06 directly using the
-committed score exports. It requires no dataset, model download, or local
-inference cache; the first five notebooks do not need to run again.
-
-For Windows Git Bash, create the environment with `python -m venv .venv`
-and activate with `source .venv/Scripts/activate`. In PowerShell, activate with
-`.venv\Scripts\Activate.ps1`.
-
-To execute and save the notebooks from an activated terminal:
+To reproduce only the score analysis from committed exports:
 
 ```bash
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/01_dataset_exploration.ipynb
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/02_face_embedding_pipeline.ipynb
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/03_baseline_verification.ipynb
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/04_resolution_degradation.ipynb
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=7200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/05_blur_brightness.ipynb
-python -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=1200 --ExecutePreprocessor.kernel_name=biometrics-project1 notebooks/06_score_analysis.ipynb
-```
-
-To run the helpers from the terminal (the score-analysis helper also saves its plots):
-
-```bash
-python src/lfw_dataset.py --download
-python src/embedding_smoke_test.py
-python src/baseline_verification.py
-python src/resolution_experiment.py
-python src/quality_experiment.py
 python src/score_analysis.py
 ```
 
-Files are stored under `data/lfw_home/`. The helper verifies SHA-256 checksums,
-reuses verified downloads, and restores extracted archive members on each run.
-This directory contains `lfw-funneled.tgz`, `pairsDevTrain.txt`,
-`pairsDevTest.txt`, `pairs.txt`, and `download_manifest.json`. Extracted images
-are under `data/lfw_home/lfw_funneled/<identity>/`.
-
-The manifest records download URLs, timestamps, file sizes, and checksums;
-a copy is included in the dataset summary. JPEGs are read individually with
-Pillow, preserving source dimensions and color mode during dataset validation.
-The embedding pipeline converts to RGB and applies the preprocessing below.
-
-Validation checks image and identity counts, readability, dimensions, pair
-counts and class order, and every referenced image path. The supplied evaluation
-folds and pair order are preserved. For future model evaluation, read images in
-batches and cache embeddings for repeated images.
-
-Review source usage notices and retain dataset citations. A download mirror
-does not establish unrestricted rights to the photographs. See
-[Dataset Research](docs/dataset_research.md) for sources and selection rationale.
-
-The notebook saves [dataset checks](results/metrics/dataset_summary.json) and the
-[identity distribution plot](results/figures/lfw_identity_distribution.png).
-After a rerun, update its observations cell, save the notebook, and record actual
-findings and any errors in [the experiment log](docs/experiment_log.md).
-
-If setup or execution fails:
-
-- Missing module or wrong Python: activate `.venv`, install `requirements.txt`,
-  and select the **Biometrics Project 1** kernel.
-- Connection or checksum failure: record the error and rerun. Failed partial
-  downloads are removed; persistent checksum mismatches need investigation.
-- Certificate error: confirm the pinned `certifi` package is installed in the
-  active environment. Both downloaders add its CA bundle to Python's default
-  trust roots while retaining certificate and hostname verification.
-- Missing or corrupt images: rerun the download cell to restore archive members.
-  Unexpected extra JPEGs need inspection; the helper does not delete them.
+This does not require images, model weights or inference caches. A fresh analysis
+installation can use [requirements-analysis.txt](requirements-analysis.txt);
+full inference and Jupyter use [requirements.txt](requirements.txt). See the guide
+for the distinction between file validation, score analysis, and full reproduction.
 
 ### Pretrained Embedding Pipeline
 
@@ -553,6 +496,8 @@ Reruns replace the current summary and plot; Git retains committed versions.
 The summary's `git_head_before_commit` identifies HEAD at execution time, and
 `helper_sha256` or `source_sha256` records the helper code used, including any
 uncommitted changes.
-Datasets, model weights, and virtual environments will not be committed.
-Experiment records will describe configurations, results, failures, and
-decisions. Git history will track actual changes as the project develops.
+Datasets, model weights, and virtual environments are excluded from Git.
+Experiment records describe configurations, results, failures, and decisions.
+Use the [reproduction guide](docs/reproducibility.md) and repository checker to
+verify a local checkout. The final submission must include the real `.git`
+directory; a GitHub source ZIP alone does not contain that history.

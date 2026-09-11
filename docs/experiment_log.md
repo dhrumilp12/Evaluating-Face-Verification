@@ -552,3 +552,79 @@ Pooled AUC/EER are descriptive evaluation summaries, not new validated operating
 
 ### Next step
 Review the completed findings and reproduction instructions, then prepare the submission archive including Git history.
+
+## Stage 009 — Reproduction Documentation and Repository Checks
+
+Verification date: 2026-09-11. The saved report records the exact UTC check time.
+
+### Goal
+
+Consolidate reproduction instructions and verify the local repository before
+the final conclusions and submission archive.
+
+### Changes
+
+- Moved setup, execution order, cache requirements, and troubleshooting into
+  [the reproduction guide](reproducibility.md), retaining measured tables and
+  methods in README.md.
+- Added [the repository guide](repository_guide.md) and README navigation.
+- Added `requirements-analysis.txt` for command-line score analysis and checks,
+  pinning NumPy and Matplotlib to the same versions as `requirements.txt`.
+  Full inference and Jupyter continue to use the existing full requirements.
+- Added `scripts/check_repository.py` and five focused regression tests.
+- Kept stage-specific setup instructions out of the repository: the supplied
+  `commit9_setup.md` was used as a reference, and its workflow is covered by
+  the durable reproduction guide and this entry. The checker requires that
+  guide instead of a redundant commit-specific setup document.
+
+### Verification
+
+- Python 3.13.7 on macOS arm64; all nine installed direct dependencies match
+  the full requirements. `python -m pip check` found no broken requirements.
+- `python -m unittest discover -s tests -v`: all 41 tests passed, including
+  the five new checker tests. Download-related unit tests use synthetic
+  fixtures; they did not download a model or perform new face inference.
+- Full repository profile: **21 passed, 0 failed, 0 skipped**. Details are in
+  [repository_check.json](../results/metrics/repository_check.json).
+- All 42 required files are present, and relative Markdown file targets pass.
+  All six notebooks have saved execution counts and no saved error outputs,
+  covering 36 code cells. The notebooks were inspected without re-execution.
+- The baseline, resolution, quality, and analysis summaries are completed;
+  all 18 recorded output hashes match. Analysis input and source hashes pass.
+  Saved-score recomputation reproduces all ten condition summaries on the
+  same 5,999 eligible pairs, including the baseline's 13 false matches and
+  37 false non-matches.
+- `git fsck --full` passed for the real local repository, with 10 commits
+  before this commit and HEAD `91cce44b1f7508db7ebbe383f910055d0fab6962`.
+  No datasets, model caches, virtual environments, or ZIPs are tracked.
+  The report's uncommitted working-tree state is expected before Commit 9.
+- A separate SHA-256 comparison confirmed that all 48 pre-existing notebook,
+  source, full-requirements, and result files remained unchanged. Earlier
+  experiment-log entries were preserved; this entry was appended.
+
+### Problems and adjustments
+
+No tests or full-profile checks failed. Pip reported that its user cache was
+not writable in the execution sandbox and disabled that cache; the dependency
+check still passed and no installation was attempted. No dependency, model,
+or inference-code changes were needed.
+
+The full check has 21 checks rather than the bundle's 22 total checks because
+the omitted commit-specific setup document no longer needs a link check.
+Dependency and Git checks both ran; neither was skipped. The guide also makes
+clear that notebook 06 requires the Jupyter environment, while the minimal
+requirements support command-line use.
+
+### Scope and limitations
+
+This stage verified saved artifacts, documentation, installed direct dependency
+versions, and local Git objects. It did not reproduce a fresh full installation,
+rerun image inference, inspect inference-cache contents, or create a submission
+ZIP. Notebook execution counts do not establish freshness. The checker does
+not validate external URLs or Markdown anchors, and direct pins do not lock
+all indirect dependencies. Earlier experimental limitations remain unchanged.
+
+### Next step
+
+Consolidate final findings and limitations, then create and inspect the
+submission ZIP from the real local repository, including its `.git` directory.
