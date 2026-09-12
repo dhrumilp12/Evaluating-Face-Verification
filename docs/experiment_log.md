@@ -628,3 +628,69 @@ all indirect dependencies. Earlier experimental limitations remain unchanged.
 
 Consolidate final findings and limitations, then create and inspect the
 submission ZIP from the real local repository, including its `.git` directory.
+
+## Stage 010 — Final Findings and Submission Workflow
+
+Verification date: 2026-09-11, using the existing Python 3.13.7 environment.
+
+### Goal
+
+Consolidate the measured findings and prepare a verifiable repository submission.
+
+### Changes
+
+- Added [the final report](final_report.md), covering the problem, modality,
+  pipeline, dataset selection, method, ten-condition results, conclusions,
+  limitations, and possible future experiments.
+- Added [submission instructions](submission.md) and linked both documents
+  from README.md.
+- Added `scripts/package_submission.py` to package committed project files
+  with the actual `.git` directory, then verify the extracted repository.
+- Added five packaging tests using temporary fixture histories, covering
+  archive round trips, ignored-data omission, dirty repositories, existing
+  or internal output paths, external object alternates, and symlinks.
+
+### Verification
+
+- `python -m unittest discover -s tests -v`: **46 tests passed**. Packaging
+  tests preserved their fixture HEAD and two-commit history, reproduced a
+  clean extracted working tree, and rejected unsupported packaging states.
+- `python scripts/check_repository.py --profile full`: **23 passed, 0 failed,
+  0 skipped**, including all nine direct dependency pins and Python 3.13.7.
+  The two additional checks inspect links in the new report and submission
+  guide. The saved Commit 9 `repository_check.json` was not overwritten.
+- All six saved notebooks have execution counts and no saved error outputs.
+  Recorded result hashes match, and all ten saved-score summaries reproduce
+  on the same 5,999 eligible pairs. No notebooks or face inference were rerun.
+- The final report's ten-row accuracy/FMR/FNMR/AUC/EER table was independently
+  compared against full-precision saved metrics at the displayed rounding.
+  The findings distinguish frozen-threshold operational results from pooled
+  threshold-sweep summaries and retain the earlier limitations.
+- Real local Git objects passed verification. Before this commit, HEAD was
+  `da4024ee8fe91be4d3089710c43175fffbb24fdf`, with 11 commits. No datasets,
+  model caches, virtual environments, or ZIPs are tracked.
+- Earlier notebooks, source modules, dependency pins, metric exports, figures,
+  and the Commit 9 check report remain unchanged. Earlier experiment-log
+  entries and all README result tables were preserved.
+
+### Problems and fixes
+
+No local tests or full-profile checks failed. No package installation,
+dependency changes, model changes, or inference-code fixes were required.
+The source bundle's preparation results were treated as prior evidence;
+the counts above are from this local run.
+
+### Archive status
+
+The submission archive will be generated after this commit and push, once
+the working tree is clean. The packager reruns the full checks and tests,
+includes the actual `.git` directory, extracts the archive, checks every
+archived file hash, and verifies Git objects, HEAD, commit count, and clean
+working-tree state. Its external verification receipt records the exact
+archived HEAD, ZIP checksum, byte size, and actual verification results.
+
+Ignored datasets, inference caches, model weights, virtual environments, and
+downloaded update ZIPs are omitted. Packaging does not reproduce image
+inference or establish installation on a second machine. The verified
+submission ZIP must be uploaded through the course submission system; the
+downloaded Commit 10 update bundle is not that submission.

@@ -3,6 +3,8 @@
 
 [Reproduce the work](docs/reproducibility.md) · [Repository guide](docs/repository_guide.md) · [Experiment history](docs/experiment_log.md)
 
+[Final findings](docs/final_report.md) · [Submission instructions](docs/submission.md)
+
 ### Project Status
 The original-quality LFW baseline, resolution, Gaussian blur, and brightness
 experiments, and score-distribution/ROC/DET analysis are complete.
@@ -486,6 +488,21 @@ independence, and no significance test was performed. Evaluation scores were
 already used in earlier stages. Synthetic post-crop transformations, the one
 baseline exclusion, unmatched severity scales, and unaudited training-data
 overlap retain their earlier limitations.
+
+### Final Findings and Submission
+
+The [final report](docs/final_report.md) consolidates the problem statement,
+dataset choice, methods, ten-condition results, conclusions and limitations.
+After committing the final documentation, use the [submission workflow](docs/submission.md)
+to create a ZIP of committed project files and the actual `.git` directory.
+The packager verifies the extracted history and saves a verification receipt
+next to the ZIP. A GitHub source-code ZIP alone does not include Git history.
+
+Commit 10 local review passed all 46 tests and all 23 full-profile repository
+checks, with zero failures or skips. The final report's ten-condition table
+matches the saved metrics. [Stage 010](docs/experiment_log.md#stage-010--final-findings-and-submission-workflow)
+records this review; the external packaging receipt records the archive checks
+performed after the commit.
 
 ### Reproducibility
 
