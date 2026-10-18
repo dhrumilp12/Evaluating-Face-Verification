@@ -1,9 +1,12 @@
 # Project 2 submission
 
-The requested deliverables are the complete repository with its real `.git`
+The user-requested deliverables are the complete repository with its real `.git`
 history and a written report. The report is available as
 [PDF](../../output/pdf/project2_report.pdf) and
 [Markdown](final_report.md). Slides are not part of the confirmed scope.
+The supplied Project 2 instruction slide does not itself specify a written-report
+requirement, report page limit or slides format; any additional formatting rules
+must come from the professor's instructions or submission page.
 
 The repository includes all Project 1 history, Project 2 code and tests,
 artifact/source hashes, the executed protocol, measured benchmark and robustness

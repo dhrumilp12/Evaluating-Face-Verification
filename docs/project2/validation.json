@@ -34,18 +34,38 @@
   },
   "pdf": {
     "file": "output/pdf/project2_report.pdf",
-    "sha256": "0b9146db3a809a6c00e7ce74105cef1495f4602752c2a85f64d0203a59376cb2",
+    "sha256": "1b15ec57a092a9bf68871d7070aa13ef815faa1c98efd0540e5a416e1d51abef",
     "pages": 7,
     "render_engine": "PyMuPDF 1.26.4; Poppler unavailable locally",
     "all_pages_visually_reviewed": true,
     "out_of_safe_area_text_boxes": 0,
     "replacement_glyphs": 0,
-    "status": "passed"
+    "status": "passed",
+    "author": "Dhrumil Patel",
+    "reviewed_at_utc": "2026-10-18T23:45:49.861849+00:00",
+    "text_change_only_full_name": true
   },
   "project1_preservation": {
     "repository_checks": "passed",
     "original_inference_sources_and_results_unchanged": true
   },
   "status": "passed",
-  "scope": "Executed tests, cache/result verification, saved-score rerun and written-report render review. Package integrity is recorded separately in the archive receipt."
+  "scope": "Computational evidence dates from the original validation timestamp; the documentation_revision and pdf.reviewed_at_utc fields record the later documentation-only rebuild and render review. Package integrity and its test rerun are recorded separately in the archive receipt and packaging log.",
+  "documentation_revision": {
+    "validated_at_utc": "2026-10-18T23:45:49.861849+00:00",
+    "parent_commit": "58d179ce5e456174691270edbdd3145e0caf8605",
+    "scope": "Full author name, historical starter evidence references, unused review template clarification, and distinction between user-requested deliverables and course requirements.",
+    "saved_result_check": {
+      "command": ".venv/bin/python scripts/check_project2.py --json",
+      "passed": 13,
+      "failed": 0,
+      "skipped": 1
+    },
+    "experimental_sources_and_results_unchanged": true,
+    "full_inference_rerun": false,
+    "historical_computational_evidence_preserved": true,
+    "report_manifest_hashes": "passed",
+    "documentation_links": "passed",
+    "status": "passed"
+  }
 }

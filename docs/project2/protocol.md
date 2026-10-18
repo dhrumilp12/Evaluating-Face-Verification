@@ -178,6 +178,7 @@ The [reproduction guide](reproduce.md) documents full inference, independent
 saved-score reanalysis, and read-only verification. `scripts/check_project2.py`
 recomputes evaluation and verifies output hashes; `--include-caches` also checks
 local input/crop/checkpoint provenance and reconstructs saved scores from raw
-features. Historical Project 1 results remain intact. The confirmed final
-format is the repository with its `.git` history plus a written report; slides
-are not required.
+features. Historical Project 1 results remain intact. The user-requested
+deliverables are the repository with its `.git` history plus a written report;
+slides are outside that scope. The supplied course slide does not specify a
+report requirement or page limit; see the [submission guide](submission.md).

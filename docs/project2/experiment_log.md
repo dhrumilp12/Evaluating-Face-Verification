@@ -19,7 +19,9 @@ or committing files in the user's GitHub repository.
 The container's attempted Git clone failed because it could not resolve GitHub.
 Repository inspection succeeded through the GitHub connection, but this was not
 a full local checkout or full regression run. New scorer tests were run in a
-standalone additive starter directory. See `validation.json` and `validation.txt`.
+standalone additive starter directory. See
+[starter_validation.json](starter_validation.json) and
+[starter_validation.txt](starter_validation.txt).
 
 **Observation:** the method needs raw embedding magnitudes. Reusing the existing
 normalized FaceNet cache would give invalid quality inputs. The starter therefore
@@ -31,20 +33,14 @@ requested. The current evaluation runner also labels its selected score field as
 features, and validate a small development-only MagFace inference run before full
 experiments. Local user execution and review remain pending.
 
-## Local review entry - fill after performing the work
+## Local review entry - UNUSED HISTORICAL TEMPLATE
 
-Date/time:
-Local branch and commit:
-Python/NumPy versions:
-New test suite output:
-Complete repository test output:
-Code reviewed and understood:
-Changes made after review:
-Known failures or discrepancies:
-Next decision:
+The starter included a blank template for a future local review. It was not
+completed and is retained here only as a historical note, not as evidence of a
+student review. The executed work and validation are recorded below. Planned
+measurements must not be filled with expected or published results.
 
-Do not fill planned measurements with expected or published results.
-# October 18, 2026: integrated execution
+## October 18, 2026: integrated execution
 
 The existing clean repository matched commit `860e896`. The starter was added
 without overwriting Project 1 files. All 75 initial tests passed in the existing
@@ -92,5 +88,21 @@ The first genuine Project 2 commit is `1d2556b`, covering the tested pipeline an
 author benchmark. The final measurements, report and packaging instructions
 form the next increment. The history continues from the real Project 1 commits;
 no dates or commits were manufactured. No remote push or course submission was
-performed. The user confirmed repository history plus a written report, with
-no slide requirement.
+performed. The user requested repository history plus a written report; slides
+are outside the requested scope. The supplied Project 2 instruction slide does
+not itself specify a written-report requirement, page limit or slides format.
+
+## October 18, 2026: documentation review corrections
+
+The user requested the full author name, Dhrumil Patel, in the written report's
+subtitle, footer and PDF metadata. The report generator and regenerated report
+were updated accordingly. The starter entry now links to its original 29-test
+evidence, and the unused local-review template is explicitly identified above.
+The submission documentation distinguishes the user's requested repository and
+written report from the requirements stated in the supplied Project 2 slide.
+
+These are documentation corrections. The implementation, saved experimental
+results and scientific conclusions are preserved; no image alignment or MagFace
+inference rerun is needed. Updated report and package verification records
+accompany the rebuilt deliverables. The user's review feedback prompted these
+edits; external review code and evidence were not available locally.

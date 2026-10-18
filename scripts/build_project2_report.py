@@ -155,13 +155,13 @@ class Report:
             canvas.line(54, 43, 558, 43)
             canvas.setFont("DejaVu", 7.5)
             canvas.setFillColor(self.colors.HexColor("#476073"))
-            canvas.drawString(54, 30, "Dhrumil | Biometrics Project 2 | QMagFace")
+            canvas.drawString(54, 30, "Dhrumil Patel | Biometrics Project 2 | QMagFace")
             canvas.drawRightString(558, 30, str(document.page))
             canvas.restoreState()
 
         document = SimpleDocTemplate(str(output), pagesize=letter, rightMargin=54, leftMargin=54,
                                      topMargin=44, bottomMargin=57, title="Quality-Aware Face Verification Under Image Degradation",
-                                     author="Dhrumil", pageCompression=1)
+                                     author="Dhrumil Patel", pageCompression=1)
         document.build(self.flow, onFirstPage=footer, onLaterPages=footer)
         (ROOT / "docs/project2/final_report.md").write_text("\n".join(self.markdown), encoding="utf-8")
         print(output)
@@ -187,7 +187,7 @@ def main():
     tied = [LABELS[c] for c in LABELS if paired[c]["net_correct_gain"] == 0]
     report = Report()
     report.title("Quality-Aware Face Verification Under Image Degradation")
-    report.paragraph("Reproducing and Investigating QMagFace | Dhrumil | Biometrics Project 2 | October 18, 2026")
+    report.paragraph("Reproducing and Investigating QMagFace | Dhrumil Patel | Biometrics Project 2 | October 18, 2026")
     report.heading("Abstract")
     report.paragraph(
         "This project extends an existing face-verification degradation study by reproducing QMagFace, "

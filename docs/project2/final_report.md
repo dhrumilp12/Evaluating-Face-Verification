@@ -1,6 +1,6 @@
 # Quality-Aware Face Verification Under Image Degradation
 
-Reproducing and Investigating QMagFace | Dhrumil | Biometrics Project 2 | October 18, 2026
+Reproducing and Investigating QMagFace | Dhrumil Patel | Biometrics Project 2 | October 18, 2026
 
 ## Abstract
 
