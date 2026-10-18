@@ -1,0 +1,541 @@
+{
+  "accessed_date": "2026-10-18",
+  "hash_policy": "Observed local SHA-256, not a publisher-signed checksum",
+  "artifacts": [
+    {
+      "path": "data/project2/artifacts/author_features_download.zip",
+      "bytes": 6158445827,
+      "sha256": "d228033c7bc4a2d4d1e92ba987cda9e6fb4423f219c97e98364820accd614f7f",
+      "source_url": "https://drive.google.com/file/d/1ElwkUKFs6-4JEwRnsKh6fJLp00x_FOvS/view"
+    },
+    {
+      "path": "models/project2/magface_epoch_00025.pth",
+      "bytes": 283040192,
+      "sha256": "cfeba792dada6f1f30d1e118aff077d493dd95dd76c77c30f57f90fd0164ad58",
+      "source_url": "https://drive.google.com/file/d/1Bd87admxOZvbIOAyTkGEntsEz3fyMt7H/view"
+    },
+    {
+      "path": "data/project2/author_lfw/embeddings_lfw.npy",
+      "bytes": 54177920,
+      "sha256": "7788292d42b4d8fdfdc1e372bafc54aa9c949d470b48758041d5e851216c38da",
+      "source_archive": "data/project2/artifacts/author_features_download.zip"
+    },
+    {
+      "path": "data/project2/author_lfw/filenames_lfw.npy",
+      "bytes": 4550216,
+      "sha256": "19f15d4fb900879f59233c70470abb96a5dda92e400d4f05723ddfc4361cc5a2",
+      "source_archive": "data/project2/artifacts/author_features_download.zip"
+    },
+    {
+      "path": "data/project2/author_lfw/lfw_pairs.txt",
+      "bytes": 155328,
+      "sha256": "55506bb9b62f8968b0f3e5b5b8fff91604659b7dec61c6ee185e4606ee9b74f3",
+      "source_archive": "data/project2/artifacts/author_features_download.zip"
+    },
+    {
+      "path": "data/project2/artifacts/qmagface_wacv2023.pdf",
+      "bytes": 690363,
+      "sha256": "9d9ee220a1d82b95367cc503530f267cf086e85cf708a32acdce0d21f8f6aa1e",
+      "source_url": "https://openaccess.thecvf.com/content/WACV2023/papers/Terhorst_QMagFace_Simple_and_Accurate_Quality-Aware_Face_Recognition_WACV_2023_paper.pdf"
+    }
+  ],
+  "source_files": [
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "README.md",
+      "sha256": "0fb0a7d6adfedaddb1028a49c82fade0eff5aeb2d2f7e8566940bf2a0c3c6b99",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/README.md"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "_data/single_images/fix_filenames.py",
+      "sha256": "cfe44262f11799f9285ef1e384e97f2a2b84da39fa4c627adae289ff519551a3",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/_data/single_images/fix_filenames.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "align_images.py",
+      "sha256": "7955847f8313475fe40a78d7f64a219a5de4f8e22b2e6149aaddacea1636d91c",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/align_images.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "datasets/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/datasets/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "datasets/paired.py",
+      "sha256": "a6b1ad10d078ccc0e62cbf4042221f858e6636d54c08db27d2683338f173370d",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/datasets/paired.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "datasets/single.py",
+      "sha256": "02122d816e246b0ca1291ca20f9957daaa76132294e6648f4f0d35356a98f4ad",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/datasets/single.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "embed_images.py",
+      "sha256": "d318fb2ddf06fbc799efbcca44a0dee51e8b077196a0d221738c2a1c2df37aab",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/embed_images.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "environment.yml",
+      "sha256": "37c71b7c84fc286c8ee73959f35cf576acbb0f6f0a129b3130e8202a83c3c7cd",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/environment.yml"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "evaluation/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/evaluation/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "evaluation/metrics.py",
+      "sha256": "eefea475d864ab886cd54efcd8a876c3fac65b2c52cabf8aeb81c8533eeac035",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/evaluation/metrics.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "evaluation/pairs_parsing.py",
+      "sha256": "03d5f0da938d23a1226f3fbf05be18cb425446f179e8fdea5a22898100bc2bb1",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/evaluation/pairs_parsing.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/ijb_benchmarks.py",
+      "sha256": "b0ab835dbade981d49bbf50109ace332d17545d25845f4faea3f710c6cd7cf5a",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/ijb_benchmarks.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/memory_analysis.py",
+      "sha256": "4d357d86df5370f47dab1da49942978d8900411fe9b03d853276f28552888c4b",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/memory_analysis.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/plots/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/plots/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/plots/db_utils.py",
+      "sha256": "95fffd28e0c4a85ecd339455b6c6187a9e4f4695dd7acc70223a6506245d2cff",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/plots/db_utils.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/plots/training_visualization.py",
+      "sha256": "1e19fb415d5c01d4385069abd5b215dfe9d0ddfdaa6ab23cf12723de4cf5bc4f",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/plots/training_visualization.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/robustness_analysis.py",
+      "sha256": "123e4572cba08ff4ee359011b11e621f6052fbaa83d499b66d4c09fda4134785",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/robustness_analysis.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/runtime_analysis.py",
+      "sha256": "2fbbbf6a2b14c1c270fac93cba44900885c6b11b1520118d3347ad8f86b54356",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/runtime_analysis.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "experiments/single_image_benchmarks.py",
+      "sha256": "7a561b98646cab6ec797c53798a7201aa27f99abc3f756bef7b4051bb8b2a3ec",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/experiments/single_image_benchmarks.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "launch_experiments.py",
+      "sha256": "001ba37c69490daedb5c507ab4bbf11f50f5dfc9e3e81c4a697673d06dbe85f5",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/launch_experiments.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/inference/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/inference/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/inference/gen_feat.py",
+      "sha256": "beb36f5addeaf7a1fd0882358d320e0620b9eba2a9e0fe84a6e7a71c24889892",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/inference/gen_feat.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/inference/generate_embeddings.py",
+      "sha256": "cf143f82b640b40ec60a8d41d328282a268b1b979fb2270d9cbb7e5a6c6abba9",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/inference/generate_embeddings.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/inference/network_inf.py",
+      "sha256": "de23681c0fa3c10af3fd64cb57694c7978c67ed66973665e966c6685dd3b6900",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/inference/network_inf.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/models/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/models/iresnet.py",
+      "sha256": "9b9670b2190f78782be119a21375e78a81b5444a193ff67d09ca2d48a6b0bc4b",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/models/iresnet.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/utils/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "magface/utils/utils.py",
+      "sha256": "46081425abe721e4eb279356752dc4f44c029523caf0814ffef740540a44d1c5",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/magface/utils/utils.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/align.py",
+      "sha256": "890c1f1b38f9a6f43223c5319b2eea627f83470ea6bf4c7bd7b5a7eed989f85f",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/align.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/embed.py",
+      "sha256": "030b7caeaa7a75cc4af9cd18449e33bfd3ccbe764e9f3455d86f0d1139d25983",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/embed.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/insightface/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/insightface/src/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/src/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/insightface/src/face_preprocess.py",
+      "sha256": "b559cfe87248ead54c19d9be2f2c0a0431255a40a2521226e1fe59166aea49a3",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/src/face_preprocess.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/insightface/src/helper.py",
+      "sha256": "c2692a4f9b0a81aff710693ff4ea3047fb8a4e9a9b5f05049e5f3a187023450d",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/src/helper.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/insightface/src/mtcnn_detector.py",
+      "sha256": "60adc7b6e381c2241f3e55c3f8e30d487b7716a6ef564918363706be89deda78",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/src/mtcnn_detector.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/magface/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/magface/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/magface/gen_feat.py",
+      "sha256": "25ed4fce6af7398d1f6713d8d62cd4049d8e2ae21e47b93f43bda03e48ffa029",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/magface/gen_feat.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/magface/iresnet.py",
+      "sha256": "9b9670b2190f78782be119a21375e78a81b5444a193ff67d09ca2d48a6b0bc4b",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/magface/iresnet.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/magface/network_inf.py",
+      "sha256": "42abeaafc361d77460676ed3600b72ca94ab9ac93c37c62dcf12be5b6d543f4a",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/magface/network_inf.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "preprocessing/magface/utils.py",
+      "sha256": "46081425abe721e4eb279356752dc4f44c029523caf0814ffef740540a44d1c5",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/magface/utils.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "similarity/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/similarity/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "similarity/base.py",
+      "sha256": "ebac233af73fbd8120948ebde3a58abd6d436de3a2a6cd08b974d27c27fbc138",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/similarity/base.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "similarity/cosine.py",
+      "sha256": "1affd9f871111f0ebb645b4d9a2b43b1ae4350e558968bd36ff2a7efdd7eac9b",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/similarity/cosine.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "similarity/qmagface.py",
+      "sha256": "7c4ebcb8e51d98b8e41dbb5d0481f79c469478079c75082be35410ddeff872bc",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/similarity/qmagface.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/utils/__init__.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "utils/files.py",
+      "sha256": "22b1bfa265b7b51fd30fa182c3783143cf33b36b9318f7e6b2cc62cc9ddbc773",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/utils/files.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "utils/pairs_files.py",
+      "sha256": "404ff5af77288c8300a9fae0d625e11f5ff137d5c4557c0435c155caf0094695",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/utils/pairs_files.py"
+    },
+    {
+      "repository": "pterhoer/QMagFace",
+      "commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "path": "utils/setup.py",
+      "sha256": "01ad84cfcd3b9e5e69d1794711147ee488d5a351d9a5cc9b6dbc0b211ccc36ce",
+      "url": "https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/utils/setup.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/LICENSE"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "README.md",
+      "sha256": "6550995f1aa7a0d9651f894d58d00aba3b848b1b142865fc2bcc073b02b1031f",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/README.md"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "dataloader/dataloader.py",
+      "sha256": "a3ba540d1c0c76876e20b24cc3242f80e1e8e0d13750156e21814e27874495dd",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/dataloader/dataloader.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "dataloader/dataloader_dist.py",
+      "sha256": "86cf8f39682611bba1843ef0413c8f953acd828ef80e0fbd894f1b12596c677e",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/dataloader/dataloader_dist.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "eval/eval_cluster/eval_cluster.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/eval/eval_cluster/eval_cluster.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "eval/eval_quality/eval_quality.py",
+      "sha256": "d63369d0ce1cbe3a2b4e2ce2c42eb98f9374b42567448db4c6e9662c29303f37",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/eval/eval_quality/eval_quality.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "eval/eval_recognition/eval_1v1.py",
+      "sha256": "e805dda13add36fe9687b5eaaed6b964d452e79c60b6530c0e4054d132837293",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/eval/eval_recognition/eval_1v1.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "eval/eval_recognition/eval_ijb.py",
+      "sha256": "a76d951f2bd9333dacda2b2e351b7567a733f791c0afed9193e826bf28d056bd",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/eval/eval_recognition/eval_ijb.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "inference/gen_feat.py",
+      "sha256": "19379f09112aa2a746043983a688705435f84f04525f75af6b8b10e9c45a6f09",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/inference/gen_feat.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "inference/network_inf.py",
+      "sha256": "9d63add48f80dd80798c9600ca2e196f72268f16980b5eb1a2ad496dc76bd5d1",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/inference/network_inf.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "models/iresnet.py",
+      "sha256": "9b9670b2190f78782be119a21375e78a81b5444a193ff67d09ca2d48a6b0bc4b",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/models/iresnet.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "models/magface.py",
+      "sha256": "486c63338c79a5e2f5a45d4e2a9b5383af8101b8a4bb04c254e69374a98ae2f5",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/models/magface.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "models/magface_dist.py",
+      "sha256": "fb44dda84086d14a7368fd8fc5ad134558ac66c521d26440e488d1d89df84ea2",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/models/magface_dist.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "models/parallel_maglinear.py",
+      "sha256": "9031ff781df30bb8383debeb5fe203c9dac593ee5e629f3d119ea90872d9721c",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/models/parallel_maglinear.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "models/parallel_magloss.py",
+      "sha256": "392ceb1f0e789522f97a8136bcd67a76d000bc4cc89d77ee1171658d77529d24",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/models/parallel_magloss.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "run/trainer.py",
+      "sha256": "b19aabec6ea6fb74159f980423429bda137b6d502fc919ef8d9620b4e672e1d3",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/run/trainer.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "run/trainer_dist.py",
+      "sha256": "377aec46463ed7d40e027e4f80bd5c70581018972ade8ff89f3cf0ebab42480a",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/run/trainer_dist.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "utils/cv2_funcs.py",
+      "sha256": "234b6b9c9ced8e7bbf53d712ab013547ee1ca969dd66a0ca3d7929e9e230108a",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/utils/cv2_funcs.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "utils/cv2_trans.py",
+      "sha256": "a8d4586c9049024b0302b9188230727f85ef5435d32800e2ce594e1fa8d64746",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/utils/cv2_trans.py"
+    },
+    {
+      "repository": "IrvingMeng/MagFace",
+      "commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "path": "utils/utils.py",
+      "sha256": "46081425abe721e4eb279356752dc4f44c029523caf0814ffef740540a44d1c5",
+      "url": "https://github.com/IrvingMeng/MagFace/blob/99bae614ac2643b9694bf18e0c5645272ff6acfa/utils/utils.py"
+    }
+  ]
+}

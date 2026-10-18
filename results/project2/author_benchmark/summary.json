@@ -1,0 +1,186 @@
+{
+  "status": "completed",
+  "dataset": "author_precomputed_lfw_magface100",
+  "started_at_utc": "2026-10-18T23:09:59.140934+00:00",
+  "upstream_commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+  "alpha": 0.077428,
+  "beta": 0.125926,
+  "feature_artifacts": {
+    "lfw_pairs.txt": {
+      "sha256": "55506bb9b62f8968b0f3e5b5b8fff91604659b7dec61c6ee185e4606ee9b74f3",
+      "bytes": 155328
+    },
+    "embeddings_lfw.npy": {
+      "sha256": "7788292d42b4d8fdfdc1e372bafc54aa9c949d470b48758041d5e851216c38da",
+      "bytes": 54177920
+    },
+    "filenames_lfw.npy": {
+      "sha256": "19f15d4fb900879f59233c70470abb96a5dda92e400d4f05723ddfc4361cc5a2",
+      "bytes": 4550216
+    }
+  },
+  "executed_upstream_files": {
+    "similarity/base.py": {
+      "sha256": "ebac233af73fbd8120948ebde3a58abd6d436de3a2a6cd08b974d27c27fbc138",
+      "bytes": 176
+    },
+    "similarity/cosine.py": {
+      "sha256": "1affd9f871111f0ebb645b4d9a2b43b1ae4350e558968bd36ff2a7efdd7eac9b",
+      "bytes": 401
+    },
+    "similarity/qmagface.py": {
+      "sha256": "7c4ebcb8e51d98b8e41dbb5d0481f79c469478079c75082be35410ddeff872bc",
+      "bytes": 3331
+    },
+    "evaluation/metrics.py": {
+      "sha256": "eefea475d864ab886cd54efcd8a876c3fac65b2c52cabf8aeb81c8533eeac035",
+      "bytes": 3483
+    }
+  },
+  "project_code_sha256": {
+    "scripts/project2_benchmark.py": "70ddcfe853fd8fd51b98b3fda487eef85dd881e0f6d42f6265aca040f8079c3b",
+    "src/qmagface_scoring.py": "faf28fa862c4b73d8a81daab047f3f8a676ccdca59c2ef42975ad13f47021e92"
+  },
+  "feature_shape": [
+    13227,
+    512
+  ],
+  "feature_dtype": "float64",
+  "requested_pairs": 6000,
+  "scored_pairs": 5994,
+  "excluded_pairs": 6,
+  "requested_genuine": 3000,
+  "requested_impostor": 3000,
+  "scored_genuine": 2996,
+  "scored_impostor": 2998,
+  "coverage": 0.999,
+  "protocol": {
+    "folds": "sklearn KFold(10, shuffle=False) AFTER missing-feature exclusions",
+    "thresholds": "600 evenly spaced points from global score min to max",
+    "decision": "score > threshold",
+    "tie_break": "first/smallest threshold",
+    "caveat": "Global grid sees held-out score extrema; post-exclusion folds differ from original LFW folds."
+  },
+  "methods": {
+    "magface_cosine": {
+      "accuracy_percent": 99.74972175848636,
+      "fold_accuracy_sd_percentage_points": 0.25024130489506674,
+      "published_accuracy_percent": 99.73,
+      "gap_percentage_points": 0.019721758486355156,
+      "independent_max_absolute_score_error": 1.9984014443252818e-15,
+      "independent_accuracy_percent": 99.74972175848636,
+      "pooled_accuracy": 0.9974974974974975,
+      "false_matches": 3,
+      "false_nonmatches": 12,
+      "pooled_fmr": 0.0010006671114076052,
+      "pooled_fnmr": 0.004005340453938585
+    },
+    "qmagface": {
+      "accuracy_percent": 99.8331385642738,
+      "fold_accuracy_sd_percentage_points": 0.1668893456972892,
+      "published_accuracy_percent": 99.83,
+      "gap_percentage_points": 0.0031385642737973285,
+      "independent_max_absolute_score_error": 4.773959005888173e-15,
+      "independent_accuracy_percent": 99.8331385642738,
+      "pooled_accuracy": 0.9983316649983317,
+      "false_matches": 2,
+      "false_nonmatches": 8,
+      "pooled_fmr": 0.00066711140760507,
+      "pooled_fnmr": 0.0026702269692923898
+    }
+  },
+  "coverage_by_original_fold": [
+    {
+      "original_fold": 0,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 1,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 2,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 3,
+      "requested": 600,
+      "scored": 599,
+      "excluded_genuine": 0,
+      "excluded_impostor": 1
+    },
+    {
+      "original_fold": 4,
+      "requested": 600,
+      "scored": 598,
+      "excluded_genuine": 1,
+      "excluded_impostor": 1
+    },
+    {
+      "original_fold": 5,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 6,
+      "requested": 600,
+      "scored": 598,
+      "excluded_genuine": 2,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 7,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 8,
+      "requested": 600,
+      "scored": 600,
+      "excluded_genuine": 0,
+      "excluded_impostor": 0
+    },
+    {
+      "original_fold": 9,
+      "requested": 600,
+      "scored": 599,
+      "excluded_genuine": 1,
+      "excluded_impostor": 0
+    }
+  ],
+  "environment": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "scipy": "1.16.2",
+    "scikit-learn": "1.7.2"
+  },
+  "raw_quality": {
+    "minimum": 17.61751097894289,
+    "mean": 28.813497566747184,
+    "maximum": 34.338258199598904
+  },
+  "paired_decision_changes": {
+    "qmagface_corrects_cosine_errors": 5,
+    "qmagface_introduces_errors": 0,
+    "both_wrong": 10
+  },
+  "outputs": {
+    "pair_scores.csv": "5df874b868294a5e7b531d52740d1d2c6fe86cdc69039f60dc31ba0b42fb0691",
+    "fold_metrics.csv": "4b5bfb42446c3b27cbf8300878f365492bf6236af5ac66ca9a1f0ead67086cd9",
+    "excluded_pairs.csv": "0f36134f8cdd4fbd45af3e52fb9814488bfe7207e6cba0c8e326064af4ad9499"
+  },
+  "elapsed_seconds": 3.191527040908113
+}

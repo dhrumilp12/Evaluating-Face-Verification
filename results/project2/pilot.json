@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "at_utc": "2026-10-18T23:05:00.124828+00:00",
+  "device": "mps",
+  "images": [
+    "AJ_Cook/AJ_Cook_0001.jpg",
+    "Aaron_Peirsol/Aaron_Peirsol_0002.jpg",
+    "Abdullah_al-Attiyah/Abdullah_al-Attiyah_0003.jpg",
+    "Abel_Pacheco/Abel_Pacheco_0003.jpg",
+    "Aby_Har-Even/Aby_Har-Even_0001.jpg",
+    "Adisai_Bodharamik/Adisai_Bodharamik_0001.jpg",
+    "Adolfo_Aguilar_Zinser/Adolfo_Aguilar_Zinser_0001.jpg",
+    "Adolfo_Aguilar_Zinser/Adolfo_Aguilar_Zinser_0002.jpg",
+    "Ahmed_Chalabi/Ahmed_Chalabi_0002.jpg",
+    "Ahmed_Chalabi/Ahmed_Chalabi_0004.jpg",
+    "Ahmed_Lopez/Ahmed_Lopez_0001.jpg",
+    "Aidan_Quinn/Aidan_Quinn_0001.jpg",
+    "Ainsworth_Dyer/Ainsworth_Dyer_0001.jpg",
+    "Akmal_Taher/Akmal_Taher_0001.jpg",
+    "Al_Gore/Al_Gore_0001.jpg",
+    "Al_Gore/Al_Gore_0003.jpg"
+  ],
+  "test_image_overlap": 0,
+  "features_shape": [
+    16,
+    512
+  ],
+  "quality_min": 26.1545512617242,
+  "quality_max": 33.03538597520189,
+  "inference_seconds": 0.5877957920311019,
+  "seconds_per_image": 0.03673723700194387,
+  "checkpoint_sha256": "cfeba792dada6f1f30d1e118aff077d493dd95dd76c77c30f57f90fd0164ad58",
+  "environment": {
+    "python": "3.13.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "packages": {
+      "numpy": "2.5.3",
+      "Pillow": "11.2.1",
+      "torch": "2.8.0",
+      "torchvision": "0.23.0",
+      "facenet-pytorch": "2.5.3",
+      "matplotlib": "3.10.3"
+    }
+  },
+  "alignment_manifest": "data/processed/project2/alignment/ac82446330d5c1bc/records.json",
+  "scope": "Development-only compatibility/throughput check; no verification accuracy or parameter tuning",
+  "cpu_mps_max_absolute_difference": 1.7881393432617188e-05,
+  "cpu_mps_allclose_rtol_1e3_atol_1e4": true
+}

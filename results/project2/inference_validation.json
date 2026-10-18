@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checkpoint_sha256": "cfeba792dada6f1f30d1e118aff077d493dd95dd76c77c30f57f90fd0164ad58",
+  "magface_commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+  "qmagface_commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+  "official_network_inf_sha256": "9d63add48f80dd80798c9600ca2e196f72268f16980b5eb1a2ad496dc76bd5d1",
+  "official_iresnet_sha256": "9b9670b2190f78782be119a21375e78a81b5444a193ff67d09ca2d48a6b0bc4b",
+  "adapter_sha256": "f47b2ea0dae138294d7b41b34f46cc1a46f59c608298f27e4038fbef91d043e9",
+  "compared_images": [
+    "data/project2/vendor/MagFace-main/inference/toy_imgs/0.jpg",
+    "data/project2/vendor/MagFace-main/inference/toy_imgs/1.jpg"
+  ],
+  "input": "Decoded RGB uint8 reversed to BGR; official torchvision.transforms.ToTensor",
+  "feature_shape": [
+    2,
+    512
+  ],
+  "max_absolute_difference": 0.0,
+  "bitwise_equal": true,
+  "raw_norms": [
+    21.778516354864987,
+    22.164317731594426
+  ],
+  "detector_checkpoint_sha256": {
+    "onet.pt": "165bfbe42940416ccfb977545cf0e976d5bf321f67083ae2aaaa5c764280118d",
+    "rnet.pt": "bbb937de72efc9ef83b186c49f5f558467a1d7e3453a8ece0d71a886633f6a86",
+    "pnet.pt": "a2a71925e0b9996a42f63e47efc1ca19043e69558b5c523b978d611dfae49c8f"
+  },
+  "torch_version": "2.8.0",
+  "torchvision_version": "0.23.0",
+  "audit_modifications": "Upstream print/progress imports replaced with no-ops; upstream torch.load forced weights_only=True; no network or preprocessing operations changed.",
+  "scope": "Independent author builder checkpoint mapping and forward parity on two bundled already-aligned toy crops; not an alignment or LFW accuracy reproduction."
+}

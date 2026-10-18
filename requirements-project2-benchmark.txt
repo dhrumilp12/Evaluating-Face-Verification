@@ -1,0 +1,7 @@
+# Install in a separate environment; do not replace Project 1 dependencies.
+numpy==2.5.3
+scipy==1.16.2
+scikit-learn==1.7.2
+joblib==1.6.0
+threadpoolctl==3.7.0
+cloudpickle==3.1.2

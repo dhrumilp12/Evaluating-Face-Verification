@@ -1,0 +1,39 @@
+Assistant-environment execution only; synthetic mathematical tests, not model evaluation.
+Python: 3.13.5
+NumPy: 2.3.5
+Platform: Linux-6.18.44-x86_64-with-glibc2.41
+
+test_adjusted_output_is_not_clipped (test_qmagface_scoring.QMagFaceScoringTests.test_adjusted_output_is_not_clipped) ... ok
+test_adjustment_does_not_increase_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_adjustment_does_not_increase_cosine) ... ok
+test_embedding_and_precomputed_score_interfaces_agree (test_qmagface_scoring.QMagFaceScoringTests.test_embedding_and_precomputed_score_interfaces_agree) ... ok
+test_empty_inputs_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_empty_inputs_are_rejected) ... ok
+test_feature_shape_mismatch_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_feature_shape_mismatch_is_rejected) ... ok
+test_fixed_score_higher_quality_has_larger_penalty (test_qmagface_scoring.QMagFaceScoringTests.test_fixed_score_higher_quality_has_larger_penalty) ... ok
+test_float32_input_gives_float64_output (test_qmagface_scoring.QMagFaceScoringTests.test_float32_input_gives_float64_output) ... ok
+test_hand_calculated_score (test_qmagface_scoring.QMagFaceScoringTests.test_hand_calculated_score) ... ok
+test_high_similarity_is_unchanged (test_qmagface_scoring.QMagFaceScoringTests.test_high_similarity_is_unchanged) ... ok
+test_inputs_are_not_modified (test_qmagface_scoring.QMagFaceScoringTests.test_inputs_are_not_modified) ... ok
+test_invalid_cosine_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_cosine_is_rejected) ... ok
+test_invalid_parameters_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_parameters_are_rejected) ... ok
+test_invalid_quality_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_quality_is_rejected) ... ok
+test_magnitude_scaling_changes_quality_not_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_magnitude_scaling_changes_quality_not_cosine) ... ok
+test_negligible_cosine_roundoff_is_handled (test_qmagface_scoring.QMagFaceScoringTests.test_negligible_cosine_roundoff_is_handled) ... ok
+test_nonfinite_embeddings_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_nonfinite_embeddings_are_rejected) ... ok
+test_numeric_overflow_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_numeric_overflow_is_rejected) ... ok
+test_pair_order_is_symmetric (test_qmagface_scoring.QMagFaceScoringTests.test_pair_order_is_symmetric) ... ok
+test_published_100_coefficients (test_qmagface_scoring.QMagFaceScoringTests.test_published_100_coefficients) ... ok
+test_quality_is_preserved_before_normalization (test_qmagface_scoring.QMagFaceScoringTests.test_quality_is_preserved_before_normalization) ... ok
+test_random_pairs_match_independent_scalar_formula (test_qmagface_scoring.QMagFaceScoringTests.test_random_pairs_match_independent_scalar_formula) ... ok
+test_scalars_and_nonreal_inputs_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_scalars_and_nonreal_inputs_are_rejected) ... ok
+test_unit_norm_override_is_explicit (test_qmagface_scoring.QMagFaceScoringTests.test_unit_norm_override_is_explicit) ... ok
+test_unit_normalized_input_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_unit_normalized_input_is_rejected) ... ok
+test_uses_minimum_not_mean_quality (test_qmagface_scoring.QMagFaceScoringTests.test_uses_minimum_not_mean_quality) ... ok
+test_vector_shape_mismatch_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_vector_shape_mismatch_is_rejected) ... ok
+test_weight_switch_boundary (test_qmagface_scoring.QMagFaceScoringTests.test_weight_switch_boundary) ... ok
+test_zero_embeddings_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_zero_embeddings_are_rejected) ... ok
+test_zero_weight_ablation_is_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_zero_weight_ablation_is_cosine) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.012s
+
+OK

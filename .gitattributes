@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve the exact exported bytes covered by Project 2 result manifests.
+/results/project2/**/*.csv -text whitespace=trailing-space,space-before-tab,cr-at-eol

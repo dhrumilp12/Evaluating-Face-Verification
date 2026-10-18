@@ -1,0 +1,23 @@
+{
+  "prepared_date": "2026-10-12",
+  "scope": "standalone QMagFace scoring unit tests; synthetic inputs only",
+  "status": "passed",
+  "tests_run": 29,
+  "failures": 0,
+  "errors": 0,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "command": "python -m unittest discover -s tests -p 'test_qmagface_scoring.py' -v",
+  "baseline_remote_commit_inspected": "860e896d9c18619139e7d529009dc3ea9c2bb563",
+  "upstream_scoring_git_blob_inspected": "6ea91187361a3ddd7ea2246c52ee2c73d85d7990",
+  "official_library_executed": false,
+  "full_existing_repository_tested": false,
+  "model_inference_performed": false,
+  "recognition_results_generated": false,
+  "user_repository_modified": false,
+  "source_sha256": {
+    "src/qmagface_scoring.py": "faf28fa862c4b73d8a81daab047f3f8a676ccdca59c2ef42975ad13f47021e92",
+    "tests/test_qmagface_scoring.py": "6279ffe836af28543d5b8ccd961352bd44f4388f015c2285bd1591e7f2c183d9"
+  }
+}

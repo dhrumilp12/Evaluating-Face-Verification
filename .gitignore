@@ -130,6 +130,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venv-project2/
 env/
 venv/
 ENV/
@@ -200,3 +201,7 @@ Thumbs.db
 
 # Submission archives
 *.zip
+
+# Re-rendered previews and optional duplicate score reanalyses
+/tmp/
+/results/project2/reanalysis*/
