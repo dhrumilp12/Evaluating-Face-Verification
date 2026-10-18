@@ -1,4 +1,36 @@
-# Biometrics Project 1
+# Biometrics Projects: Face Verification
+
+## Project 2: Quality-Aware Face Verification with QMagFace
+
+The QMagFace scoring reproduction, author-feature benchmark, and all ten
+controlled degradation conditions are complete. The repository retains the
+Project 1 implementation, measurements and Git history below.
+
+[Project 2 start guide](PROJECT2_START_HERE.md) · [Written report](docs/project2/final_report.md) ·
+[PDF report](output/pdf/project2_report.pdf) · [Reproduction commands](docs/project2/reproduce.md) ·
+[Artifact audit](docs/project2/artifact_audit.md)
+
+The author-feature benchmark measures **99.7497% MagFace cosine** and
+**99.8331% QMagFace** on 5,994/6,000 pairs. The separate aligned-image experiment
+scores 5,999/6,000 pairs for each of ten conditions, using the same features and
+separately calibrated original-quality thresholds for the two scoring rules.
+At 14-pixel resolution, mean-fold accuracy rises from **58.827% to 65.411%** with
+QMagFace; its AUC and EER worsen, so this is an operating-point benefit rather
+than uniformly better discrimination. The report includes the full error counts,
+coverage, paired decision changes and limitations.
+
+Validation: **131 tests passed**, and **14 saved-run checks passed**, including
+reconstruction of all 59,990 scored comparisons from raw embedding caches.
+The [validation record](docs/project2/validation.json) and
+[measured run manifest](results/project2/robustness/manifest.json) retain evidence.
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/check_project2.py
+```
+
+## Project 1: Preserved reference experiment
+
 ## Evaluating Face Verification Under Degraded Image Quality
 
 [Reproduce the work](docs/reproducibility.md) · [Repository guide](docs/repository_guide.md) · [Experiment history](docs/experiment_log.md)

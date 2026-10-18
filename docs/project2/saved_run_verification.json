@@ -1,0 +1,84 @@
+{
+  "checks": [
+    {
+      "check": "completed_manifest",
+      "status": "pass",
+      "detail": "Completed robustness run"
+    },
+    {
+      "check": "output_hashes",
+      "status": "pass",
+      "detail": "15 output hashes match"
+    },
+    {
+      "check": "source_hashes",
+      "status": "pass",
+      "detail": "10 executed source hashes match"
+    },
+    {
+      "check": "paired_scores_and_calibration",
+      "status": "pass",
+      "detail": "60000 records; ten-fold original-only calibration and paired eligibility verified"
+    },
+    {
+      "check": "numerical_summary",
+      "status": "pass",
+      "detail": "Saved summary matches metrics recomputed from pair scores"
+    },
+    {
+      "check": "csv:folds",
+      "status": "pass",
+      "detail": "200 rows match recomputation"
+    },
+    {
+      "check": "csv:aggregates",
+      "status": "pass",
+      "detail": "20 rows match recomputation"
+    },
+    {
+      "check": "csv:paired_changes",
+      "status": "pass",
+      "detail": "110 rows match recomputation"
+    },
+    {
+      "check": "csv:predictions",
+      "status": "pass",
+      "detail": "120000 rows match recomputation"
+    },
+    {
+      "check": "csv:curves",
+      "status": "pass",
+      "detail": "120000 rows match recomputation"
+    },
+    {
+      "check": "csv:distributions",
+      "status": "pass",
+      "detail": "80 rows match recomputation"
+    },
+    {
+      "check": "csv:condition_changes",
+      "status": "pass",
+      "detail": "220 rows match recomputation"
+    },
+    {
+      "check": "local_caches",
+      "status": "pass",
+      "detail": {
+        "images": 7701,
+        "feature_files": 48874,
+        "reconstructed_scored_pairs": 59990
+      }
+    },
+    {
+      "check": "author_benchmark",
+      "status": "pass",
+      "detail": "3 output hashes, source hashes, score formulas and upstream-policy recalibration verified"
+    }
+  ],
+  "include_caches": true,
+  "scope": "Read-only saved-output and numerical verification; no inference, downloads, or runtime-version matching",
+  "pass": 14,
+  "fail": 0,
+  "skipped": 0,
+  "status": "passed"
+}

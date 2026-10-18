@@ -1,0 +1,218 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-10-18T23:06:03.097904+00:00",
+  "settings": {
+    "conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "transforms": {
+      "crop_size": [
+        112,
+        112
+      ],
+      "scope": "probe only; each transform starts from the original aligned crop",
+      "resolution": "Pillow bilinear downsample and bilinear restore to 112x112",
+      "blur": "separable sampled Gaussian; radius ceil(3*sigma); NumPy reflect padding",
+      "brightness": "multiply encoded RGB pixels; no gamma linearization or sensor noise",
+      "quantization": "float64 blur/brightness arithmetic; clip [0,255], numpy.rint, uint8"
+    },
+    "model_and_alignment": {
+      "model": "MagFace iResNet100",
+      "embedding_size": 512,
+      "training_dataset": "MS1MV2",
+      "image_size": 112,
+      "magface_commit": "99bae614ac2643b9694bf18e0c5645272ff6acfa",
+      "qmagface_commit": "395797145da1b1b263cbe7fb1564c6ea91f55b23",
+      "channel_order": "BGR",
+      "standardization": "uint8 pixels / 255.0",
+      "flip_augmentation": false,
+      "output": "raw final BatchNorm features; no L2 normalization",
+      "detector": "facenet_pytorch.MTCNN",
+      "min_face_size": 20,
+      "thresholds": [
+        0.6,
+        0.7,
+        0.7
+      ],
+      "factor": 0.709,
+      "minimum_detection_probability": 0.9,
+      "selection": "highest-probability box containing image center",
+      "alignment": "five-point least-squares similarity to ArcFace 112px template",
+      "interpolation": "Pillow affine bilinear; integer pixel-center convention; black fill",
+      "alignment_template": [
+        [
+          38.2946,
+          51.6963
+        ],
+        [
+          73.5318,
+          51.5014
+        ],
+        [
+          56.0252,
+          71.7366
+        ],
+        [
+          41.5493,
+          92.3655
+        ],
+        [
+          70.7299,
+          92.2041
+        ]
+      ],
+      "seed": 42
+    },
+    "alpha": 0.077428,
+    "beta": 0.125926,
+    "device": "mps",
+    "batch_size": 32,
+    "threads": 2,
+    "pairs_sha256": "ea42330c62c92989f9d7c03237ed5d591365e89b3e649747777b70e692dc1592",
+    "source_sha256": {
+      "src/project2_experiment.py": "1e1b198194f3a6f0be4fba3c3e5dfe87d257124a762912b3aed056903ebe82a3",
+      "src/project2_degradation.py": "c3cb60e2ca24f644ae65024f7a2d278f45f7de3c22483ff5d5ad8e8ad12955ba",
+      "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+      "src/magface_embedding.py": "f47b2ea0dae138294d7b41b34f46cc1a46f59c608298f27e4038fbef91d043e9",
+      "src/qmagface_scoring.py": "faf28fa862c4b73d8a81daab047f3f8a676ccdca59c2ef42975ad13f47021e92",
+      "src/lfw_dataset.py": "5e5d919b3c4240a6fd5b9ee8dc7f9aa29108294794d6212db2e76d6d491e9efd",
+      "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+      "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e",
+      "src/face_embedding.py": "d20718d087cd20eafb6882903548f2ce87eaa09d84870367353cb54fc1322a7d",
+      "src/vendor/magface_iresnet.py": "9b9670b2190f78782be119a21375e78a81b5444a193ff67d09ca2d48a6b0bc4b"
+    },
+    "environment": {
+      "python": "3.13.7",
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "packages": {
+        "numpy": "2.5.3",
+        "Pillow": "11.2.1",
+        "torch": "2.8.0",
+        "torchvision": "0.23.0",
+        "facenet-pytorch": "2.5.3",
+        "matplotlib": "3.10.3"
+      }
+    },
+    "checkpoint_sha256": "cfeba792dada6f1f30d1e118aff077d493dd95dd76c77c30f57f90fd0164ad58",
+    "checkpoint_path": "models/project2/magface_epoch_00025.pth"
+  },
+  "alignment": {
+    "path": "data/processed/project2/alignment/2315a635d0a6849c/records.json",
+    "sha256": "7bfc0e7c0be8dc4e20742183c91a5f36fa6d8822e53495d69c1ba4414108dad6",
+    "requested_images": 7701,
+    "failed_images": 1
+  },
+  "feature_cache": "data/processed/project2/features/e8a47c00ab3e02f1",
+  "completed_conditions": [
+    "original",
+    "resolution_56",
+    "resolution_28",
+    "resolution_14",
+    "blur_0.7",
+    "blur_1.4",
+    "blur_2.1",
+    "brightness_0.75",
+    "brightness_0.5",
+    "brightness_0.25"
+  ],
+  "timings": [
+    {
+      "condition": "original",
+      "requested_images": 7701,
+      "features": 7700,
+      "new_features": 7700,
+      "seconds": 94.01534475001972
+    },
+    {
+      "condition": "resolution_56",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 57.5768102920847
+    },
+    {
+      "condition": "resolution_28",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 57.82604375004303
+    },
+    {
+      "condition": "resolution_14",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 57.88207583397161
+    },
+    {
+      "condition": "blur_0.7",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 58.470024457899854
+    },
+    {
+      "condition": "blur_1.4",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 82.18973745801486
+    },
+    {
+      "condition": "blur_2.1",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 63.92716570897028
+    },
+    {
+      "condition": "brightness_0.75",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 59.33541179203894
+    },
+    {
+      "condition": "brightness_0.5",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 45.092186207999475
+    },
+    {
+      "condition": "brightness_0.25",
+      "requested_images": 4576,
+      "features": 4576,
+      "new_features": 4576,
+      "seconds": 32.627175167086534
+    }
+  ],
+  "completed_at_utc": "2026-10-18T23:19:00.699946+00:00",
+  "elapsed_seconds": 731.4381978750462,
+  "output_sha256": {
+    "aggregates.csv": "2b925d4a55c6ec5bb7bdac2a0f50ce99957bb59b1ccae33294d9cf86dea83363",
+    "alignment_failures.json": "73a0ddf30f72376a2f91822bb9ba094b9ed69c4e8cf3f90fa2b90ff1806be315",
+    "condition_changes.csv": "7e2b07309085ff88374bda285d183bb6185a7a041691a6993025ee0929aa7157",
+    "curves.csv": "dc23147f3ba206745c6d24d778f8afbd58a120ebb2cf5e8afbcea1bc85302ceb",
+    "distributions.csv": "17a0f81a6791481201a4a1dba0ced02f8fe4a256528a5500d69653f83ae928b6",
+    "evaluation.json": "825b8de6b1b5c56eed0b2216436e45820a8385698b25dde6c511475a99e8ffe3",
+    "figures/project2_det.png": "82c40b166348aba7d82c1f148134cd1b31ff0f5e3b81b8970dd58e126fcdacaa",
+    "figures/project2_fixed_threshold_metrics.png": "ea27e41afd44fc05c48603573e3603cf72c8155708c78f4a36a6f75e927309b0",
+    "figures/project2_qualities_distributions.png": "09fc86b1b433ba32177a994ddb1049cbaa81e396dbb00917612068f7615edd58",
+    "figures/project2_roc.png": "9b3fc04ef47cc0d759314aa9d95d56b5a775a4dbacf792060eca8224943819b4",
+    "figures/project2_scores_distributions.png": "8c4050dd409bc0f18007dd6860d05891738fbbafa96db18ea74a6cd068508a21",
+    "folds.csv": "1aa0ee8ce1a8d9cdefc954e4348d11f909099c10a293885973737cd4a46895db",
+    "pair_scores.jsonl": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "paired_changes.csv": "1eae5f62296c0473488e8ff69130c290e31849d16f32864287fff64ee64482e2",
+    "predictions.csv": "58b71d59ce5ab21555b2f31213d19357af3ae3ccf97a5b505a7d1e3faf5e7b20"
+  }
+}

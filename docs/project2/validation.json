@@ -1,0 +1,51 @@
+{
+  "validated_at_utc": "2026-10-18T23:25:13.705247+00:00",
+  "python": "3.13.7",
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -v",
+    "count": 131,
+    "failures": 0,
+    "errors": 0,
+    "status": "passed",
+    "log": "docs/project2/validation.txt",
+    "log_sha256": "3c5b3a4c4b27490415d10ed984590eb800c917c508bb15c263faa9fffdf1f939"
+  },
+  "saved_run_verification": {
+    "command": ".venv/bin/python scripts/check_project2.py --include-caches --json",
+    "status": "passed",
+    "passed": 14,
+    "failed": 0,
+    "scored_pairs_reconstructed": 59990,
+    "evidence": "docs/project2/saved_run_verification.json"
+  },
+  "reanalysis": {
+    "status": "passed",
+    "matching_tables": {
+      "condition_changes.csv": true,
+      "aggregates.csv": true,
+      "predictions.csv": true,
+      "paired_changes.csv": true,
+      "distributions.csv": true,
+      "curves.csv": true,
+      "folds.csv": true,
+      "evaluation.json": true
+    },
+    "evidence": "docs/project2/reanalysis_verification.json"
+  },
+  "pdf": {
+    "file": "output/pdf/project2_report.pdf",
+    "sha256": "0b9146db3a809a6c00e7ce74105cef1495f4602752c2a85f64d0203a59376cb2",
+    "pages": 7,
+    "render_engine": "PyMuPDF 1.26.4; Poppler unavailable locally",
+    "all_pages_visually_reviewed": true,
+    "out_of_safe_area_text_boxes": 0,
+    "replacement_glyphs": 0,
+    "status": "passed"
+  },
+  "project1_preservation": {
+    "repository_checks": "passed",
+    "original_inference_sources_and_results_unchanged": true
+  },
+  "status": "passed",
+  "scope": "Executed tests, cache/result verification, saved-score rerun and written-report render review. Package integrity is recorded separately in the archive receipt."
+}

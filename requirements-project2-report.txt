@@ -1,0 +1,5 @@
+# Add these to an environment containing the full inference/plotting dependencies.
+# They are optional for score analysis, benchmark reproduction and inference.
+reportlab==4.4.9
+pypdf==6.1.1
+PyMuPDF==1.26.4

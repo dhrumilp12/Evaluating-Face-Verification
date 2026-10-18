@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "command": ".venv/bin/python scripts/project2_reanalyze.py --output /tmp/project2_verified_reanalysis",
+  "source_manifest_sha256": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d",
+  "regenerated_tables_match_original": {
+    "condition_changes.csv": true,
+    "aggregates.csv": true,
+    "predictions.csv": true,
+    "paired_changes.csv": true,
+    "distributions.csv": true,
+    "curves.csv": true,
+    "folds.csv": true,
+    "evaluation.json": true
+  },
+  "analysis_manifest": {
+    "status": "completed",
+    "started_at_utc": "2026-10-18T23:20:27.573148+00:00",
+    "scope": "Saved-score evaluation only; no image alignment or embedding inference",
+    "source_run_directory": "/Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/results/project2/robustness",
+    "source_manifest_sha256": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d",
+    "source_pair_scores_sha256": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "analysis_source_sha256": {
+      "scripts/project2_reanalyze.py": "1f631bc315fdb642452dc57b370799af45c07e6fb543738e6ad5001fa6676134",
+      "src/project2_experiment.py": "1e1b198194f3a6f0be4fba3c3e5dfe87d257124a762912b3aed056903ebe82a3",
+      "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+      "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+      "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+    },
+    "environment": {
+      "python": "3.13.7",
+      "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "packages": {
+        "numpy": "2.5.3",
+        "matplotlib": "3.10.3",
+        "Pillow": "11.2.1",
+        "certifi": "2026.7.22"
+      }
+    },
+    "completed_at_utc": "2026-10-18T23:20:38.917057+00:00",
+    "elapsed_seconds": 11.34390841703862,
+    "output_sha256": {
+      "aggregates.csv": "2b925d4a55c6ec5bb7bdac2a0f50ce99957bb59b1ccae33294d9cf86dea83363",
+      "condition_changes.csv": "7e2b07309085ff88374bda285d183bb6185a7a041691a6993025ee0929aa7157",
+      "curves.csv": "dc23147f3ba206745c6d24d778f8afbd58a120ebb2cf5e8afbcea1bc85302ceb",
+      "distributions.csv": "17a0f81a6791481201a4a1dba0ced02f8fe4a256528a5500d69653f83ae928b6",
+      "evaluation.json": "825b8de6b1b5c56eed0b2216436e45820a8385698b25dde6c511475a99e8ffe3",
+      "figures/project2_det.png": "82c40b166348aba7d82c1f148134cd1b31ff0f5e3b81b8970dd58e126fcdacaa",
+      "figures/project2_fixed_threshold_metrics.png": "ea27e41afd44fc05c48603573e3603cf72c8155708c78f4a36a6f75e927309b0",
+      "figures/project2_qualities_distributions.png": "09fc86b1b433ba32177a994ddb1049cbaa81e396dbb00917612068f7615edd58",
+      "figures/project2_roc.png": "9b3fc04ef47cc0d759314aa9d95d56b5a775a4dbacf792060eca8224943819b4",
+      "figures/project2_scores_distributions.png": "8c4050dd409bc0f18007dd6860d05891738fbbafa96db18ea74a6cd068508a21",
+      "folds.csv": "1aa0ee8ce1a8d9cdefc954e4348d11f909099c10a293885973737cd4a46895db",
+      "pair_scores.jsonl": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+      "paired_changes.csv": "1eae5f62296c0473488e8ff69130c290e31849d16f32864287fff64ee64482e2",
+      "predictions.csv": "58b71d59ce5ab21555b2f31213d19357af3ae3ccf97a5b505a7d1e3faf5e7b20",
+      "source_manifest.json": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d"
+    }
+  }
+}

@@ -61,3 +61,36 @@ were used for selecting the full grid, parameters, or preprocessing.
 The full ten-condition grid was frozen before starting evaluation inference.
 Published alpha/beta remain fixed. Each method's held-out predictions use only
 original-quality calibration scores from the other nine original LFW folds.
+
+## Completed measurements and validation
+
+The complete run finished in 731.44 seconds on MPS. It requested 7,701 unique
+evaluation images, aligned 7,700 and retained one low-confidence detection
+failure. Each of ten conditions scores 5,999/6,000 requested pairs (2,999 genuine
+and 3,000 impostor), for 59,990 scored comparisons and 60,000 retained attempts.
+All 48,884 required raw embeddings were computed and cached in this run.
+
+The author-feature reproduction measured 99.749722% cosine and 99.833139%
+QMagFace on 5,994 pairs. The robustness experiment's mean-fold original accuracy
+was 99.800000% cosine and 99.816667% QMagFace. At 14-pixel resolution it was
+58.826739% and 65.411324%, respectively: 398 corrected errors and three introduced
+errors. AUC decreased and EER increased at that severity, so this is an
+operating-point improvement rather than uniformly better discrimination.
+The [final report](final_report.md) includes every condition, count and caveat.
+
+All 131 tests passed. The full saved-run verifier passed 14 checks, including
+reconstruction of all 59,990 scored pairs from raw caches. Independent invocation
+of the safe saved-score reanalysis reproduced all seven CSV tables byte for byte
+and the evaluation JSON numerically, while preserving original outputs. The
+Project 1 repository checks also passed. The seven-page PDF was rendered and
+visually reviewed; no clipped text, missing glyphs or broken tables remained.
+See [validation.json](validation.json), [the test log](validation.txt),
+[cache verification](saved_run_verification.json), and
+[reanalysis verification](reanalysis_verification.json).
+
+The first genuine Project 2 commit is `1d2556b`, covering the tested pipeline and
+author benchmark. The final measurements, report and packaging instructions
+form the next increment. The history continues from the real Project 1 commits;
+no dates or commits were manufactured. No remote push or course submission was
+performed. The user confirmed repository history plus a written report, with
+no slide requirement.

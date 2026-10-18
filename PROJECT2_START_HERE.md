@@ -1,90 +1,82 @@
-# Project 2 - first working increment
+# Project 2: Quality-aware face verification under image degradation
 
-**Quality-Aware Face Verification Under Image Degradation: Reproducing and Investigating QMagFace**
+The QMagFace reproduction and ten-condition robustness investigation are
+complete. Project 2 extends the existing face-verification repository and keeps
+Project 1's code, results, and Git history. The deliverables are the repository
+with its `.git` history and the written report.
 
-This is an additive starter for the existing `Evaluating-Face-Verification`
-repository. It is NOT a complete Project 2 submission or a replacement repository.
-It contains no `.git` directory, images, model weights, or fabricated experiments.
+## Read the completed work
 
-## What is implemented now
+- [Final written report](docs/project2/final_report.md) and [report PDF](output/pdf/project2_report.pdf): methods, results, interpretation, and limitations.
+- [Reproduction instructions](docs/project2/reproduce.md): environments, verified downloads, inference, saved-score analysis, and checks.
+- [Executed protocol](docs/project2/protocol.md): alignment, degradations, calibration, failure handling, and scope.
+- [Artifact and benchmark audit](docs/project2/artifact_audit.md): source links, hashes, official-code agreement, and benchmark differences.
+- [Experiment log](docs/project2/experiment_log.md) and [AI usage record](docs/project2/ai_usage.md): development and assistance provenance.
 
-`src/qmagface_scoring.py` implements QMagFace's comparison equation, including raw
-embedding-magnitude preservation and input validation. The 29 synthetic unit tests
-passed in the assistant's Python 3.13.5 / NumPy 2.3.5 Linux environment. This does
-not establish a face-recognition accuracy or validate your entire repository.
+## Measured results
 
-Read [the project plan](docs/project2/plan.md),
-[method notes](docs/project2/method_notes.md), and
-[the evaluation protocol](docs/project2/protocol.md) before running experiments.
+On the authors' released LFW features, the official evaluation produces
+**99.749722% MagFace-cosine accuracy and 99.833139% QMagFace accuracy** over
+5,994 of 6,000 requested pairs. QMagFace corrects five cosine errors and introduces
+none. The independently implemented scorer agrees with the official scorer to
+within `4.8e-15`. The paper reports 99.73% and 99.83%; the audit explains the six
+missing-feature pairs and the released evaluator's fold and threshold behavior.
+See [the benchmark summary](results/project2/author_benchmark/summary.json).
 
-## Apply to your existing repository
+The separate robustness experiment evaluates ten conditions with identical
+embeddings and pair eligibility for both scoring methods. Each method's
+threshold is calibrated on original-quality pairs in the other nine original
+LFW folds and then held fixed for degraded probes. All conditions score
+**5,999 of 6,000 pairs** (99.9833% coverage).
 
-From a terminal inside your current repository, first inspect:
+| Selected condition | MagFace cosine accuracy | QMagFace accuracy |
+|---|---:|---:|
+| Original | 99.800% | 99.817% |
+| Resolution: 14 to 112 pixels | 58.827% | 65.411% |
+| Gaussian blur: sigma 2.1 pixels | 99.500% | 99.733% |
+| Brightness: x0.25 | 99.783% | 99.800% |
 
-```bash
-git status --short
-git log -1 --oneline
-```
+These are mean held-out-fold accuracies from
+[evaluation.json](results/project2/robustness/evaluation.json). At 14-pixel
+resolution, QMagFace corrects 398 cosine errors and introduces three. Both
+methods still fail frequently: pooled FNMR is 82.36% for cosine and 69.16% for
+QMagFace, while pooled FMR changes from 0% to 0.0333%. Brightness x0.75 produces
+identical decisions. These findings show conditional benefits and remaining
+failure modes, without a claim of universal improvement or statistical
+significance.
 
-Resolve any existing changes before proceeding. The remote version inspected for
-this starter was `860e896d9c18619139e7d529009dc3ea9c2bb563`, whose message is
-`Document final findings and add verified submission packaging`. A newer local
-commit is not automatically a problem; inspect its changes before applying this
-increment. Do not reset or discard local work to force a match.
+Our local alignment is a documented five-landmark pipeline, not evidence of
+identical crops to the authors' pre-aligned benchmark. The historical FaceNet
+results remain a system reference; this work's controlled comparison changes
+only the scoring rule on the same MagFace features.
 
-Create a working branch, then extract the ZIP **into this repository root**:
+## Verify and reproduce
 
-```bash
-git switch -c project2-qmagface
-unzip -n "$HOME/Downloads/project2_commit01.zip" -d .
-```
-
-The ZIP contains only new paths. `unzip -n` does not overwrite existing files.
-When the browser saved it elsewhere, use that actual ZIP path. When a
-`project2-qmagface` branch already exists, inspect it rather than trying to
-recreate it. Do not replace the existing `src`, `tests`, or `docs` directories
-with folders from the archive.
-
-Activate your existing Project 1 environment for these NumPy-only tests:
-
-```bash
-source .venv/bin/activate
-python -m unittest discover -s tests -p 'test_qmagface_scoring.py' -v
-python -m unittest discover -s tests -v
-```
-
-The first command should report 29 passing tests. The second also checks your
-existing tests; it has NOT been run against your complete repository by this
-starter. No dependency changes are needed for this increment.
-
-After reviewing the code, explaining the equation in your own words, and
-checking the local test output, commit this genuine increment:
+From the repository root, with the existing inference environment available:
 
 ```bash
-git add PROJECT2_START_HERE.md docs/project2 src/qmagface_scoring.py tests/test_qmagface_scoring.py
-git diff --cached --stat
-git diff --cached --check
-git commit -m "Start Project 2: document QMagFace reproduction and test scoring"
+.venv/bin/python scripts/check_project2.py
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
-Do not backdate commits or mark planned experiments as completed. Keep the
-existing Project 1 history and results intact. The next increment is an artifact
-and environment feasibility check, followed by an official-embedding benchmark
-reproduction and a MagFace inference smoke test. It is not yet time to launch
-all degradation experiments.
+The read-only checker validates saved output hashes and recomputes evaluation
+from the exported scores. With local images, weights, and raw-feature caches,
+add `--include-caches` to also check their provenance and reconstruct scores.
+The complete [reproduction guide](docs/project2/reproduce.md) covers fresh
+setup and reruns; a saved-score rerun does not require model inference.
 
-## Small mathematical demonstration
+The full robustness command used Apple Silicon MPS:
 
-```python
-from src.qmagface_scoring import qmagface_scores
-
-score = qmagface_scores(
-    [0.5], [2.0], [3.0], alpha=0.08, beta=0.12
-)
-print(score)  # [0.46]; synthetic arithmetic, not a real face comparison
+```bash
+.venv/bin/python -m src.project2_experiment --stage run --device mps --grid full --batch-size 32 --threads 2
 ```
 
-The demonstration's coefficients are deliberately simple toy values. For the
-planned QMagFace-100 experiment, the published coefficients are alpha=0.077428
-and beta=0.125926, subject to verifying the compatible checkpoint and feature
-pipeline. Never substitute normalized Project 1 FaceNet embeddings.
+Use `--device cpu` on systems without MPS. A device/configuration change creates
+a separate feature-cache fingerprint; use a separate `--output` directory to
+retain another run. Downloaded images, checkpoint files, and caches are ignored
+by Git and acquired using the verified commands in the reproduction guide.
+
+The submission evidence is stored under
+[results/project2/author_benchmark](results/project2/author_benchmark/) and
+[results/project2/robustness](results/project2/robustness/), including manifests,
+pair scores, predictions, exclusions, fold metrics, paired changes, and figures.

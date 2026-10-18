@@ -6,9 +6,11 @@ and evaluation implementation; the robustness experiment runs our documented
 alignment and probe degradations on LFW images. Saved-score analysis reruns the
 evaluation only. It does not rerun face detection or the embedding network.
 
-This guide gives executable steps without assuming that a full inference run
-has completed. Check each run's manifest or summary for its actual status,
-coverage, environment, and measurements.
+The supplied benchmark and full ten-condition inference run are complete.
+Check each run's manifest or summary for its actual status, coverage,
+environment, and measurements. The [report](final_report.md) interprets the
+recorded results; [submission.md](submission.md) describes report rebuilding
+and packaging with the full Git history.
 
 ## Environments
 

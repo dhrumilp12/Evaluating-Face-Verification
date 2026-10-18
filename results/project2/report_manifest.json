@@ -1,0 +1,16 @@
+{
+  "status": "generated",
+  "input_sha256": {
+    "results/project2/author_benchmark/summary.json": "b49dd8e3fe4bf16c0ac2378764dac89e38a8d827611207ce6962c4ca14966c23",
+    "results/project2/robustness/manifest.json": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d",
+    "results/project2/robustness/evaluation.json": "825b8de6b1b5c56eed0b2216436e45820a8385698b25dde6c511475a99e8ffe3",
+    "scripts/build_project2_report.py": "ffc7e16b9a93eb0ad77b582bb709ef0eb6aa9bec2d9eead4ada0df47e6d4c906"
+  },
+  "output_sha256": {
+    "docs/project2/final_report.md": "7f8834180b28d3e2760bed39315506482d5732722f690442c3f489e68f664cc0",
+    "output/pdf/project2_report.pdf": "0b9146db3a809a6c00e7ce74105cef1495f4602752c2a85f64d0203a59376cb2",
+    "results/project2/report_figures/report_accuracy.png": "4eece0b89f263029e70623f8647a5cfa43a5eeeb7580ff78e5494ed07d6a4939",
+    "results/project2/report_figures/report_quality.png": "2f3de8ebed9dd964a774ee98fe2a5f37957bc1ac3a5038187b3025863d097fdd"
+  },
+  "scope": "Written report and two scientific figures built from verified measured outputs; visual PDF review recorded separately"
+}
