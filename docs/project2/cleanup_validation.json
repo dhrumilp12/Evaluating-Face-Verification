@@ -1,0 +1,111 @@
+{
+  "validated_at_utc": "2026-10-19T03:23:10.721187+00:00",
+  "base_commit": "4639bda696d21cd6c1dd7edd192276edf96429a6",
+  "status": "passed",
+  "scope": "Documentation consolidation, preservation and newly executed tests/result/repository checks; no inference or report rebuild. Pre-commit repository check correctly reports pending documentation changes. Package integrity is recorded separately after commit.",
+  "commands": [
+    {
+      "command": ".venv/bin/python -m unittest discover -s tests -v",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/bin/python scripts/check_project2.py",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/bin/python scripts/check_repository.py --profile full",
+      "exit_code": 0
+    }
+  ],
+  "tests": {
+    "passed": 131,
+    "failed": 0,
+    "errors": 0
+  },
+  "saved_result_checks": {
+    "passed": 13,
+    "failed": 0,
+    "skipped": 1,
+    "skip_reason": "Local raw caches are optional and were not reverified for this documentation-only cleanup."
+  },
+  "repository_checks": {
+    "passed": 23,
+    "failed": 0,
+    "skipped": 0
+  },
+  "log": "docs/project2/cleanup_validation.txt",
+  "log_sha256": "5c4f20d6c8468ddda6c021bcaa57efcfbbe54bb47e667a3094ecf611d20d1d32",
+  "documentation_links": {
+    "status": "passed",
+    "documents": 14,
+    "local_links": 144,
+    "markdown_heading_anchors": 13,
+    "checked_files": [
+      "README.md",
+      "docs/dataset_research.md",
+      "docs/experiment_log.md",
+      "docs/final_report.md",
+      "docs/project2/ai_usage.md",
+      "docs/project2/artifact_audit.md",
+      "docs/project2/experiment_log.md",
+      "docs/project2/final_report.md",
+      "docs/project2/protocol.md",
+      "docs/project2/reproduce.md",
+      "docs/repository_guide.md",
+      "docs/reproducibility.md",
+      "docs/submission.md",
+      "src/vendor/README.md"
+    ],
+    "errors": [],
+    "scope": "All remaining tracked Markdown, including nested Project 2 docs; local file/directory paths and linked Markdown heading anchors. External URLs are not fetched."
+  },
+  "report_fingerprints": {
+    "status": "passed",
+    "count": 8,
+    "sha256": {
+      "results/project2/author_benchmark/summary.json": "b49dd8e3fe4bf16c0ac2378764dac89e38a8d827611207ce6962c4ca14966c23",
+      "results/project2/robustness/manifest.json": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d",
+      "results/project2/robustness/evaluation.json": "825b8de6b1b5c56eed0b2216436e45820a8385698b25dde6c511475a99e8ffe3",
+      "scripts/build_project2_report.py": "a2eb14d7fb095d9f69c9ee7b03b7e40819023b4a49304f2da69f78408d7a22e2",
+      "docs/project2/final_report.md": "c7d9db6ebb553610e93c377141fb4b641fb23e9a4bcd0774d4c4596fbb5ba705",
+      "output/pdf/project2_report.pdf": "1b15ec57a092a9bf68871d7070aa13ef815faa1c98efd0540e5a416e1d51abef",
+      "results/project2/report_figures/report_accuracy.png": "4eece0b89f263029e70623f8647a5cfa43a5eeeb7580ff78e5494ed07d6a4939",
+      "results/project2/report_figures/report_quality.png": "2f3de8ebed9dd964a774ee98fe2a5f37957bc1ac3a5038187b3025863d097fdd"
+    }
+  },
+  "preservation": {
+    "protected_paths": [
+      "src",
+      "tests",
+      "scripts",
+      "notebooks",
+      "results",
+      "output",
+      "LICENSE",
+      "requirements.txt",
+      "requirements-analysis.txt",
+      "requirements-project2-benchmark.txt",
+      "requirements-project2-report.txt",
+      ".gitignore",
+      ".gitattributes",
+      "docs/submission.md",
+      "docs/project2/final_report.md",
+      "docs/project2/validation.json",
+      "docs/project2/validation.txt",
+      "docs/project2/starter_validation.json",
+      "docs/project2/starter_validation.txt",
+      "docs/project2/saved_run_verification.json",
+      "docs/project2/reanalysis_verification.json"
+    ],
+    "unchanged_from_base": true,
+    "preexisting_user_ai_record_preserved": true,
+    "original_history_preserved": true,
+    "local_data_and_model_caches_not_removed": true
+  },
+  "retired_documents": {
+    "PROJECT2_START_HERE.md": "README.md",
+    "docs/project2/plan.md": "docs/project2/experiment_log.md",
+    "docs/project2/method_notes.md": "docs/project2/artifact_audit.md",
+    "docs/project2/submission.md": "docs/project2/reproduce.md"
+  }
+}

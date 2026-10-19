@@ -4,6 +4,58 @@ Audit and execution date: October 18, 2026. The public checkpoint, author featur
 archive, and official scoring implementation were accessible. This is an executed
 feature-benchmark reproduction, separate from our locally aligned robustness run.
 
+## October 12 source history and implementation cautions
+
+The kickoff research identified Philipp Terhorst, Malte Ihlefeld, Marco Huber,
+Naser Damer, Florian Kirchbuchner, Kiran Raja and Arjan Kuijper's *QMagFace:
+Simple and Accurate Quality-Aware Face Recognition* as a WACV 2023 paper through
+the [publisher record](https://ieeexplore.ieee.org/document/10030931/).
+At that stage, the inspected method document was the authors'
+[arXiv version 3](https://arxiv.org/abs/2111.13475v3), dated March 23, 2022
+([PDF](https://arxiv.org/pdf/2111.13475v3)). Sections 3.1 and 4.3, equations and
+Tables 1 and 2 were visually inspected; the final CVF proceedings link was
+inaccessible during that session. The final proceedings paper was subsequently
+accessed in the October 18 audit recorded below.
+
+The kickoff also inspected the [QMagFace repository](https://github.com/pterhoer/QMagFace)
+and its [scoring source](https://github.com/pterhoer/QMagFace/blob/main/similarity/qmagface.py),
+observing Git blob `6ea91187361a3ddd7ea2246c52ee2c73d85d7990`. That blob identifies
+the file's content, not an entire repository revision. The underlying model
+reference was Qiang Meng, Shichao Zhao, Zhida Huang and Feng Zhou's *MagFace:
+A Universal Representation for Face Recognition and Quality Assessment*
+(CVPR 2021), with [implementation/model documentation](https://github.com/IrvingMeng/MagFace).
+Sources were accessed on October 12; artifact links were observed then, but
+checkpoint and author-feature downloads had not yet been verified. Those
+historical access limits do not describe the executed October 18 audit.
+
+The independent starter scorer implemented the preprint's equations (3)–(4):
+
+```text
+q_ref = ||e_ref||_2; q_probe = ||e_probe||_2
+s = cosine_similarity(e_ref, e_probe)
+weight = min(0, beta*s - alpha)
+qmagface_score = s + weight * min(q_ref, q_probe)
+```
+
+The starter's randomized check used a separate scalar calculation; it did not
+execute or vendor the authors' scorer. The later real-feature comparison below
+does execute the official implementation. The fixed QMagFace-100 coefficients
+`alpha=0.077428`, `beta=0.125926` are specific to compatible model and feature
+conventions, not universal values for arbitrary architectures or aggregation.
+The preprint's 99.73%/99.83% LFW values were comparison targets at kickoff, not
+measurements or a promise of exact reproduction.
+
+Raw magnitudes must survive caching: unit-normalized FaceNet embeddings cannot
+supply MagFace quality. The all-unit-norm input guard catches one incompatible
+case but does not authenticate other inputs' model provenance. The adjusted
+score is not a probability and can be below -1, so it must not be clipped to the
+cosine range or use an inherited FaceNet threshold. For positive qualities the
+adjustment is nonpositive; at a fixed cosine below the weight cutoff, larger
+minimum quality produces a larger negative adjustment. The rule does not simply
+boost every blurry-face score. The official fitting code uses sigmoid-transformed
+intermediate scores, while final inference does not; parameter fitting requires
+a separate audit and is not reproduced here.
+
 ## Primary artifacts
 
 The [QMagFace README at the audited commit](https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/README.md)

@@ -6,9 +6,11 @@ The QMagFace scoring reproduction, author-feature benchmark, and all ten
 controlled degradation conditions are complete. The repository retains the
 Project 1 implementation, measurements and Git history below.
 
-[Project 2 start guide](PROJECT2_START_HERE.md) · [Written report](docs/project2/final_report.md) ·
-[PDF report](output/pdf/project2_report.pdf) · [Reproduction commands](docs/project2/reproduce.md) ·
-[Artifact audit](docs/project2/artifact_audit.md)
+- [Written report](docs/project2/final_report.md) and [PDF report](output/pdf/project2_report.pdf): method, results, interpretation and limitations.
+- [Reproduction and submission guide](docs/project2/reproduce.md): setup, verified downloads, inference, saved-score analysis, report rebuilding and packaging.
+- [Executed protocol](docs/project2/protocol.md): alignment, degradations, calibration and failure handling.
+- [Artifact audit](docs/project2/artifact_audit.md): source history, hashes, official-code agreement and benchmark differences.
+- [Experiment log](docs/project2/experiment_log.md) and [AI-assistance record](docs/project2/ai_usage.md): development and assistance provenance.
 
 The author-feature benchmark measures **99.7497% MagFace cosine** and
 **99.8331% QMagFace** on 5,994/6,000 pairs. The separate aligned-image experiment
@@ -19,15 +21,26 @@ QMagFace; its AUC and EER worsen, so this is an operating-point benefit rather
 than uniformly better discrimination. The report includes the full error counts,
 coverage, paired decision changes and limitations.
 
-Validation: **131 tests passed**, and **14 saved-run checks passed**, including
+Recorded experiment validation: **131 tests passed**, and **14 saved-run checks passed**, including
 reconstruction of all 59,990 scored comparisons from raw embedding caches.
 The [validation record](docs/project2/validation.json) and
 [measured run manifest](results/project2/robustness/manifest.json) retain evidence.
+The [author-benchmark outputs](results/project2/author_benchmark/) and
+[robustness outputs](results/project2/robustness/) include scores, predictions,
+exclusions, fold metrics, paired changes and figures.
+The later [documentation-cleanup checks](docs/project2/cleanup_validation.json)
+are recorded separately from that computational evidence.
 
 ```bash
 .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python scripts/check_project2.py
 ```
+
+The read-only checker recomputes evaluation from saved scores and verifies
+output hashes. Add `--include-caches` when the local images, weights and raw
+embeddings are available to check their provenance and reconstruct scores.
+See the reproduction guide for fresh setup, CPU/MPS inference and separate
+output directories; saved-score reanalysis does not require model inference.
 
 ## Project 1: Preserved reference experiment
 

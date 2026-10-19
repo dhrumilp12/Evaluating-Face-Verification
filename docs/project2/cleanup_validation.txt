@@ -1,0 +1,203 @@
+Project 2 documentation cleanup validation
+Checks were executed against uncommitted documentation changes based on 4639bda.
+These are new cleanup checks, not replacements for historical computational evidence.
+
+$ .venv/bin/python -m unittest discover -s tests -v
+Log last written at UTC: 2026-10-19T02:19:56.207403+00:00
+test_accuracy_optimum_agrees_with_brute_force (test_evaluation.EvaluationTests.test_accuracy_optimum_agrees_with_brute_force) ... ok
+test_boundary_is_accepted (test_evaluation.EvaluationTests.test_boundary_is_accepted) ... ok
+test_failures_count_in_coverage_not_conditional_errors (test_evaluation.EvaluationTests.test_failures_count_in_coverage_not_conditional_errors) ... ok
+test_invalid_inputs_fail (test_evaluation.EvaluationTests.test_invalid_inputs_fail) ... ok
+test_known_confusion_counts (test_evaluation.EvaluationTests.test_known_confusion_counts) ... ok
+test_test_fold_cannot_set_its_threshold (test_evaluation.EvaluationTests.test_test_fold_cannot_set_its_threshold) ... ok
+test_threshold_between_separated_classes (test_evaluation.EvaluationTests.test_threshold_between_separated_classes) ... ok
+test_ties_choose_reject_all (test_evaluation.EvaluationTests.test_ties_choose_reject_all) ... ok
+test_checkpoint_download_verifies_tls_and_reuses_cache (test_face_embedding.FaceEmbeddingTests.test_checkpoint_download_verifies_tls_and_reuses_cache) ... Downloading VGGFace2 recognition checkpoint ...
+ok
+test_cosine_uses_unit_vectors_without_a_decision_threshold (test_face_embedding.FaceEmbeddingTests.test_cosine_uses_unit_vectors_without_a_decision_threshold) ... ok
+test_detection_failures_have_distinct_reasons (test_face_embedding.FaceEmbeddingTests.test_detection_failures_have_distinct_reasons) ... ok
+test_failed_dataset_validation_prevents_model_loading (test_face_embedding.FaceEmbeddingTests.test_failed_dataset_validation_prevents_model_loading) ... ok
+test_incomplete_checkpoint_is_not_cached (test_face_embedding.FaceEmbeddingTests.test_incomplete_checkpoint_is_not_cached) ... Downloading VGGFace2 recognition checkpoint ...
+ok
+test_invalid_embeddings_are_rejected (test_face_embedding.FaceEmbeddingTests.test_invalid_embeddings_are_rejected) ... ok
+test_peripheral_face_cannot_displace_central_target (test_face_embedding.FaceEmbeddingTests.test_peripheral_face_cannot_displace_central_target) ... ok
+test_subset_is_balanced_and_requires_both_classes (test_face_embedding.FaceEmbeddingTests.test_subset_is_balanced_and_requires_both_classes) ... ok
+test_alignment_failure_record_and_central_selection (test_magface_embedding.MagFaceEmbeddingTests.test_alignment_failure_record_and_central_selection) ... ok
+test_alignment_translation_preserves_color_marker_and_black_border (test_magface_embedding.MagFaceEmbeddingTests.test_alignment_translation_preserves_color_marker_and_black_border) ... ok
+test_checkpoint_wrapper_mapping_requires_every_backbone_entry (test_magface_embedding.MagFaceEmbeddingTests.test_checkpoint_wrapper_mapping_requires_every_backbone_entry) ... ok
+test_invalid_landmarks_are_not_silently_box_cropped (test_magface_embedding.MagFaceEmbeddingTests.test_invalid_landmarks_are_not_silently_box_cropped) ... ok
+test_preprocessing_matches_author_opencv_bgr_to_tensor (test_magface_embedding.MagFaceEmbeddingTests.test_preprocessing_matches_author_opencv_bgr_to_tensor) ... ok
+test_preprocessing_rejects_old_facenet_crops_and_float_standardization (test_magface_embedding.MagFaceEmbeddingTests.test_preprocessing_rejects_old_facenet_crops_and_float_standardization) ... ok
+test_raw_quality_is_preserved_before_unit_normalization (test_magface_embedding.MagFaceEmbeddingTests.test_raw_quality_is_preserved_before_unit_normalization) ... ok
+test_safe_checkpoint_load_and_single_raw_forward_pass (test_magface_embedding.MagFaceEmbeddingTests.test_safe_checkpoint_load_and_single_raw_forward_pass) ... ok
+test_similarity_recovers_known_rotation_scale_and_translation (test_magface_embedding.MagFaceEmbeddingTests.test_similarity_recovers_known_rotation_scale_and_translation) ... ok
+test_dirty_repository_rejected (test_package_submission.PackageTests.test_dirty_repository_rejected) ... ok
+test_existing_output_and_inside_output_rejected (test_package_submission.PackageTests.test_existing_output_and_inside_output_rejected) ... ok
+test_external_git_objects_rejected (test_package_submission.PackageTests.test_external_git_objects_rejected) ... ok
+test_round_trip_preserves_history_and_omits_ignored_data (test_package_submission.PackageTests.test_round_trip_preserves_history_and_omits_ignored_data) ... ok
+test_symlink_rejected (test_package_submission.PackageTests.test_symlink_rejected) ... ok
+test_changed_upstream_code_is_rejected_before_execution (test_project2_benchmark.Project2BenchmarkTests.test_changed_upstream_code_is_rejected_before_execution) ... ok
+test_duplicate_filenames_cannot_silently_change_feature_mapping (test_project2_benchmark.Project2BenchmarkTests.test_duplicate_filenames_cannot_silently_change_feature_mapping) ... ok
+test_missing_features_remain_visible_at_original_pair_index (test_project2_benchmark.Project2BenchmarkTests.test_missing_features_remain_visible_at_original_pair_index) ... ok
+test_pickle_backed_filename_array_is_rejected (test_project2_benchmark.Project2BenchmarkTests.test_pickle_backed_filename_array_is_rejected) ... ok
+test_benchmark_saved_outputs_reproduce_author_calibration_policy (test_project2_check.Project2CheckTests.test_benchmark_saved_outputs_reproduce_author_calibration_policy) ... ok
+test_changed_source_image_fails_even_with_untouched_embeddings (test_project2_check.Project2CheckTests.test_changed_source_image_fails_even_with_untouched_embeddings) ... ok
+test_coherently_changed_raw_embedding_is_caught_by_score_reconstruction (test_project2_check.Project2CheckTests.test_coherently_changed_raw_embedding_is_caught_by_score_reconstruction) ... ok
+test_corrupted_cache_quality_is_rejected (test_project2_check.Project2CheckTests.test_corrupted_cache_quality_is_rejected) ... ok
+test_incomplete_and_missing_runs_fail_without_writes (test_project2_check.Project2CheckTests.test_incomplete_and_missing_runs_fail_without_writes) ... ok
+test_json_cli_returns_failure_and_never_creates_report_file (test_project2_check.Project2CheckTests.test_json_cli_returns_failure_and_never_creates_report_file) ... ok
+test_output_byte_corruption_and_unhashed_required_output_fail (test_project2_check.Project2CheckTests.test_output_byte_corruption_and_unhashed_required_output_fail) ... ok
+test_portable_valid_run_passes_without_inference_packages_or_caches (test_project2_check.Project2CheckTests.test_portable_valid_run_passes_without_inference_packages_or_caches) ... ok
+test_rehashed_benchmark_threshold_is_recalibrated (test_project2_check.Project2CheckTests.test_rehashed_benchmark_threshold_is_recalibrated) ... ok
+test_rehashed_changed_fold_cannot_pass (test_project2_check.Project2CheckTests.test_rehashed_changed_fold_cannot_pass) ... ok
+test_rehashed_prediction_and_curve_corruption_fail (test_project2_check.Project2CheckTests.test_rehashed_prediction_and_curve_corruption_fail) ... ok
+test_rehashed_test_selected_threshold_fails_recalibration (test_project2_check.Project2CheckTests.test_rehashed_test_selected_threshold_fails_recalibration) ... ok
+test_rehashed_wrong_adjusted_score_cannot_pass (test_project2_check.Project2CheckTests.test_rehashed_wrong_adjusted_score_cannot_pass) ... ok
+test_source_drift_and_path_escape_fail (test_project2_check.Project2CheckTests.test_source_drift_and_path_escape_fail) ... ok
+test_valid_local_cache_reconstructs_every_pair_without_loading_model (test_project2_check.Project2CheckTests.test_valid_local_cache_reconstructs_every_pair_without_loading_model) ... ok
+test_blur_spreads_impulse_symmetrically (test_project2_degradation.DegradationTests.test_blur_spreads_impulse_symmetrically) ... ok
+test_constant_image_and_brightness_quantization (test_project2_degradation.DegradationTests.test_constant_image_and_brightness_quantization) ... ok
+test_each_transform_preserves_input_and_shape (test_project2_degradation.DegradationTests.test_each_transform_preserves_input_and_shape) ... ok
+test_rejects_wrong_crop_and_condition (test_project2_degradation.DegradationTests.test_rejects_wrong_crop_and_condition) ... ok
+test_all_failed_test_fold_has_null_rates_and_explicit_valid_fold_counts (test_project2_evaluation.Project2EvaluationTests.test_all_failed_test_fold_has_null_rates_and_explicit_valid_fold_counts) ... ok
+test_degraded_scores_and_labels_never_calibrate (test_project2_evaluation.Project2EvaluationTests.test_degraded_scores_and_labels_never_calibrate) ... ok
+test_failure_coverage_and_reject_policy_use_requested_denominators (test_project2_evaluation.Project2EvaluationTests.test_failure_coverage_and_reject_policy_use_requested_denominators) ... ok
+test_held_out_original_fold_cannot_set_its_own_threshold (test_project2_evaluation.Project2EvaluationTests.test_held_out_original_fold_cannot_set_its_own_threshold) ... ok
+test_input_order_does_not_change_results_or_mutate_rows (test_project2_evaluation.Project2EvaluationTests.test_input_order_does_not_change_results_or_mutate_rows) ... ok
+test_missing_test_class_does_not_claim_zero_error_rate (test_project2_evaluation.Project2EvaluationTests.test_missing_test_class_does_not_claim_zero_error_rate) ... ok
+test_original_failures_are_excluded_only_from_calibration_with_counts (test_project2_evaluation.Project2EvaluationTests.test_original_failures_are_excluded_only_from_calibration_with_counts) ... ok
+test_paired_condition_delta_uses_same_successful_pairs (test_project2_evaluation.Project2EvaluationTests.test_paired_condition_delta_uses_same_successful_pairs) ... ok
+test_paired_decisions_count_improvements_and_regressions (test_project2_evaluation.Project2EvaluationTests.test_paired_decisions_count_improvements_and_regressions) ... ok
+test_plot_artifacts_are_created_from_evaluation_without_inference (test_project2_evaluation.Project2EvaluationTests.test_plot_artifacts_are_created_from_evaluation_without_inference) ... /Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+/Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse = parser.parseString(pattern)
+/Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+  parser.resetCache()
+/Users/dhrumil/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/85/swndxxnj443b81fdbcy47pgm0000gn/T/matplotlib-w1mnjzsq because there was an issue with the default path (/Users/dhrumil/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+/Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+  ParserElement.enablePackrat()
+In /Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle: 'parseString' deprecated - use 'parse_string'
+In /Users/dhrumil/Fall 2026/Biometrics/Evaluating Face Verification/.venv/lib/python3.13/site-packages/matplotlib/mpl-data/stylelib/classic.mplstyle: 'resetCache' deprecated - use 'reset_cache'
+ok
+test_rejects_incomplete_calibration_without_silently_using_test_scores (test_project2_evaluation.Project2EvaluationTests.test_rejects_incomplete_calibration_without_silently_using_test_scores) ... ok
+test_rejects_invalid_or_method_specific_missing_scores (test_project2_evaluation.Project2EvaluationTests.test_rejects_invalid_or_method_specific_missing_scores) ... ok
+test_rejects_missing_duplicate_or_changed_pair_metadata (test_project2_evaluation.Project2EvaluationTests.test_rejects_missing_duplicate_or_changed_pair_metadata) ... ok
+test_roc_auc_eer_with_ties_and_scores_outside_cosine_range (test_project2_evaluation.Project2EvaluationTests.test_roc_auc_eer_with_ties_and_scores_outside_cosine_range) ... ok
+test_separate_method_thresholds_and_original_reuse (test_project2_evaluation.Project2EvaluationTests.test_separate_method_thresholds_and_original_reuse) ... ok
+test_corrupt_quality_fails_instead_of_reusing_cache (test_project2_experiment.ExperimentTests.test_corrupt_quality_fails_instead_of_reusing_cache) ... ok
+test_feature_cache_retains_raw_magnitudes_and_checks_source (test_project2_experiment.ExperimentTests.test_feature_cache_retains_raw_magnitudes_and_checks_source) ... ok
+test_missing_eligible_feature_is_fatal (test_project2_experiment.ExperimentTests.test_missing_eligible_feature_is_fatal) ... ok
+test_pair_rows_retain_failures_and_fixed_reference (test_project2_experiment.ExperimentTests.test_pair_rows_retain_failures_and_fixed_reference) ... ok
+test_analysis_failure_gets_failed_manifest_without_modifying_source (test_project2_reanalyze.ReanalysisTests.test_analysis_failure_gets_failed_manifest_without_modifying_source) ... ok
+test_rejects_incomplete_inference_and_missing_hash (test_project2_reanalyze.ReanalysisTests.test_rejects_incomplete_inference_and_missing_hash) ... ok
+test_rejects_modified_scores_before_creating_output_or_analyzing (test_project2_reanalyze.ReanalysisTests.test_rejects_modified_scores_before_creating_output_or_analyzing) ... ok
+test_rejects_source_or_nested_output_and_preserves_existing_outputs (test_project2_reanalyze.ReanalysisTests.test_rejects_source_or_nested_output_and_preserves_existing_outputs) ... ok
+test_success_preserves_source_and_records_hashes_of_new_outputs (test_project2_reanalyze.ReanalysisTests.test_success_preserves_source_and_records_hashes_of_new_outputs) ... ok
+test_adjusted_output_is_not_clipped (test_qmagface_scoring.QMagFaceScoringTests.test_adjusted_output_is_not_clipped) ... ok
+test_adjustment_does_not_increase_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_adjustment_does_not_increase_cosine) ... ok
+test_embedding_and_precomputed_score_interfaces_agree (test_qmagface_scoring.QMagFaceScoringTests.test_embedding_and_precomputed_score_interfaces_agree) ... ok
+test_empty_inputs_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_empty_inputs_are_rejected) ... ok
+test_feature_shape_mismatch_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_feature_shape_mismatch_is_rejected) ... ok
+test_fixed_score_higher_quality_has_larger_penalty (test_qmagface_scoring.QMagFaceScoringTests.test_fixed_score_higher_quality_has_larger_penalty) ... ok
+test_float32_input_gives_float64_output (test_qmagface_scoring.QMagFaceScoringTests.test_float32_input_gives_float64_output) ... ok
+test_hand_calculated_score (test_qmagface_scoring.QMagFaceScoringTests.test_hand_calculated_score) ... ok
+test_high_similarity_is_unchanged (test_qmagface_scoring.QMagFaceScoringTests.test_high_similarity_is_unchanged) ... ok
+test_inputs_are_not_modified (test_qmagface_scoring.QMagFaceScoringTests.test_inputs_are_not_modified) ... ok
+test_invalid_cosine_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_cosine_is_rejected) ... ok
+test_invalid_parameters_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_parameters_are_rejected) ... ok
+test_invalid_quality_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_invalid_quality_is_rejected) ... ok
+test_magnitude_scaling_changes_quality_not_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_magnitude_scaling_changes_quality_not_cosine) ... ok
+test_negligible_cosine_roundoff_is_handled (test_qmagface_scoring.QMagFaceScoringTests.test_negligible_cosine_roundoff_is_handled) ... ok
+test_nonfinite_embeddings_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_nonfinite_embeddings_are_rejected) ... ok
+test_numeric_overflow_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_numeric_overflow_is_rejected) ... ok
+test_pair_order_is_symmetric (test_qmagface_scoring.QMagFaceScoringTests.test_pair_order_is_symmetric) ... ok
+test_published_100_coefficients (test_qmagface_scoring.QMagFaceScoringTests.test_published_100_coefficients) ... ok
+test_quality_is_preserved_before_normalization (test_qmagface_scoring.QMagFaceScoringTests.test_quality_is_preserved_before_normalization) ... ok
+test_random_pairs_match_independent_scalar_formula (test_qmagface_scoring.QMagFaceScoringTests.test_random_pairs_match_independent_scalar_formula) ... ok
+test_scalars_and_nonreal_inputs_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_scalars_and_nonreal_inputs_are_rejected) ... ok
+test_unit_norm_override_is_explicit (test_qmagface_scoring.QMagFaceScoringTests.test_unit_norm_override_is_explicit) ... ok
+test_unit_normalized_input_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_unit_normalized_input_is_rejected) ... ok
+test_uses_minimum_not_mean_quality (test_qmagface_scoring.QMagFaceScoringTests.test_uses_minimum_not_mean_quality) ... ok
+test_vector_shape_mismatch_is_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_vector_shape_mismatch_is_rejected) ... ok
+test_weight_switch_boundary (test_qmagface_scoring.QMagFaceScoringTests.test_weight_switch_boundary) ... ok
+test_zero_embeddings_are_rejected (test_qmagface_scoring.QMagFaceScoringTests.test_zero_embeddings_are_rejected) ... ok
+test_zero_weight_ablation_is_cosine (test_qmagface_scoring.QMagFaceScoringTests.test_zero_weight_ablation_is_cosine) ... ok
+test_brightness_scales_raw_pixels_without_blurring (test_quality.QualityTests.test_brightness_scales_raw_pixels_without_blurring) ... ok
+test_gaussian_impulse_spread_and_channels (test_quality.QualityTests.test_gaussian_impulse_spread_and_channels) ... ok
+test_identity_and_input_preservation (test_quality.QualityTests.test_identity_and_input_preservation) ... ok
+test_invalid_inputs (test_quality.QualityTests.test_invalid_inputs) ... ok
+test_labels_thresholds_and_pair_membership (test_quality.QualityTests.test_labels_thresholds_and_pair_membership) ... ok
+test_runner_resume_and_cache_integrity (test_quality.QualityTests.test_runner_resume_and_cache_integrity) ... ok
+test_cli_refuses_to_overwrite_project_file (test_repository_check.RepositoryCheckTests.test_cli_refuses_to_overwrite_project_file) ... ok
+test_exact_pins_and_comments (test_repository_check.RepositoryCheckTests.test_exact_pins_and_comments) ... ok
+test_local_links_and_code_examples (test_repository_check.RepositoryCheckTests.test_local_links_and_code_examples) ... ok
+test_missing_files_report_failures_without_writes (test_repository_check.RepositoryCheckTests.test_missing_files_report_failures_without_writes) ... ok
+test_notebook_errors_and_execution_counts (test_repository_check.RepositoryCheckTests.test_notebook_errors_and_execution_counts) ... ok
+test_constant_preserved_and_checkerboard_loses_detail (test_resolution.ResolutionTests.test_constant_preserved_and_checkerboard_loses_detail) ... ok
+test_control_exact_copy (test_resolution.ResolutionTests.test_control_exact_copy) ... ok
+test_fixed_threshold_and_pair_membership (test_resolution.ResolutionTests.test_fixed_threshold_and_pair_membership) ... ok
+test_invalid_input (test_resolution.ResolutionTests.test_invalid_input) ... ok
+test_runner_resume_and_cache_integrity (test_resolution.ResolutionTests.test_runner_resume_and_cache_integrity) ... ok
+test_invalid_inputs (test_score_analysis.CurveTests.test_invalid_inputs) ... ok
+test_perfect_reversed_and_all_tied (test_score_analysis.CurveTests.test_perfect_reversed_and_all_tied) ... ok
+test_tied_scores_permutation_and_pairwise_auc (test_score_analysis.CurveTests.test_tied_scores_permutation_and_pairwise_auc) ... ok
+test_changed_pair_rejected_even_with_updated_hash (test_score_analysis.InputTests.test_changed_pair_rejected_even_with_updated_hash) ... ok
+test_changed_threshold_rejected (test_score_analysis.InputTests.test_changed_threshold_rejected) ... ok
+test_control_score_change_rejected (test_score_analysis.InputTests.test_control_score_change_rejected) ... ok
+test_corrupt_file_rejected (test_score_analysis.InputTests.test_corrupt_file_rejected) ... ok
+test_full_loader_analysis_and_no_input_writes (test_score_analysis.InputTests.test_full_loader_analysis_and_no_input_writes) ... ok
+test_missing_pair_rejected (test_score_analysis.InputTests.test_missing_pair_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 131 tests in 10.569s
+
+OK
+
+$ .venv/bin/python scripts/check_project2.py
+Log last written at UTC: 2026-10-19T02:19:49.064502+00:00
+PASS    completed_manifest: Completed robustness run
+PASS    output_hashes: 15 output hashes match
+PASS    source_hashes: 10 executed source hashes match
+PASS    paired_scores_and_calibration: 60000 records; ten-fold original-only calibration and paired eligibility verified
+PASS    numerical_summary: Saved summary matches metrics recomputed from pair scores
+PASS    csv:folds: 200 rows match recomputation
+PASS    csv:aggregates: 20 rows match recomputation
+PASS    csv:paired_changes: 110 rows match recomputation
+PASS    csv:predictions: 120000 rows match recomputation
+PASS    csv:curves: 120000 rows match recomputation
+PASS    csv:distributions: 80 rows match recomputation
+PASS    csv:condition_changes: 220 rows match recomputation
+SKIPPED local_caches: Use --include-caches to revalidate images, checkpoint and raw embeddings
+PASS    author_benchmark: 3 output hashes, source hashes, score formulas and upstream-policy recalibration verified
+Project 2 check: PASSED (13 passed, 0 failed, 1 skipped)
+
+$ .venv/bin/python scripts/check_repository.py --profile full
+Log last written at UTC: 2026-10-19T02:20:03.108707+00:00
+PASS    required_files: 42 required code/document/notebook files present
+PASS    links:README.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/dataset_research.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/experiment_log.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/final_report.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/repository_guide.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/reproducibility.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    links:docs/submission.md: Relative Markdown file targets exist; external URLs and section anchors are not checked
+PASS    notebook:01_dataset_exploration.ipynb: 6 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    notebook:02_face_embedding_pipeline.ipynb: 5 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    notebook:03_baseline_verification.ipynb: 6 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    notebook:04_resolution_degradation.ipynb: 5 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    notebook:05_blur_brightness.ipynb: 6 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    notebook:06_score_analysis.ipynb: 8 code cells have execution counts and no saved errors; this does not establish freshness
+PASS    requirements_consistency: Analysis pins match full requirements; indirect dependencies are not locked
+PASS    installed_dependencies: 9 installed direct dependencies match requirements.txt
+PASS    initial_stage_reports: Historical dataset and embedding smoke reports record passing checks; no image revalidation performed
+PASS    outputs:baseline: Completed summary; 5 exported file hashes match
+PASS    outputs:resolution: Completed summary; 3 exported file hashes match
+PASS    outputs:quality: Completed summary; 3 exported file hashes match
+PASS    outputs:analysis: Completed summary; 7 exported file hashes match
+PASS    saved_score_consistency: Ten conditions reproduce fixed-threshold and AUC/EER summaries from saved scores
+PASS    git_history: Git objects verified; 15 commits; working tree has changes (expected before this commit)
+
+Repository check: PASSED | 23 passed | 0 failed | 0 skipped

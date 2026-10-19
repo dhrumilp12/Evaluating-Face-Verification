@@ -3,8 +3,8 @@
 Status: completed on October 18, 2026. This document began as the proposed
 protocol in the first working increment. The full ten-condition grid was frozen
 after the development pilot and before test-score evaluation. The original
-planning context remains in [plan.md](plan.md) and the execution history in
-[experiment_log.md](experiment_log.md). This revision records the conventions
+planning context and execution history are retained in the
+[experiment log](experiment_log.md). This revision records the conventions
 actually used; it does not change the saved experiment.
 
 The starter's minimum four-condition scope and optional target-1%-FMR analysis
@@ -181,4 +181,5 @@ local input/crop/checkpoint provenance and reconstructs saved scores from raw
 features. Historical Project 1 results remain intact. The user-requested
 deliverables are the repository with its `.git` history plus a written report;
 slides are outside that scope. The supplied course slide does not specify a
-report requirement or page limit; see the [submission guide](submission.md).
+report requirement or page limit; see the
+[reproduction and submission guide](reproduce.md).

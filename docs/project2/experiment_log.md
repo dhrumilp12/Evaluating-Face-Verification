@@ -6,7 +6,7 @@ Prepared: October 12, 2026.
 
 **Completed in this assistance session:** inspected the remote Project 1 README,
 latest commit, source listing, and evaluation helper; reviewed the uploaded
-Project 2 instruction image and the relevant Week 1 course notes; researched the
+Project 2 instruction and the relevant Week 1 course notes; researched the
 QMagFace paper, authors' scoring source, and MagFace model documentation; wrote
 a separate NumPy scorer and synthetic tests; executed those 29 tests successfully.
 
@@ -32,6 +32,67 @@ requested. The current evaluation runner also labels its selected score field as
 **Next gate:** verify artifact access and scope, reproduce scores on author
 features, and validate a small development-only MagFace inference run before full
 experiments. Local user execution and review remain pending.
+
+### Original selection rationale and plan
+
+The October 12 working title was **Quality-Aware Face Verification Under Image
+Degradation: Reproducing and Investigating QMagFace**. The research question was
+whether model-specific quality in the comparison score improves one-to-one face
+verification under reduced resolution, blur and brightness relative to cosine
+scoring of the same embeddings.
+
+The supplied Project 2 slide called for reproducing a method from a modern
+biometric journal or conference paper, investigating it, and retaining Project
+1's problem, with an October 23 deadline. It did not specify a publication-year
+cutoff, full network retraining or a final submission format. The Week 1 notes
+emphasized iteration, reproducibility, version control and recording AI prompts
+and their use. The kickoff therefore proposed a bounded method/benchmark
+reproduction; Project 1's repository and `.git` requirements were continuity
+guidance, not evidence of additional Project 2 format requirements. The user
+confirmed repository history plus a written report on October 18.
+
+The starting point was the Project 1 README and evaluation helper inspected at
+[commit `860e896d9c18619139e7d529009dc3ea9c2bb563`](https://github.com/dhrumilp12/Evaluating-Face-Verification/tree/860e896d9c18619139e7d529009dc3ea9c2bb563).
+Its [preserved results](../../README.md) came from VGGFace2-pretrained
+InceptionResnetV1, conditional on successful preprocessing of 5,999/6,000 pairs.
+They were historical context, not new Project 2 measurements or a matched-pair
+comparison with MagFace.
+
+Terhorst et al.'s *QMagFace: Simple and Accurate Quality-Aware Face Recognition*
+(WACV 2023) was selected because its published comparison rule, coefficients,
+code and artifact links permitted studying the scoring stage without repeating
+backbone training. MagFace cosine and QMagFace on exactly the same raw features
+were the principal comparison; a FaceNet-to-MagFace difference also changes
+training data and preprocessing and cannot isolate quality-aware scoring.
+The original method/source research is preserved in
+[the artifact audit](artifact_audit.md).
+
+The reproduction plan was to check agreement with the authors' scorer and
+attempt their LFW benchmark using compatible artifacts and fixed published
+coefficients. It required inspecting the official evaluator before claiming
+protocol agreement and recording numerical gaps instead of tuning toward a
+published accuracy. The investigation would independently extract raw MagFace
+features for controlled probe degradations, hold pair eligibility and calibration
+rules fixed across scorers, and report improvements, neutral findings and
+regressions. Retraining MagFace, fitting QMagFace parameters and reproducing every
+paper dataset were outside the planned scope.
+
+Feasibility gates were artifact access, model/training-source compatibility,
+dataset and checkpoint terms, and recorded hashes. Precomputed features were to
+precede a development-only pilot checking alignment, channels, normalization,
+raw norms, model loading, CPU throughput and cache restart behavior. A separate
+integration environment would preserve Project 1's working dependencies instead
+of replacing them with an old CUDA/MXNet stack. A smaller model was not an
+interchangeable fallback: in particular, the documented iResNet18 CASIA-WebFace
+release could not inherit MagFace-100 coefficients based only on its name.
+
+The proposed milestones were scope/scorer work on October 12; artifact access,
+benchmark reproduction and a pilot on October 13–14; controlled experiments on
+October 15–19; error analysis on October 20–21; clean-run reproduction and
+packaging on October 22; and final review/submission on October 23. These were
+targets, not a record of work on each date or a required number of commits.
+The October 18 entries below record the actual execution and supersede the
+planned timing. Project 1 outputs and the real Git history were to be preserved.
 
 ## Local review entry - UNUSED HISTORICAL TEMPLATE
 
@@ -106,3 +167,28 @@ results and scientific conclusions are preserved; no image alignment or MagFace
 inference rerun is needed. Updated report and package verification records
 accompany the rebuilt deliverables. The user's review feedback prompted these
 edits; external review code and evidence were not available locally.
+
+## October 18, 2026: documentation consolidation
+
+Starting from `4639bda`, the README absorbed the extra Project 2 overview's
+navigation, this log absorbed the kickoff rationale and planning history, and
+the artifact audit absorbed the historical method/source cautions. Reproduction,
+report-building and packaging instructions now share the reproduction guide.
+The four superseded documents were retired from the working tree after merging
+their unique content; their original versions remain in Git history. The
+existing shortened AI-assistance record and the user's wording edit in the
+kickoff entry were preserved.
+
+The cleanup checks passed: 131 tests, 13 saved-result checks (local caches
+skipped), and all 23 full-repository checks. All remaining Markdown files,
+including nested Project 2 documents, passed local path and heading-anchor
+checks. External URLs were not rechecked. All eight report-manifest fingerprints
+still match, and the code, measured outputs, generated reports, historical
+verification records and Project 1 files remain unchanged. No image inference
+or PDF rebuild was performed, and local data/model caches were retained.
+
+These new checks are recorded in [cleanup_validation.json](cleanup_validation.json)
+and [cleanup_validation.txt](cleanup_validation.txt), separately from the
+original experiment evidence. The newly named cleanup ZIP's adjacent receipt
+records its final commit, full Git history and extraction integrity; it is
+generated after this documentation commit.
