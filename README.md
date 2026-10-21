@@ -57,6 +57,27 @@ at every operating point. See the [protocol](docs/project2/protocol.md) and
 [complete results](docs/project2/final_report.md) for coverage, false-match and
 false-nonmatch counts, all ten conditions, and limitations.
 
+### Project 2 documentation and verification
+
+[Reproduction guide](docs/project2/reproduce.md) ·
+[Experiment log](docs/project2/experiment_log.md) ·
+[AI-use statement](docs/project2/ai_usage.md) ·
+[Results and discussion](docs/project2/final_report.md)
+
+The required submission is the complete repository with Git history.
+The Markdown and PDF reports are optional supporting documentation;
+no separate report is required.
+
+From the repository root, after completing the environment setup:
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/check_project2.py
+```
+
+The saved-result checker does not require model inference.
+See the reproduction guide for full setup and experiment instructions.
+
 ## Project 1: Preserved reference experiment
 
 ## Evaluating Face Verification Under Degraded Image Quality
