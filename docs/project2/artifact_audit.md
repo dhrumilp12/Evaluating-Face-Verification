@@ -1,32 +1,33 @@
-# Project 2 artifact and official benchmark audit
+# Project 2 artifact audit and benchmark reproduction
 
-Audit and execution date: October 18, 2026. The public checkpoint, author feature
-archive, and official scoring implementation were accessible. This is an executed
-feature-benchmark reproduction, separate from our locally aligned robustness run.
+The artifact audit and benchmark run were completed on October 18, 2026, using
+the public checkpoint, the authors' feature archive, and their scoring code.
+The benchmark used released features; the separate robustness experiment used
+locally aligned images.
 
 ## October 12 source history and implementation cautions
 
-The kickoff research identified Philipp Terhorst, Malte Ihlefeld, Marco Huber,
+The initial research identified Philipp Terhorst, Malte Ihlefeld, Marco Huber,
 Naser Damer, Florian Kirchbuchner, Kiran Raja and Arjan Kuijper's *QMagFace:
 Simple and Accurate Quality-Aware Face Recognition* as a WACV 2023 paper through
 the [publisher record](https://ieeexplore.ieee.org/document/10030931/).
-At that stage, the inspected method document was the authors'
+The initial method review used the authors'
 [arXiv version 3](https://arxiv.org/abs/2111.13475v3), dated March 23, 2022
 ([PDF](https://arxiv.org/pdf/2111.13475v3)). Sections 3.1 and 4.3, equations and
 Tables 1 and 2 were visually inspected; the final CVF proceedings link was
 inaccessible during that session. The final proceedings paper was subsequently
 accessed in the October 18 audit recorded below.
 
-The kickoff also inspected the [QMagFace repository](https://github.com/pterhoer/QMagFace)
+The initial review also covered the [QMagFace repository](https://github.com/pterhoer/QMagFace)
 and its [scoring source](https://github.com/pterhoer/QMagFace/blob/main/similarity/qmagface.py),
-observing Git blob `6ea91187361a3ddd7ea2246c52ee2c73d85d7990`. That blob identifies
+with Git blob `6ea91187361a3ddd7ea2246c52ee2c73d85d7990`. That blob identifies
 the file's content, not an entire repository revision. The underlying model
 reference was Qiang Meng, Shichao Zhao, Zhida Huang and Feng Zhou's *MagFace:
 A Universal Representation for Face Recognition and Quality Assessment*
 (CVPR 2021), with [implementation/model documentation](https://github.com/IrvingMeng/MagFace).
-Sources were accessed on October 12; artifact links were observed then, but
-checkpoint and author-feature downloads had not yet been verified. Those
-historical access limits do not describe the executed October 18 audit.
+Sources were accessed on October 12. The checkpoint and author-feature links
+were available then, but their downloads had not yet been verified. Download
+verification was completed in the October 18 audit below.
 
 The independent starter scorer implemented the preprint's equations (3)–(4):
 
@@ -37,20 +38,20 @@ weight = min(0, beta*s - alpha)
 qmagface_score = s + weight * min(q_ref, q_probe)
 ```
 
-The starter's randomized check used a separate scalar calculation; it did not
-execute or vendor the authors' scorer. The later real-feature comparison below
-does execute the official implementation. The fixed QMagFace-100 coefficients
-`alpha=0.077428`, `beta=0.125926` are specific to compatible model and feature
-conventions, not universal values for arbitrary architectures or aggregation.
-The preprint's 99.73%/99.83% LFW values were comparison targets at kickoff, not
-measurements or a promise of exact reproduction.
+The starter checked this formula against a separate scalar calculation on
+random inputs. It did not run or vendor the authors' scorer. The later
+comparison below runs the official implementation on real features. The fixed
+QMagFace-100 coefficients, `alpha=0.077428` and `beta=0.125926`, require compatible
+model and feature conventions; they cannot be assumed to work with other
+architectures or aggregation methods. The preprint's 99.73%/99.83% LFW values
+were comparison targets at kickoff, not project measurements or expected results.
 
-Raw magnitudes must survive caching: unit-normalized FaceNet embeddings cannot
-supply MagFace quality. The all-unit-norm input guard catches one incompatible
-case but does not authenticate other inputs' model provenance. The adjusted
-score is not a probability and can be below -1, so it must not be clipped to the
-cosine range or use an inherited FaceNet threshold. For positive qualities the
-adjustment is nonpositive; at a fixed cosine below the weight cutoff, larger
+The cache must preserve raw feature magnitudes: unit-normalized FaceNet
+embeddings cannot supply MagFace quality. The input guard rejects all-unit-norm
+features, but cannot verify the model that produced other inputs. The adjusted
+score is not a probability and can fall below -1. It must not be clipped to the
+cosine range or compared with an inherited FaceNet threshold. For positive
+qualities the adjustment is nonpositive; at a fixed cosine below the weight cutoff, larger
 minimum quality produces a larger negative adjustment. The rule does not simply
 boost every blurry-face score. The official fitting code uses sigmoid-transformed
 intermediate scores, while final inference does not; parameter fitting requires
@@ -100,13 +101,13 @@ deviation. It outputs raw 512-dimensional features. The corresponding
 constructs a flipped image but executes inference on the unflipped tensor only;
 normalization of the output is commented out. No flip aggregation is used here.
 
-The source uses five-landmark alignment to 112 by 112 images. Its
+The source aligns images to 112 by 112 pixels using five landmarks. Its
 [alignment helper](https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/preprocessing/insightface/src/face_preprocess.py)
 contains the ArcFace target landmarks. The authors explicitly report alignment
-reproduction difficulties and obtaining already aligned ArcFace images. Our
-facenet-pytorch landmark detector and independently computed crop therefore
-define a separate preprocessing experiment; a compatible input convention does
-not establish identical alignment or identical embeddings.
+reproduction difficulties and obtaining already aligned ArcFace images. This
+project uses a facenet-pytorch landmark detector and computes its own crops.
+Although the network input conventions agree, the local alignment and resulting
+embeddings may differ from the authors' images and features.
 
 The fixed coefficients are `alpha=0.077428`, `beta=0.125926`. The
 [official inference score](https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/similarity/qmagface.py)
@@ -115,10 +116,10 @@ comparison score has no sigmoid and is not clipped to the cosine range.
 
 ## Exact benchmark protocol and observed exclusions
 
-The benchmark runner executes the hash-verified upstream `Cosine`, `QMagFace`,
-and `evaluate_metrics` implementations. An independent filename-to-row mapping
-retains every requested pair and reports missing rows; its resulting sequence
-was checked against the original upstream `PairDataset` execution.
+The benchmark runner verifies the hashes of the upstream `Cosine`, `QMagFace`,
+and `evaluate_metrics` implementations before running them. A separate
+filename-to-row mapping retains every requested pair and reports missing rows.
+Its sequence was checked against the output of the upstream `PairDataset`.
 
 The [official pair loader](https://github.com/pterhoer/QMagFace/blob/395797145da1b1b263cbe7fb1564c6ea91f55b23/datasets/paired.py)
 silently skips comparisons with unavailable feature filenames. Of 6,000 requested
@@ -139,11 +140,11 @@ has the following behavior, preserved for this reproduction:
    in a tie. A match requires `score > threshold`, strictly.
 4. Report the unweighted mean of ten held-out fold accuracies.
 
-Thus the global threshold grid uses held-out score extrema, although threshold
-selection uses calibration labels only. This is preserved as upstream behavior,
-not recommended as the protocol for the robustness experiment. That experiment
-keeps original fold identities and fits thresholds using original-quality
-calibration pairs, as specified in [protocol.md](protocol.md).
+The global threshold grid therefore uses held-out score extrema, even though
+threshold selection uses calibration labels only. The reproduction preserves
+this upstream behavior. For the robustness experiment, the protocol instead
+keeps the original folds and fits thresholds using original-quality calibration
+pairs only, as specified in [protocol.md](protocol.md).
 
 ## Measured reproduction
 
@@ -158,24 +159,25 @@ was downloaded and Table 2 was visually inspected on PDF page 6, printed page
 
 QMagFace corrects five cosine errors, introduces zero, and leaves ten comparisons
 wrong for both methods. Its accuracy gain is 0.083417 percentage points in this
-run. These counts do not establish statistical significance. The QMagFace result
-rounds to the reported number; the cosine result rounds to 99.75%, so we do not
-claim exact reproduction of every published value. Missing features, the
-released evaluator, rounded published values, and a modern numerical environment
-are documented differences; their individual causal effects were not established.
+run. These counts do not establish statistical significance. QMagFace rounds to
+the published accuracy, while cosine rounds to 99.75%. The reproduction therefore
+does not match every published value exactly. Missing features, the released
+evaluator, rounded published values, and a modern numerical environment may
+affect the comparison; their individual effects were not measured.
 
-Against the executed official scorer on all 5,994 pairs, the independent scorer's
-maximum absolute discrepancy is `1.9984014443252818e-15` for cosine and
-`4.773959005888173e-15` for QMagFace. Running the official evaluator on either
-set of scores gives identical accuracy. The numerical agreement tolerance is
-`1e-12`; this is a real-feature equivalence check, not only a synthetic test.
+Across all 5,994 pairs, the independent scorer's maximum absolute discrepancy
+is `1.9984014443252818e-15` for cosine and `4.773959005888173e-15` for QMagFace,
+relative to the official scorer. Running the official evaluator on either set
+of scores gives identical accuracy. The numerical agreement tolerance is
+`1e-12`. This comparison checks agreement on the released features in addition
+to the starter's synthetic tests.
 
 Complete evidence is in
 [summary.json](../../results/project2/author_benchmark/summary.json),
 [fold_metrics.csv](../../results/project2/author_benchmark/fold_metrics.csv), and
 [pair_scores.csv](../../results/project2/author_benchmark/pair_scores.csv).
-The summary includes input and output hashes, versions, fold coverage, and the
-two original/official fold identifiers are both retained in pair records.
+The summary includes input and output hashes, versions, and fold coverage.
+Pair records retain both the original and official fold identifiers.
 
 ## Re-run commands and environment
 
@@ -212,6 +214,6 @@ the pinned file identities still must match. Runtime execution does not require
 PyMuPDF. PyMuPDF 1.26.4 was installed separately in the new environment only to
 inspect the final paper.
 
-No artifact-access blocker remains. This audit does not establish training/test
-identity disjointness, replicate model training or parameter fitting, or
-reproduce every benchmark in the paper.
+All artifacts needed for these runs were accessible. The audit did not check
+training/test identity overlap, repeat model training or parameter fitting, or
+reproduce the paper's other benchmarks.

@@ -1,28 +1,28 @@
-# Executed Project 2 evaluation protocol
+# Project 2 evaluation protocol
 
-Status: completed on October 18, 2026. This document began as the proposed
-protocol in the first working increment. The full ten-condition grid was frozen
-after the development pilot and before test-score evaluation. The original
-planning context and execution history are retained in the
-[experiment log](experiment_log.md). This revision records the conventions
-actually used; it does not change the saved experiment.
+The experiments were completed on October 18, 2026. This protocol began as a
+proposal and now describes the completed runs. The ten-condition grid was fixed
+after the development pilot and before test-score evaluation. The
+[experiment log](experiment_log.md) records the original plan and subsequent
+work. These documentation updates do not change the saved experiment.
 
-The starter's minimum four-condition scope and optional target-1%-FMR analysis
-were planning options. The executed investigation includes all ten conditions;
-no separate target-FMR calibration experiment was performed.
+The starter proposed a minimum of four conditions and an optional target-1%-FMR
+analysis. The final investigation used all ten conditions; it did not include a
+separate target-FMR calibration experiment.
 
 ## 1. Two experiments with distinct protocols
 
 **Author-feature benchmark.** The reproduction used the authors' released
-MagFace-100 LFW embeddings, filename mapping, and pair file. It executed the
-hash-verified official cosine scorer, QMagFace scorer, and evaluation code.
-Independent scores agreed within `1e-12`, and produced identical official-CV
-accuracy. The released features permit 5,994 of 6,000 pairs. Upstream silently
-excludes the other six and then repartitions surviving pairs into ten contiguous
-KFold splits. Its 600-point threshold grid spans global score extrema; it uses
+MagFace-100 LFW embeddings, filename mapping, and pair file. It ran the official
+cosine scorer, QMagFace scorer, and evaluation code after verifying their hashes.
+The independent implementation agreed within `1e-12` and produced identical
+accuracy under the official cross-validation procedure. The released features
+cover 5,994 of 6,000 pairs. The upstream code silently excludes the other six
+and repartitions the remaining pairs into ten contiguous KFold splits. Its
+600-point threshold grid spans global score extrema; it uses
 strict `score > threshold` and the smallest threshold in an accuracy tie. These
-behaviors were preserved for reproduction and explicitly documented, including
-the use of held-out score extrema to define the grid. See
+conventions, including the use of held-out score extrema, were preserved for
+the reproduction. See
 [artifact_audit.md](artifact_audit.md) for results and exact source identities.
 
 **Robustness investigation.** This experiment used the repository's LFW source
@@ -44,13 +44,14 @@ The primary source, code versions, file hashes, and environment are recorded in
 local hash identifies downloaded bytes; it is not a publisher-signed checksum.
 The network was neither retrained nor fitted on LFW in this work.
 
-The executed adapter supplies BGR unsigned-byte pixels divided by 255, with no
-additional centering or scaling, one unflipped network pass, and no output L2
-normalization before retaining the raw features. These conventions were checked
-against official inference code. Raw embeddings, raw norms, and unit features
-are stored separately; finite, nonzero, 512-dimensional output and cache
-raw/norm/unit consistency are validated. The quality input is the raw MagFace
-norm, not detector confidence or an image brightness statistic. Project 1's
+The input adapter supplies BGR unsigned-byte pixels divided by 255, with no
+additional centering or scaling. Each image passes through the network once,
+without flipping or L2-normalizing the raw output. These choices follow the
+official inference code. Raw embeddings, raw norms, and unit features are stored
+separately. Validation checks that outputs are finite, nonzero, and
+512-dimensional, and that cached raw features, norms, and unit features agree.
+The quality input is the raw MagFace norm, not detector confidence or an image
+brightness statistic. Project 1's
 normalized FaceNet cache was not reused as a quality estimate.
 
 The local detector is `facenet_pytorch.MTCNN`, with minimum face size 20,
@@ -63,19 +64,19 @@ This differs from Project 1's 160-pixel box crop and does not establish exact
 agreement with the authors' pre-aligned benchmark images.
 
 Detection and alignment run once on each original image. All degradations use
-that fixed crop, so the experiment measures post-alignment robustness rather
-than detector robustness under degradation. The 16-image development pilot had
-no image-path overlap with the evaluation images; this is not a claim of
-subject-identity disjointness. It checked compatibility and throughput only.
+that fixed crop, so the experiment measures robustness after alignment. It does
+not test detection on degraded images. The 16-image development pilot checked
+compatibility and throughput. Its image paths did not overlap with the
+evaluation images, although subject identities may overlap.
 MPS inference took 0.588 seconds for the pilot's 16 images; the two-image
 CPU/MPS comparison passed `rtol=0.001, atol=0.0001`. The full run used MPS batches
 of 32 and two CPU threads for alignment, with seed 42.
 
-## 3. Executed degradation grid
+## 3. Degradation grid
 
 All inputs start from a 112 by 112 aligned crop:
 
-| Family | Executed levels | Implementation |
+| Family | Levels | Implementation |
 |---|---|---|
 | Original | No synthetic degradation | Original aligned crop |
 | Resolution | 56, 28, or 14 square pixels, restored to 112 | Pillow bilinear downsample and restore |
@@ -107,9 +108,9 @@ Calibration never uses a held-out pair's label or a degraded condition's score.
 The two methods use separate thresholds because cosine and QMagFace scores have
 different scales.
 
-The Project 2 evaluation implementation exports distinct `cosine_similarity`
-and `qmagface_score` fields and preserves historical Project 1 outputs. Saved
-predictions include the method-specific threshold. ROC, AUC, DET, and
+The evaluation exports separate `cosine_similarity` and `qmagface_score` fields
+and preserves the Project 1 outputs. Saved predictions include the
+method-specific threshold. ROC, AUC, DET, and
 interpolated EER are descriptive score sweeps; their test-score thresholds are
 not used to produce held-out predictions. A lower FNMR accompanied by a higher
 FMR is reported as a tradeoff.
@@ -118,18 +119,18 @@ FMR is reported as a tradeoff.
 
 The robustness run requested 7,701 unique image paths; 7,700 aligned
 successfully. `Princess_Aiko/Princess_Aiko_0001.jpg` failed the detection
-probability criterion. This excludes one genuine pair in original zero-based fold 1 from
-conditional scoring in every condition. All ten conditions and both methods
-therefore score the same 5,999 pairs: 2,999 genuine and 3,000 impostor. Coverage
+probability criterion. This excludes one genuine pair in original zero-based
+fold 1 from conditional scoring in every condition. All ten conditions and both
+methods therefore score the same 5,999 pairs: 2,999 genuine and 3,000 impostor. Coverage
 is 99.9833%. There are 60,000 requested pair-condition records, including ten
 failure records, and 120,000 method-specific prediction records.
 
 Failed attempts remain in the exports with null scores and an exclusion reason.
-Conditional accuracy, FMR, and FNMR are accompanied by requested/scored/excluded
-counts, label-specific coverage, and separate reject-on-failure metrics over all
-requested attempts. Undefined metrics are null rather than fabricated zeros.
+Conditional accuracy, FMR, and FNMR are reported alongside requested, scored, and
+excluded counts, coverage by label, and separate reject-on-failure metrics over
+all requested attempts. Undefined metrics are stored as null.
 Missing-fold metrics invalidate the corresponding mean while retaining a count
-of valid folds; all ten executed folds have both classes.
+of valid folds; all ten folds in this run have both classes.
 
 Paired cosine/QMagFace comparisons use identical eligible pairs and count both
 corrected and newly introduced errors. Changes from a method's own original
@@ -137,9 +138,9 @@ condition use the common successful pair set and report its size. The author
 benchmark retains its own six exclusions and upstream fold protocol rather than
 being restricted to the local robustness success set.
 
-Project 1 FaceNet results are historical whole-system context only. No new
-matched-pair FaceNet experiment was executed, so differences across those
-systems cannot be attributed solely to quality-aware scoring.
+The Project 1 FaceNet results provide historical context for the complete
+systems. There was no new matched-pair FaceNet experiment, so differences
+between those systems cannot be attributed solely to quality-aware scoring.
 
 ## 6. Measurements and limits of interpretation
 
@@ -150,11 +151,12 @@ raw-quality distributions, and genuine/impostor score distributions. Distributio
 summaries are weighted by successful pair occurrences, not unique identities or
 unique images. Mean-fold and pooled accuracies are separately labeled.
 
-Fold SD/SE are descriptive. Overlapping calibration sets and repeated subjects
-prevent treating them as independent experimental replicates. No formal
-significance or dependence-adjusted confidence claim is made. Improved, unchanged,
-and degraded outcomes are all retained; for example, introduced errors accompany
-some low-resolution gains, and brightness x0.75 gives identical decisions.
+Fold SD/SE describe variation across folds. The folds share calibration data and
+include repeated subjects, so they are not independent experimental replicates.
+The analysis makes no claim of statistical significance or confidence intervals
+adjusted for these dependencies. It reports gains, losses, and unchanged results:
+some low-resolution gains come with new errors, while brightness x0.75 gives
+identical decisions.
 
 With 3,000 impostor comparisons, one false match changes pooled FMR by about
 0.0333 percentage points. This sample does not establish reliable
@@ -164,7 +166,7 @@ production suitability. Training/evaluation identity overlap was not audited.
 
 ## 7. Evidence, verification, and delivery
 
-The completed robustness outputs are under
+The robustness outputs are under
 [results/project2/robustness](../../results/project2/robustness/); the separate
 author benchmark is under
 [results/project2/author_benchmark](../../results/project2/author_benchmark/).
@@ -178,8 +180,8 @@ The [reproduction guide](reproduce.md) documents full inference, independent
 saved-score reanalysis, and read-only verification. `scripts/check_project2.py`
 recomputes evaluation and verifies output hashes; `--include-caches` also checks
 local input/crop/checkpoint provenance and reconstructs saved scores from raw
-features. Historical Project 1 results remain intact. The user-requested
-deliverables are the repository with its `.git` history plus a written report;
-slides are outside that scope. The supplied course slide does not specify a
-report requirement or page limit; see the
+features. The Project 1 results remain intact. The agreed deliverables are the
+repository with its `.git` history and a written report. Slides are outside the
+requested scope. The supplied course slide does not specify a report requirement
+or page limit; see the
 [reproduction and submission guide](reproduce.md).

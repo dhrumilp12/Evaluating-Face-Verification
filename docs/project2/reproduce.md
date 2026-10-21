@@ -1,40 +1,39 @@
 # Reproduce Project 2
 
-Run these commands from the repository root. The two experiments have separate
-inputs and protocols: the author-feature benchmark checks the published scorer
-and evaluation implementation; the robustness experiment runs our documented
-alignment and probe degradations on LFW images. Saved-score analysis reruns the
-evaluation only. It does not rerun face detection or the embedding network.
+Run all commands from the repository root. There are two experiments. The
+author-feature benchmark checks the published scoring and evaluation code using
+the authors' saved features. The robustness experiment aligns LFW images and
+degrades the probes before extracting new embeddings. Both runs are complete;
+their manifests and summaries record coverage, environment and measurements.
 
-The supplied benchmark and full ten-condition inference run are complete.
-Check each run's manifest or summary for its actual status, coverage,
-environment, and measurements. The [report](final_report.md) interprets the
-recorded results. This guide also covers [deliverables](#deliverables),
+To check the saved results without repeating face detection or inference, use
+the saved-score analysis command below. The [report](final_report.md) discusses
+the findings. This guide also covers [deliverables](#deliverables),
 [verification and packaging](#verify-and-package), and
 [report rebuilding](#rebuild-the-written-report).
 
 ## Deliverables
 
-The user-requested deliverables are the complete repository with its real `.git`
-history and a written report. The report is available as
-[PDF](../../output/pdf/project2_report.pdf) and
-[Markdown](final_report.md). Slides are not part of the confirmed scope.
+The submission package contains the complete repository, including its `.git`
+history, and a written report in [PDF](../../output/pdf/project2_report.pdf) and
+[Markdown](final_report.md). This follows the requested scope; slides are not
+included.
 The supplied Project 2 instruction slide does not itself specify a written-report
 requirement, report page limit or slides format; any additional formatting rules
 must come from the professor's instructions or submission page.
 
-The repository includes all Project 1 history, Project 2 code and tests,
-artifact/source hashes, the executed protocol, measured benchmark and robustness
-scores, per-fold predictions, plots, the report generator, an AI-assistance
-record, and reproduction instructions. Downloaded face images, author feature
-arrays, checkpoints and local environments are deliberately omitted from Git.
+Alongside the Project 1 history, the repository contains Project 2's code, tests,
+protocol, scores, per-fold predictions, plots and report generator. Source and
+artifact hashes identify the inputs; the AI-assistance record documents how the
+work was prepared. Downloaded face images, author feature arrays, checkpoints
+and local environments are excluded from Git.
 The [artifact acquisition](#obtain-and-verify-model-and-author-features) and
 [LFW preparation](#prepare-lfw-images-for-robustness-inference) sections below
 explain how to obtain and verify the experiment inputs.
 
 ## Environments
 
-Keep the existing full environment for inference, plots, and tests:
+Use the full environment for inference, plots and tests:
 
 ```bash
 source .venv/bin/activate
@@ -42,15 +41,15 @@ python --version
 python -m pip check
 ```
 
-The full direct dependency pins are in [requirements.txt](../../requirements.txt).
+Direct dependencies are pinned in [requirements.txt](../../requirements.txt).
 For a fresh checkout, create `.venv` with Python 3.13, install that file, and run
 `pip check`. The reference repository uses Python 3.13.7. These are direct pins,
 not a complete transitive lockfile; actual versions are recorded with each run.
-The Project 1 `requirements-analysis.txt` file alone is not the setup for the
-Project 2 command-line runner.
+Project 1's `requirements-analysis.txt` does not provide all dependencies needed
+by the Project 2 command-line runner.
 
-The author benchmark needs SciPy and scikit-learn, which belong in a separate
-environment so the existing inference environment is preserved:
+The author benchmark also needs SciPy and scikit-learn. Install these in a
+separate environment to preserve the existing inference setup:
 
 ```bash
 python3 -m venv .venv-project2
@@ -58,8 +57,8 @@ python3 -m venv .venv-project2
 .venv-project2/bin/python -m pip check
 ```
 
-Use an explicit interpreter for the benchmark commands below. The standalone
-dependency list is [requirements-project2-benchmark.txt](../../requirements-project2-benchmark.txt).
+The benchmark commands below name their interpreter explicitly. Its dependencies
+are listed in [requirements-project2-benchmark.txt](../../requirements-project2-benchmark.txt).
 The local benchmark environment may reuse the existing NumPy installation;
 the fresh-setup command above installs the declared NumPy version directly.
 
@@ -90,9 +89,9 @@ Expected local paths are:
 | Author pair list | `data/project2/author_lfw/lfw_pairs.txt` |
 | Pinned official scorer and metric files | `data/project2/vendor/QMagFace-main/` |
 
-The expected hashes identify the artifacts observed during this audit. They
-must not be described as publisher-issued checksums. The runner rejects a
-checkpoint whose bytes differ from the audited checkpoint associated with the
+The expected hashes were computed during the artifact audit; they are not
+publisher-issued checksums. The runner rejects a checkpoint whose bytes differ
+from the audited checkpoint associated with the
 fixed QMagFace-100 coefficients. Read [the artifact audit](artifact_audit.md)
 for source URLs, exact hashes, upstream commits, and benchmark differences.
 
@@ -109,14 +108,15 @@ output is `results/project2/author_benchmark/`.
 This command verifies the feature/mapping/pair files, executes four hash-pinned
 upstream source files, checks agreement with our independent scorer, and writes
 `summary.json`, `pair_scores.csv`, `fold_metrics.csv`, and `excluded_pairs.csv`.
-The summary records actual scores, paper-to-run gaps, omissions, package
-versions, and output hashes.
+The summary records the measured scores, differences from the paper, exclusions,
+package versions and output hashes.
 
 The official evaluator repartitions the successful pairs into ten unshuffled
 KFold splits after exclusions. Its threshold grid spans global score extrema,
 uses strict `score > threshold`, and resolves ties with the first threshold.
-Those choices are retained for reproduction and documented as limitations.
-They are separate from the original-fold calibration used below.
+This benchmark retains those choices to reproduce the released evaluator. The
+robustness experiment below instead preserves the original folds for calibration.
+The report discusses the limitations of each protocol.
 
 ## Prepare LFW images for robustness inference
 
@@ -139,9 +139,9 @@ report. It verifies the archive and pair files and extracts the source images.
 
 ## Pilot and full robustness run
 
-The pilot uses sixteen development image paths excluded from the evaluation
-image-path set. It records compatibility and throughput without tuning scores,
-coefficients, or thresholds from test outcomes:
+The pilot checks compatibility and throughput using sixteen development image
+paths that do not appear in the evaluation set. It does not tune scores,
+coefficients or thresholds using test outcomes:
 
 ```bash
 .venv/bin/python -m src.project2_experiment --stage pilot --device cpu
@@ -150,7 +150,7 @@ coefficients, or thresholds from test outcomes:
 On an Apple Silicon machine with PyTorch MPS support, use `--device mps`. The MPS
 pilot also compares two embeddings with CPU output and records the observed
 difference and the tolerance check. Its output is `results/project2/pilot.json`.
-Image-path disjointness does not assert subject-identity disjointness.
+Separate image paths do not guarantee separate subject identities.
 
 Run the complete ten-condition grid on CPU:
 
@@ -180,8 +180,8 @@ Alignment runs on the original image on CPU. Each probe transformation starts
 from that original 112-pixel aligned crop; the reference embedding stays fixed.
 Inference uses BGR pixels divided by 255, without flip augmentation, and saves
 the raw 512-dimensional embedding before unit normalization. The raw norm is
-the quality input. This is the separately documented robustness pipeline, not a
-claim to reproduce the author's pre-aligned benchmark images exactly.
+the quality input. These preprocessing choices define the robustness experiment;
+they need not match the preparation of the author's pre-aligned benchmark images.
 
 Alignment can also be prepared without loading recognition weights:
 
@@ -201,10 +201,10 @@ Raw features, unit features, qualities, and crop hashes live under
 `data/processed/project2/features/<fingerprint>/<condition>/`. The fingerprint
 includes checkpoint, adapter, architecture, transformation code, device,
 environment, batch size, and thread settings. Reuse checks input hashes and
-raw/norm/unit consistency. Rerunning the same command resumes validated cached
-work. A different device or relevant configuration starts a separate feature
-cache. An interrupted run is not a completed experiment; inspect its manifest
-and rerun to finish the remaining work.
+raw/norm/unit consistency. Rerunning the same command resumes work from validated
+caches. Changing the device or a relevant configuration setting starts a separate
+feature cache. After an interruption, check the manifest and rerun the command
+to finish the remaining work.
 
 The pair export retains every requested pair for each condition, including
 failure rows with null scores. MagFace cosine and QMagFace share embeddings,
@@ -226,9 +226,10 @@ conditions and report the size of that common set. Paired B/C decision changes
 separately count corrected and introduced errors.
 
 ROC, AUC, and interpolated EER are descriptive score sweeps. Their thresholds
-are not used for held-out predictions. Fold SD/SE are descriptive and do not
-establish independent samples or statistical significance. Quality summaries
-are weighted by successful pair occurrences, not unique subjects or images.
+are not used for held-out predictions. Fold SD/SE describe variation across folds;
+they do not establish sample independence or statistical significance. Quality
+summaries weight successful pair occurrences, so
+repeated subjects or images can contribute more than once.
 
 ## Reanalyze saved robustness scores
 
@@ -278,9 +279,9 @@ The output files are:
 | `distributions.csv` | Score and raw-quality distribution summaries |
 | `figures/` | Fixed-threshold metrics, ROC, DET, score distributions, and quality distributions |
 
-The separate reanalysis directory contains copied score input, the copied
-source manifest, the new analysis manifest, and regenerated derived tables and
-figures. It does not copy alignment failures or claim to rerun inference.
+The separate reanalysis directory contains the copied scores and source
+manifest, a new analysis manifest, and regenerated tables and figures. Alignment
+failure records remain in the original run directory; inference is not repeated.
 
 In paired-change CSVs, an empty `fold` denotes the pooled record. Null scores,
 decisions, or undefined rates also serialize as empty CSV cells. JSON preserves
@@ -301,11 +302,11 @@ The focused evaluation checks can be run independently:
 .venv/bin/python -m unittest tests.test_project2_reanalyze -v
 ```
 
-They cover calibration leakage, separate method scales, paired denominators,
-failure coverage, missing classes, tied ROC/EER, and plot generation. Synthetic
-unit tests validate implementation behavior; the benchmark and full inference
-commands produce the empirical recognition results. Large data, weights, and
-caches remain outside Git, and Project 1's historical result files are preserved.
+These tests cover calibration leakage, separate method scales, paired
+denominators, failure coverage, missing classes, tied ROC/EER and plot generation.
+They use synthetic inputs to check the implementation. Recognition results come
+from the benchmark and full inference runs. Large data, weights and caches stay
+outside Git; Project 1's historical result files are preserved.
 
 Check saved Project 2 results and the complete repository separately:
 
@@ -320,7 +321,7 @@ From the repository root, with intended work committed:
 
 ```bash
 .venv/bin/python scripts/check_project2.py
-.venv/bin/python scripts/package_submission.py --output /tmp/project2_submission_cleanup.zip
+.venv/bin/python scripts/package_submission.py --output /tmp/project2_submission_revised.zip
 ```
 
 Choose a new output filename if it already exists. The packager requires a
@@ -331,15 +332,15 @@ every file hash, and checks Git integrity, HEAD, commit count and cleanliness.
 It writes an adjacent `.verification.json` receipt. The source/output manifests
 retain the exact exported CSV bytes across Git checkouts through `.gitattributes`.
 
-The cleanup delivery copies are `dist/project2_submission_cleanup.zip` and
-`dist/project2_submission_cleanup.verification.json`. The archive's receipt
-records the actual final HEAD and complete commit count; neither artifact is
-recursively included inside itself. The report is also inside the archive.
+The revised delivery copies are `dist/project2_submission_revised.zip` and
+`dist/project2_submission_revised.verification.json`. The receipt records the
+archive's HEAD and complete commit count. The report is included in the ZIP;
+the ZIP and its receipt stay outside the tracked files.
 After packaging, extract the archive and rerun its Project 2 numerical checks
 without the local data or model caches. Record these new checks separately from
 the historical computational evidence.
 
-No GitHub push or course-portal submission is performed by this packaging step.
+Packaging does not push to GitHub or submit to the course portal.
 
 ## Rebuild the written report
 
@@ -352,9 +353,12 @@ For example, after installing the full requirements into a separate environment:
 .venv-project2/bin/python scripts/build_project2_report.py
 ```
 
-The generator first verifies measured results, then creates the Markdown report,
-two scientific figures and `output/pdf/project2_report.pdf`. The report manifest
-records input and output hashes. Rendering/visual-review evidence is retained in
-[validation.json](validation.json); local preview PNGs are ignored. External
-documentation cleanup does not require rebuilding the report when its text,
-generator, images, executed sources and measured outputs remain unchanged.
+The generator checks the measured results before producing the Markdown report,
+two figures and `output/pdf/project2_report.pdf`. The report manifest records
+input and output hashes. [validation.json](validation.json) and
+[cleanup_validation.json](cleanup_validation.json) retain the October 18 checks
+and fingerprints for the report version in commit `2b9281b`. The October 21
+revision is checked in [editorial_validation.json](editorial_validation.json).
+Local preview PNGs are ignored. Rebuild the report
+when its text, generator or figures change. Edits to other documentation alone
+do not require a rebuild if the report inputs and measured outputs are unchanged.

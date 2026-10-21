@@ -1,0 +1,75 @@
+{
+  "revision_date": "2026-10-21",
+  "verified_at_utc": "2026-10-21T18:46:06.197592+00:00",
+  "base_commit": "2b9281b2403b9da4efe328eda44dca837b38a56c",
+  "status": "passed",
+  "scope": "Editorial revision of Project 2 prose and regenerated report. No experiment rerun or evaluation-code changes. Earlier verification records describe the versions checked at their own timestamps.",
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -v",
+    "passed": 131,
+    "failed": 0,
+    "errors": 0
+  },
+  "saved_result_check": {
+    "command": "scripts/check_project2.py (called by the report builder)",
+    "passed": 13,
+    "failed": 0,
+    "skipped": 1,
+    "skip_reason": "Optional local caches were not reverified."
+  },
+  "report": {
+    "generator_command": ".venv-project2/bin/python scripts/build_project2_report.py",
+    "manifest_hashes_verified": 8,
+    "numerical_tables_unchanged": true,
+    "math_and_command_blocks_unchanged": true,
+    "pdf": {
+      "pages": 7,
+      "author": "Dhrumil Patel",
+      "out_of_safe_area_text_boxes": 0,
+      "replacement_glyphs": 0,
+      "sha256": "952f108091c371b43c92ce44010f3f5b892dfe93651074cd8682feeebfcc3dd3",
+      "render_engine": "PyMuPDF 1.26.4",
+      "file": "output/pdf/project2_report.pdf",
+      "all_pages_visually_reviewed": true,
+      "status": "passed"
+    }
+  },
+  "preservation": {
+    "evaluation_code_and_measured_outputs_unchanged": true,
+    "report_figure_bytes_unchanged": true,
+    "project1_unchanged": true,
+    "historical_verification_records_unchanged": true,
+    "ai_assistance_record_retained": true
+  },
+  "historical_report_records": {
+    "docs/project2/validation.json": "October 18 execution and report checks; its report hash describes the earlier report preserved at the base commit.",
+    "docs/project2/cleanup_validation.json": "October 18 documentation cleanup checks and earlier report fingerprints; preserved at the base commit."
+  },
+  "log": "docs/project2/editorial_validation.txt",
+  "package_verification": "Recorded separately after committing, in the revised archive receipt.",
+  "documentation_links": {
+    "status": "passed",
+    "documents": 14,
+    "local_links": 147,
+    "markdown_heading_anchors": 13,
+    "errors": [],
+    "external_urls_checked": false
+  },
+  "repository_checks": {
+    "command": ".venv/bin/python scripts/check_repository.py --profile full",
+    "passed": 23,
+    "failed": 0,
+    "skipped": 0,
+    "working_tree": "Pending editorial changes before commit."
+  },
+  "log_sha256": "aa1a3cc022be0db7f7b761caf95f5ba96a6c83a4fcb4e14e3628a0bbb39ee48e",
+  "document_sha256": {
+    "README.md": "fa42388fee838bfd3b8d336e3f65aae34f5ab92ac40b4044d4db4a26b7706fa8",
+    "docs/project2/ai_usage.md": "6835be8db4da0269b944bb759016a8b9bc74ac8a35864fb0949294a28dab8e69",
+    "docs/project2/artifact_audit.md": "cfa39b1ee779c55896a5d3066890a6b4c879f36246de730cc1aadb9deb8506ad",
+    "docs/project2/experiment_log.md": "9f647f3ee7655360b5d3150fbaee582053845b0d2289c2c7edcfe2274f842cd8",
+    "docs/project2/final_report.md": "cafac1eec9fa16ae00d8d4d0415d8c5d1f4f3f83e2ec5429ea71d5eaac57314f",
+    "docs/project2/protocol.md": "7cd12bbda6bad96e3d88c9f876582408dc5ac28918082afd46b3a45098a952aa",
+    "docs/project2/reproduce.md": "8dd234adfbd153aa32c9d71fa5a8674a754832737349657518ec22cabe2a29eb"
+  }
+}
