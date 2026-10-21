@@ -1,49 +1,61 @@
 # Biometrics Projects: Face Verification
 
-## Project 2: Quality-Aware Face Verification with QMagFace
+## Project 2: methodology, ablation, and baseline comparison
 
-Project 2 reproduces QMagFace scoring and tests how it responds to lower
-resolution, blur and reduced brightness. Both the author-feature benchmark and
-the ten-condition degradation experiment are complete. Project 1's code,
-measurements and Git history are retained below.
+**Published method.** We reproduce the QMagFace comparison function from
+Terhorst et al., *QMagFace: Simple and Accurate Quality-Aware Face Recognition*
+(IEEE/CVF WACV 2023), using the published coefficients and a pretrained MagFace
+backbone. This scope does not include retraining MagFace or fitting QMagFace's
+coefficients. See [the method and results](docs/project2/final_report.md) and
+[the artifact audit](docs/project2/artifact_audit.md).
 
-- [Written report](docs/project2/final_report.md) and [PDF report](output/pdf/project2_report.pdf): method, results, interpretation and limitations.
-- [Reproduction and submission guide](docs/project2/reproduce.md): setup, verified downloads, inference, saved-score analysis, report rebuilding and packaging.
-- [Executed protocol](docs/project2/protocol.md): alignment, degradations, calibration and failure handling.
-- [Artifact audit](docs/project2/artifact_audit.md): source history, hashes, official-code agreement and benchmark differences.
-- [Experiment log](docs/project2/experiment_log.md) and [AI-assistance record](docs/project2/ai_usage.md): development and assistance provenance.
+**Pipeline studied.** The investigation covers probe quality after alignment,
+embedding representation, comparison scoring, and threshold decisions. Detection
+and alignment are performed on original images and held fixed; we do not test
+face detection under degraded input.
 
-On the authors' features, accuracy is **99.7497% for MagFace cosine** and
-**99.8331% for QMagFace**, with 5,994 of 6,000 pairs scored. The separate
-aligned-image experiment scores 5,999 of 6,000 pairs in each of ten conditions. Both
-methods use the same features, with thresholds calibrated separately on
-original-quality images. At 14-pixel resolution, mean-fold accuracy increases
-from **58.827% to 65.411%** with QMagFace. AUC and EER worsen, however: the gain
-comes at the calibrated decision thresholds and does not indicate better score
-separation overall. The report gives the error counts, coverage, paired decision
-changes and limitations behind this result.
+**Ablation: remove quality-aware scoring.** We compare full QMagFace with
+ordinary cosine similarity computed from exactly the same MagFace embeddings.
+The cosine condition removes the quality-dependent adjustment while preserving
+the backbone, embeddings, pairs, eligibility, and folds. Each scorer receives
+its own threshold calibrated on original-quality pairs from the other nine folds;
+that threshold stays fixed across the held-out degradation conditions. The
+resolution, blur, and brightness sweeps are additional robustness investigations.
 
-The recorded experiment validation includes **131 passing tests** and
-**14 passing saved-run checks**, including reconstruction of all 59,990 scored
-comparisons from raw embedding caches.
-The [validation record](docs/project2/validation.json) and
-[measured run manifest](results/project2/robustness/manifest.json) document those checks.
-The [author-benchmark outputs](results/project2/author_benchmark/) and
-[robustness outputs](results/project2/robustness/) include scores, predictions,
-exclusions, fold metrics, paired changes and figures.
-The later [documentation-cleanup checks](docs/project2/cleanup_validation.json)
-are recorded separately from that computational evidence.
+**Why improvement was plausible.** The hypothesis was that incorporating an
+image-quality estimate could reduce false rejections caused by degraded probes
+at thresholds calibrated on original-quality images. This is a hypothesis, not
+a guarantee of beating the Project 1 system: its training data, backbone, and
+preprocessing differ. The controlled scoring comparison is MagFace cosine versus
+QMagFace, not FaceNet versus QMagFace.
 
-```bash
-.venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python scripts/check_project2.py
-```
+### Historical comparison with Project 1
 
-The read-only checker recomputes evaluation from saved scores and verifies
-output hashes. Add `--include-caches` when the local images, weights and raw
-embeddings are available to check their provenance and reconstruct scores.
-The reproduction guide covers fresh setup, CPU/MPS inference and separate output
-directories. Saved-score reanalysis does not require model inference.
+All entries below are mean-fold accuracy percentages. The table places the
+preserved Project 1 results next to Project 2's results; it is not a controlled
+ranking of the two backbones.
+
+| Condition | Project 1: FaceNet + cosine | Project 2: MagFace + cosine | Project 2: MagFace + QMagFace |
+|---|---:|---:|---:|
+| Original quality | 99.167% | 99.800% | 99.817% |
+| Strongest resolution reduction | 89.982% (20 x 20) | 58.827% (14 x 14) | 65.411% (14 x 14) |
+| Strongest blur | 97.816% (sigma 3.0) | 99.500% (sigma 2.1) | 99.733% (sigma 2.1) |
+| Brightness x0.25 | 98.566% | 99.783% | 99.800% |
+
+Project 1 uses 160-pixel bounding-box crops and a VGGFace2-pretrained
+InceptionResnetV1; Project 2 uses 112-pixel landmark-aligned crops and an
+MS1MV2-pretrained MagFace iResNet100. Resolution and blur levels preserve relative
+scales, but the actual crops and transformations are not identical. Consequently,
+these cross-project differences cannot be attributed solely to quality-aware
+scoring, and the table does not establish that QMagFace is universally superior
+to the Project 1 baseline.
+
+Within the controlled Project 2 experiment, the largest QMagFace accuracy gain
+is 6.585 percentage points at 14 pixels. Its AUC and EER worsen there, so this is
+a benefit at the original-calibrated decision thresholds, not an improvement
+at every operating point. See the [protocol](docs/project2/protocol.md) and
+[complete results](docs/project2/final_report.md) for coverage, false-match and
+false-nonmatch counts, all ten conditions, and limitations.
 
 ## Project 1: Preserved reference experiment
 
