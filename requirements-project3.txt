@@ -1,0 +1,7 @@
+# Saved-score Project 3 experiments and scientific figures (Python 3.12).
+# No face model, image dataset, checkpoint or GPU is required for this stage.
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+matplotlib==3.10.8
+threadpoolctl==3.6.0
