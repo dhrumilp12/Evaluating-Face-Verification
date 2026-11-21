@@ -113,3 +113,20 @@ that is a planning choice, not an instructor-specified limit.
 The submission package includes the full repository and Git history, the
 reproduction instructions, measured outputs, and both presentation formats.
 The concise AI-assistance statement records the support used in this work.
+
+## November 21, 2026 — extension prompted by Project 2 feedback
+
+After the first Project 3 package was prepared, the Project 2 feedback became
+available in this work session. It identified the omitted target-FMR study and
+limited commit history as the remaining weaknesses. The earlier Project 3
+experiment reports errors but does not calibrate to a target FMR, so reporting
+those errors alone does not address the missing investigation.
+
+The [operating-point addendum](operating_points_protocol.md) now fixes a 1%
+calibration-FMR target, seven fitting folds, two separate calibration folds,
+and one test fold. It compares cosine, QMagFace and the full learned score
+under original-only, mixed and resolution-excluded conditions. Pooled
+calibration is the primary policy; a per-condition cap is an ablation. Both
+use a single global threshold at test time. The extension retains the existing
+accuracy-oriented results and will report achieved test FMR even when it
+exceeds the calibration target. This entry precedes its new measurements.
