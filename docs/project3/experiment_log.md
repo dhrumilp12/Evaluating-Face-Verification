@@ -167,3 +167,18 @@ remain unchanged. Temporary repeat outputs were removed after comparison.
 The figure and analysis were generated from these measured outputs. There were
 no deviations from the operating-point addendum. The target constrains
 calibration data; observed test FMR is reported even when it exceeds 1%.
+
+## November 21, 2026 — revised presentation and submission
+
+The presentation now has thirteen main slides and three appendix slides.
+The new operating-point slide reports measured FMR and FNMR for all three
+methods under both threshold policies. The notes explain the seven/two/one
+split, why the calibration target can be exceeded on held-out data, and how
+this extension responds to the Project 2 feedback. The earlier study is
+explicitly identified so its nine-fold fitting results are not confused with
+the new operating-point experiment.
+
+All sixteen final PDF slides were visually reviewed; the editable PowerPoint
+passed structural and layout checks. The complete repository archive was
+rebuilt with the new commits and presentation. These additions record actual
+design, implementation, measured analysis and presentation revisions.

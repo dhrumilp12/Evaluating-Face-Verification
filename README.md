@@ -14,6 +14,12 @@ At 14 pixels, recalibrated QMagFace reaches **85.748%** mean-fold accuracy and
 the new interaction model reaches **84.798%**. Calibration data explains much
 of the gain; false-match costs and limited transfer remain important.
 
+The [target-FMR extension](docs/project3/operating_points.md) completes the
+missing Project 2 investigation. With thresholds calibrated for 1% FMR, the
+learned model's 14-pixel test FMR is **3.667%** under pooled calibration and
+**1.100%** under a per-condition cap, with a corresponding rise in false
+nonmatches. Fitting, threshold calibration and testing use separate pair folds.
+
 The [reproduction guide](docs/project3/README.md#reproduce-the-experiments)
 uses the committed score exports and needs no model download or GPU. The
 repository includes fitted models, predictions, independent checks, Git history,

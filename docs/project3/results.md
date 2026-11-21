@@ -1,4 +1,8 @@
-# Project 3 results: quality-aware calibration
+# Project 3 results: first calibration study
+
+This page preserves the original accuracy-oriented study. The subsequent
+[target-FMR extension](operating_points.md) addresses the Project 2 feedback
+with separate model-fitting, threshold-calibration and test folds.
 
 **Calibration exposure explains substantial improvement under severe resolution
 loss, but the learned interaction score does not consistently beat a recalibrated
@@ -121,9 +125,11 @@ Threshold adaptation leaves a scorer's ranking unchanged. At 14 pixels,
 cosine retains mean AUC 0.951617 and mean EER 11.804% in both original-only and
 mixed training. Mixed QMagFace gives 0.947744 and 12.071%; the full learned
 score gives 0.939861 and 12.967%. Its improved accuracy relative to the frozen
-Project 2 operating point does **not** establish better ranking. No low-FMR
-target was optimized, and 3,000 impostor pairs cannot establish reliable
-ultra-low-FMR performance.
+Project 2 operating point does **not** establish better ranking. This first
+study did not optimize a low-FMR target; the separate
+[operating-point experiment](operating_points.md) now evaluates a 1%
+calibration target. With 3,000 impostor pairs, neither study establishes
+reliable ultra-low-FMR performance.
 
 The [error-count figure](../../results/project3/analysis/resolution14_errors.png)
 shows the pooled counts and their denominators; its rates use pooled counts
