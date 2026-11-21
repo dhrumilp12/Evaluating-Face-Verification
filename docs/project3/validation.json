@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-21T19:58:08.271673+00:00",
+  "scope": "Input/source/output hashes, train/test membership, training scalers and thresholds, serialized model scores, all predictions and metrics",
+  "run_manifest_sha256": "f34de3ab2b9fbd4657a5ad46f662c5b82ba28f7dc28cde59654705bddbacfbf5",
+  "checker_sha256": "fc24714e9914a04857d556001def76d86eefeed8f0ffcb010b38bbcc23a29191",
+  "source_sha256": {
+    "src/project3_calibration.py": "abd93d4c6fa4cc59c4a039766e0a1a29d3cf7e6c0f045eabbcfe01458110a255",
+    "scripts/project3_run.py": "567bfc162648c685b05e8f9fd6ec2469c153fb52f8fb1f5ea0dbe74fb0c148d4",
+    "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+    "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+    "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+  },
+  "execution_git_commit": "7c3c7e5958bf4696b280c23bb731e50b3c59f749",
+  "verified_output_files": 5,
+  "verified_source_files": 5,
+  "verified_models": 290,
+  "verified_predictions": 1128000,
+  "verified_scored_predictions": 1127812,
+  "verified_fold_rows": 1880,
+  "verified_aggregate_rows": 188,
+  "verified_paired_rows": 312,
+  "maximum_reconstructed_score_difference": 0.0,
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0"
+    }
+  },
+  "limitations": "This checks saved-score analysis and does not rerun image alignment or embedding inference."
+}

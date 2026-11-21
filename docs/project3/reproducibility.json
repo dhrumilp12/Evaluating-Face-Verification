@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-21T19:59:57.421554+00:00",
+  "scope": "One fresh CLI rerun of the complete saved-score study and byte-for-byte comparison of all five payload outputs. Manifest timestamps and elapsed time are intentionally excluded from equality.",
+  "command": "python scripts/project3_run.py --output results/project3/reproduction_check",
+  "original_manifest_sha256": "f34de3ab2b9fbd4657a5ad46f662c5b82ba28f7dc28cde59654705bddbacfbf5",
+  "reproduced_manifest_sha256": "98d957b481204ec5a424bde44769b9a2485ca22d7b00e9b2728ba70be0b6604f",
+  "source": {
+    "directory": "/workspace/scratch/156a43c8c108/Evaluating-Face-Verification/results/project2/robustness",
+    "pair_scores_sha256": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "manifest_sha256": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d"
+  },
+  "source_sha256": {
+    "src/project3_calibration.py": "abd93d4c6fa4cc59c4a039766e0a1a29d3cf7e6c0f045eabbcfe01458110a255",
+    "scripts/project3_run.py": "567bfc162648c685b05e8f9fd6ec2469c153fb52f8fb1f5ea0dbe74fb0c148d4",
+    "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+    "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+    "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+  },
+  "settings_identical": true,
+  "output_matches": {
+    "aggregates.csv": {
+      "sha256": "d6749617043a56428b8ea70f2a3ba6222038d3e667503a7c364cced5dac6bd2e",
+      "byte_identical": true
+    },
+    "folds.csv": {
+      "sha256": "3304205c6bba3f36301eacfdd05f03dae7ee891343e648bbe28d1906801fd4c0",
+      "byte_identical": true
+    },
+    "models.json": {
+      "sha256": "b134dc56c5f9973bba4ae0858687c5efddb0639d228b19a854e0bbfb6bda8c87",
+      "byte_identical": true
+    },
+    "paired_changes.csv": {
+      "sha256": "ce1497c3e9b7a9c2bee307937b92193b24db479f662de4331e02cb35ca67cce7",
+      "byte_identical": true
+    },
+    "predictions.csv.gz": {
+      "sha256": "9c12bbffa4e8eae4cd1e5066bc126c50fe49728f9348f36ed217574200220857",
+      "byte_identical": true
+    }
+  },
+  "fitted_models": 290,
+  "prediction_rows": 1128000,
+  "reproduced_elapsed_seconds": 19.075939023000046,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "historical_preservation": {
+    "base_commit": "81e5d0668ffc32bf8271fb89fcae2bc7de53e51f",
+    "verified_existing_files": 134,
+    "all_unchanged": true,
+    "excluded_navigation_paths": [
+      "README.md",
+      ".gitignore"
+    ],
+    "check": "Each existing tracked file outside the two navigation/configuration paths matches its base Git blob SHA-1."
+  },
+  "temporary_repeat_removed_after_comparison": true,
+  "limitations": "Repeatability is established in the recorded software environment. No new image or embedding inference was performed."
+}

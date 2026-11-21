@@ -1,0 +1,92 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-11-21T19:57:01.007584+00:00",
+  "scope": "New comparison calibration experiments on frozen Project 2 scores; no image inference",
+  "project2_repository_commit": "81e5d0668ffc32bf8271fb89fcae2bc7de53e51f",
+  "execution_git_commit": "7c3c7e5958bf4696b280c23bb731e50b3c59f749",
+  "source": {
+    "directory": "/workspace/scratch/156a43c8c108/Evaluating-Face-Verification/results/project2/robustness",
+    "pair_scores_sha256": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "manifest_sha256": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d"
+  },
+  "source_sha256": {
+    "src/project3_calibration.py": "abd93d4c6fa4cc59c4a039766e0a1a29d3cf7e6c0f045eabbcfe01458110a255",
+    "scripts/project3_run.py": "567bfc162648c685b05e8f9fd6ec2469c153fb52f8fb1f5ea0dbe74fb0c148d4",
+    "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+    "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+    "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "settings": {
+    "n_folds": 10,
+    "primary_c": 1.0,
+    "sensitivity": true,
+    "sensitivity_c_values": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "sensitivity_regimes": [
+      "mixed",
+      "leave_resolution_out"
+    ],
+    "training_variant_weight": "1 / number_of_training_conditions",
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "tol": 1e-08,
+    "blas_threads": 1,
+    "learned_decision_threshold": 0.0,
+    "acceptance_rule": "score >= threshold",
+    "threshold_baselines": "maximum training accuracy, largest tied candidate threshold",
+    "primary_methods": [
+      "cosine_threshold",
+      "qmagface_threshold",
+      "logistic_score",
+      "logistic_quality",
+      "logistic_interaction"
+    ]
+  },
+  "coverage": {
+    "requested_pairs_per_condition": 6000,
+    "scored_pairs_per_condition": 5999,
+    "conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ]
+  },
+  "limitations": [
+    "LFW pair folds are not identity- or image-disjoint.",
+    "This is a retrospective extension of a previously inspected benchmark.",
+    "Mixed calibration observes the tested degradation types in other folds.",
+    "Mean AUC/EER are foldwise; learned scales differ across fitted folds.",
+    "Learned logits are decision scores, not validated probabilities."
+  ],
+  "completed_at_utc": "2026-11-21T19:57:19.821938+00:00",
+  "elapsed_seconds": 18.817967369999906,
+  "fitted_models": 290,
+  "prediction_rows": 1128000,
+  "output_sha256": {
+    "aggregates.csv": "d6749617043a56428b8ea70f2a3ba6222038d3e667503a7c364cced5dac6bd2e",
+    "folds.csv": "3304205c6bba3f36301eacfdd05f03dae7ee891343e648bbe28d1906801fd4c0",
+    "models.json": "b134dc56c5f9973bba4ae0858687c5efddb0639d228b19a854e0bbfb6bda8c87",
+    "paired_changes.csv": "ce1497c3e9b7a9c2bee307937b92193b24db479f662de4331e02cb35ca67cce7",
+    "predictions.csv.gz": "9c12bbffa4e8eae4cd1e5066bc126c50fe49728f9348f36ed217574200220857"
+  }
+}
