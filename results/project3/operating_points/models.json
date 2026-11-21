@@ -1,0 +1,6062 @@
+[
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_0",
+    "regime": "original_only",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_0",
+    "regime": "original_only",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4200,
+    "n_conditions": 1,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.047653172003763,
+      -0.5932322267592158,
+      3.6335852909923427
+    ],
+    "intercept": 0.7065312940701701,
+    "scaler_mean": [
+      0.37224455739289386,
+      27.744903697211317,
+      10.444398155962931
+    ],
+    "scaler_scale": [
+      0.36723536146156516,
+      1.6934092165672827,
+      10.430011830427095
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 17.888857312103724,
+    "cosine_slope_max_train": 22.346961849464478,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4200,
+    "model_id": "original_only/logistic_interaction/fold_0",
+    "regime": "original_only",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_1",
+    "regime": "original_only",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_1",
+    "regime": "original_only",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4200,
+    "n_conditions": 1,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.070966033726786,
+      -0.5566643418768267,
+      3.6441683154265485
+    ],
+    "intercept": 0.8032219173732965,
+    "scaler_mean": [
+      0.37343177195092225,
+      27.781698682850234,
+      10.487513266136212
+    ],
+    "scaler_scale": [
+      0.3673818273615952,
+      1.682053102130176,
+      10.440241300418313
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 17.961172266763107,
+    "cosine_slope_max_train": 22.427880462813185,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4200,
+    "model_id": "original_only/logistic_interaction/fold_1",
+    "regime": "original_only",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_2",
+    "regime": "original_only",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_2",
+    "regime": "original_only",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.229248062666555,
+      -0.7532199824215955,
+      3.8479835242036486
+    ],
+    "intercept": 0.5634900629233647,
+    "scaler_mean": [
+      0.374125889289403,
+      27.789784870009537,
+      10.503529705112406
+    ],
+    "scaler_scale": [
+      0.36755229844023113,
+      1.6729308956910707,
+      10.441072567308034
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.770893510415174,
+    "cosine_slope_max_train": 23.48704535865499,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_2",
+    "regime": "original_only",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_3",
+    "regime": "original_only",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_3",
+    "regime": "original_only",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.241184285872471,
+      -0.7732943224601456,
+      3.863972481883953
+    ],
+    "intercept": 0.6183020569663991,
+    "scaler_mean": [
+      0.3739769600854324,
+      27.773280173743093,
+      10.485743392462993
+    ],
+    "scaler_scale": [
+      0.3665019688176071,
+      1.653590946589743,
+      10.399151433275135
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.896027570895406,
+    "cosine_slope_max_train": 23.650866530549813,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_3",
+    "regime": "original_only",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_4",
+    "regime": "original_only",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_4",
+    "regime": "original_only",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.191540683432172,
+      -0.7593239993398666,
+      3.8744144396685023
+    ],
+    "intercept": 0.45190922416843343,
+    "scaler_mean": [
+      0.37292035662359413,
+      27.775743609024662,
+      10.452218353596656
+    ],
+    "scaler_scale": [
+      0.3667634614071027,
+      1.6536387415878042,
+      10.401325026565289
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.77067864164613,
+    "cosine_slope_max_train": 23.53737071023849,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_4",
+    "regime": "original_only",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_5",
+    "regime": "original_only",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_5",
+    "regime": "original_only",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.053395062429738,
+      -0.5733873359925504,
+      3.6753206282024626
+    ],
+    "intercept": 0.764787418574608,
+    "scaler_mean": [
+      0.37240318605194456,
+      27.78004987657617,
+      10.453852033280265
+    ],
+    "scaler_scale": [
+      0.36714143468213356,
+      1.6848652395056025,
+      10.4314190688904
+    ],
+    "c": 1.0,
+    "n_iter": 20,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 17.985252676571857,
+    "cosine_slope_max_train": 22.493954650623365,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_5",
+    "regime": "original_only",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_6",
+    "regime": "original_only",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_6",
+    "regime": "original_only",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.064790695500265,
+      -0.5816050885236138,
+      3.674184980079062
+    ],
+    "intercept": 0.7210092860705798,
+    "scaler_mean": [
+      0.3725062554823427,
+      27.784061162318807,
+      10.465006259931533
+    ],
+    "scaler_scale": [
+      0.36791605437227615,
+      1.6985487196039664,
+      10.462458751834445
+    ],
+    "c": 1.0,
+    "n_iter": 20,
+    "score_key": null,
+    "quality_range_train": [
+      20.81263322357741,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 18.35708531234447,
+    "cosine_slope_max_train": 22.395563460302032,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_6",
+    "regime": "original_only",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_7",
+    "regime": "original_only",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_7",
+    "regime": "original_only",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.095535357412791,
+      -0.6578436810322212,
+      3.661222381320669
+    ],
+    "intercept": 0.9149619109819022,
+    "scaler_mean": [
+      0.3718939633274999,
+      27.763703492335992,
+      10.443667318729487
+    ],
+    "scaler_scale": [
+      0.36709569784016893,
+      1.7192229174077645,
+      10.44009089792636
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      19.861892950951813,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 18.121930052621522,
+    "cosine_slope_max_train": 22.48819617951405,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_7",
+    "regime": "original_only",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_8",
+    "regime": "original_only",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_8",
+    "regime": "original_only",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4199,
+    "n_conditions": 1,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.105740329173678,
+      -0.6724655024838855,
+      3.6600190284757725
+    ],
+    "intercept": 0.7740738257697906,
+    "scaler_mean": [
+      0.3714178477807083,
+      27.72525623478213,
+      10.409784167119332
+    ],
+    "scaler_scale": [
+      0.36600664887256573,
+      1.6969453548940532,
+      10.38735953159815
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      19.861892950951813,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 18.216066853464042,
+    "cosine_slope_max_train": 22.603055934906898,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4199,
+    "model_id": "original_only/logistic_interaction/fold_8",
+    "regime": "original_only",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4199,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/cosine_threshold/fold_9",
+    "regime": "original_only",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 1,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "original_only/qmagface_threshold/fold_9",
+    "regime": "original_only",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 4200,
+    "n_conditions": 1,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.095378273257594,
+      -0.6075036980188478,
+      3.650040245528748
+    ],
+    "intercept": 0.7922271472750094,
+    "scaler_mean": [
+      0.37164271311972996,
+      27.715919314916643,
+      10.413615874146547
+    ],
+    "scaler_scale": [
+      0.3660057712656365,
+      1.7038743823321612,
+      10.383045169193176
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      19.71106298005372,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.118579427776567,
+    "cosine_slope_max_train": 22.61712992491182,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 4200,
+    "model_id": "original_only/logistic_interaction/fold_9",
+    "regime": "original_only",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 4200,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_0",
+    "regime": "mixed",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_0",
+    "regime": "mixed",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 42000,
+    "n_conditions": 10,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.67054773605858,
+      -1.6402779929270015,
+      3.5977812206203805
+    ],
+    "intercept": 1.9425149598438947,
+    "scaler_mean": [
+      0.32688277364995955,
+      25.921796336799183,
+      8.673660392273412
+    ],
+    "scaler_scale": [
+      0.3396078077668774,
+      2.50253301030246,
+      9.285071037796731
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      17.842376795232088,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 20.66633681732644,
+    "cosine_slope_max_train": 26.348903075760035,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 42000,
+    "model_id": "mixed/logistic_interaction/fold_0",
+    "regime": "mixed",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_1",
+    "regime": "mixed",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_1",
+    "regime": "mixed",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 42000,
+    "n_conditions": 10,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.74400720562434,
+      -1.6717410541684223,
+      3.690286898722695
+    ],
+    "intercept": 2.0365713177206954,
+    "scaler_mean": [
+      0.3280059174811811,
+      25.945303829963535,
+      8.709803504279268
+    ],
+    "scaler_scale": [
+      0.33968862942972283,
+      2.5126948706676124,
+      9.292846531090314
+    ],
+    "c": 1.0,
+    "n_iter": 20,
+    "score_key": null,
+    "quality_range_train": [
+      17.842376795232088,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 21.051147252284125,
+    "cosine_slope_max_train": 26.87494594916183,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 42000,
+    "model_id": "mixed/logistic_interaction/fold_1",
+    "regime": "mixed",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_2",
+    "regime": "mixed",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_2",
+    "regime": "mixed",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.859996059094209,
+      -1.786706363286788,
+      3.8783604890524384
+    ],
+    "intercept": 2.050986696456397,
+    "scaler_mean": [
+      0.32895522572931696,
+      25.95248150041312,
+      8.733730181503372
+    ],
+    "scaler_scale": [
+      0.3398537405507333,
+      2.5123986134051153,
+      9.296719982814741
+    ],
+    "c": 1.0,
+    "n_iter": 23,
+    "score_key": null,
+    "quality_range_train": [
+      17.842376795232088,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 21.743653759896105,
+    "cosine_slope_max_train": 27.861709255356928,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_2",
+    "regime": "mixed",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_3",
+    "regime": "mixed",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_3",
+    "regime": "mixed",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.83733584220713,
+      -1.7472809637027318,
+      3.89378627489152
+    ],
+    "intercept": 2.098006433900778,
+    "scaler_mean": [
+      0.32902366139832984,
+      25.93877188637271,
+      8.727466073531307
+    ],
+    "scaler_scale": [
+      0.3387799554123145,
+      2.4962195797211297,
+      9.259172087086506
+    ],
+    "c": 1.0,
+    "n_iter": 24,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 21.63022216073859,
+    "cosine_slope_max_train": 27.949299720496178,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_3",
+    "regime": "mixed",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_4",
+    "regime": "mixed",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_4",
+    "regime": "mixed",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.789451583653377,
+      -1.7610294252258611,
+      3.882183084157464
+    ],
+    "intercept": 2.016537078939123,
+    "scaler_mean": [
+      0.32792604913344225,
+      25.938754683306854,
+      8.696518088005107
+    ],
+    "scaler_scale": [
+      0.3389451975083544,
+      2.496528411618768,
+      9.260855529474227
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 21.458747313496783,
+    "cosine_slope_max_train": 27.75784923489301,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_4",
+    "regime": "mixed",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_5",
+    "regime": "mixed",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_5",
+    "regime": "mixed",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.668694996133983,
+      -1.6331023275913177,
+      3.7250883689335557
+    ],
+    "intercept": 2.0157002500454166,
+    "scaler_mean": [
+      0.32753256973810935,
+      25.94029742119537,
+      8.695778706488994
+    ],
+    "scaler_scale": [
+      0.3393730414445751,
+      2.5054515978413634,
+      9.285417570814783
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 20.7699668117099,
+    "cosine_slope_max_train": 26.798183744455446,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_5",
+    "regime": "mixed",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_6",
+    "regime": "mixed",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_6",
+    "regime": "mixed",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.7085774911116145,
+      -1.6780809195503066,
+      3.70658733844855
+    ],
+    "intercept": 1.9490372994581644,
+    "scaler_mean": [
+      0.32766638965202893,
+      25.941276009215716,
+      8.703838426306076
+    ],
+    "scaler_scale": [
+      0.34011967033132534,
+      2.511811771848642,
+      9.312023424452388
+    ],
+    "c": 1.0,
+    "n_iter": 20,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 20.80225851105917,
+    "cosine_slope_max_train": 26.705630093504226,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_6",
+    "regime": "mixed",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_7",
+    "regime": "mixed",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_7",
+    "regime": "mixed",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.799939788847709,
+      -1.6476220075192793,
+      3.7390680629330144
+    ],
+    "intercept": 2.1032791880054353,
+    "scaler_mean": [
+      0.327287124321608,
+      25.92770990548765,
+      8.690510221923489
+    ],
+    "scaler_scale": [
+      0.3394004730964715,
+      2.5171449130819012,
+      9.292385892303537
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 21.17659129930592,
+    "cosine_slope_max_train": 27.14427884264143,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_7",
+    "regime": "mixed",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_8",
+    "regime": "mixed",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_8",
+    "regime": "mixed",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 41990,
+    "n_conditions": 10,
+    "training_weight_sum": 4199.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.760147613168176,
+      -1.6497606679754095,
+      3.6430199387368125
+    ],
+    "intercept": 2.002617066039854,
+    "scaler_mean": [
+      0.32659641429565633,
+      25.899119096716845,
+      8.658177544107511
+    ],
+    "scaler_scale": [
+      0.3384911158102569,
+      2.506342353849906,
+      9.251170906798025
+    ],
+    "c": 1.0,
+    "n_iter": 19,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 20.94686832953034,
+    "cosine_slope_max_train": 26.78716335462496,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 41990,
+    "model_id": "mixed/logistic_interaction/fold_8",
+    "regime": "mixed",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 41990,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/cosine_threshold/fold_9",
+    "regime": "mixed",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 10,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "mixed/qmagface_threshold/fold_9",
+    "regime": "mixed",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 42000,
+    "n_conditions": 10,
+    "training_weight_sum": 4200.0,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.748730812551022,
+      -1.6209033297645532,
+      3.6499609594373057
+    ],
+    "intercept": 2.0598396526973852,
+    "scaler_mean": [
+      0.32629684241628754,
+      25.890796329296833,
+      8.647599774042245
+    ],
+    "scaler_scale": [
+      0.3384968497760064,
+      2.50860017712812,
+      9.24546843286135
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      17.48145511189123,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 20.930272318004516,
+    "cosine_slope_max_train": 26.862434703856028,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 42000,
+    "model_id": "mixed/logistic_interaction/fold_9",
+    "regime": "mixed",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "fit_rows_available": 42000,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_0",
+    "regime": "leave_resolution_out",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_0",
+    "regime": "leave_resolution_out",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29400,
+    "n_conditions": 7,
+    "training_weight_sum": 4199.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.25019943281724,
+      -0.8352986305092184,
+      3.6140088220019377
+    ],
+    "intercept": 0.7589568444770259,
+    "scaler_mean": [
+      0.3585045204483698,
+      26.718233647045174,
+      9.695774651132517
+    ],
+    "scaler_scale": [
+      0.35459695223537896,
+      2.0979838992030033,
+      9.776387799885763
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.627499608741303,
+    "cosine_slope_max_train": 24.003069679157008,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29400,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_0",
+    "regime": "leave_resolution_out",
+    "fold": 0,
+    "fit_folds": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      1,
+      2
+    ],
+    "test_folds": [
+      0
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "6a5637303eae12ba6d2dd66578b89819e756c51bb4993fee9fe7cf110b08da8a",
+    "calibration_requested_pair_indices_sha256": "ce3d1429422a2507e2f874594ffb7178e2efa669ef93e34e7a0c340a4c6d7daa",
+    "heldout_requested_pair_indices_sha256": "43247994f312db0507bab510cc55aa7b81c5347c9035a977f8fd0e0547e9fe4b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_1",
+    "regime": "leave_resolution_out",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_1",
+    "regime": "leave_resolution_out",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29400,
+    "n_conditions": 7,
+    "training_weight_sum": 4199.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.271397828878535,
+      -0.7631906883482866,
+      3.627612454931143
+    ],
+    "intercept": 0.8710625023224824,
+    "scaler_mean": [
+      0.35982770114106233,
+      26.751075144375783,
+      9.740194761922801
+    ],
+    "scaler_scale": [
+      0.35455475197386127,
+      2.097786718995477,
+      9.781332467851877
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.710344473880795,
+    "cosine_slope_max_train": 24.10342124737732,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29400,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_1",
+    "regime": "leave_resolution_out",
+    "fold": 1,
+    "fit_folds": [
+      0,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      2,
+      3
+    ],
+    "test_folds": [
+      1
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "236dac38c01371b37d301d05d66e67066f445849c9cef01e5f395ee6d274710e",
+    "calibration_requested_pair_indices_sha256": "410a57b9ac2aa76c4bb8a0bd42bd19758f4c2a0a9840273a57df22b595332bce",
+    "heldout_requested_pair_indices_sha256": "8e866b1c5834cc944473df582c2072f580f466d89e66a30f0d5e988525d70c0b"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_2",
+    "regime": "leave_resolution_out",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_2",
+    "regime": "leave_resolution_out",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.4404451734405095,
+      -0.9841245838877615,
+      3.896604602138056
+    ],
+    "intercept": 0.6595501676803963,
+    "scaler_mean": [
+      0.36068275585467724,
+      26.75931449355651,
+      9.761656972522099
+    ],
+    "scaler_scale": [
+      0.3546767521163085,
+      2.0939329138294154,
+      9.783343778367934
+    ],
+    "c": 1.0,
+    "n_iter": 23,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 19.675432354259655,
+    "cosine_slope_max_train": 25.46722178267806,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_2",
+    "regime": "leave_resolution_out",
+    "fold": 2,
+    "fit_folds": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      3,
+      4
+    ],
+    "test_folds": [
+      2
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a26538ea5c00c69c9847b48180b748de7d5f6133f1e8e6a84aefcc2da6f16b41",
+    "calibration_requested_pair_indices_sha256": "5ff6559026b329d83e9a08a2751f210dc5945791dd16b6dfe91c91e4d62c4682",
+    "heldout_requested_pair_indices_sha256": "c4977191159926a8b20fa2cfb580e5e0168c5469f89e18b3e09567a68d15f1f8"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_3",
+    "regime": "leave_resolution_out",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_3",
+    "regime": "leave_resolution_out",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.459838774327795,
+      -0.9740764053270107,
+      3.9271546281181284
+    ],
+    "intercept": 0.7322198125341535,
+    "scaler_mean": [
+      0.36062599073118295,
+      26.743214904343876,
+      9.749658747789073
+    ],
+    "scaler_scale": [
+      0.35357520650730134,
+      2.073765316889653,
+      9.74264381241003
+    ],
+    "c": 1.0,
+    "n_iter": 23,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 19.85551649989792,
+    "cosine_slope_max_train": 25.717099454995243,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_3",
+    "regime": "leave_resolution_out",
+    "fold": 3,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      4,
+      5
+    ],
+    "test_folds": [
+      3
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "2082729f90989e15bb31faee58b61cda6c4dcd959e2b0fd4bcf60e95d5c5973c",
+    "calibration_requested_pair_indices_sha256": "512a1f81c2fa7d4ade4dedb0881726b40303cafb3b892b19a4f13b416d03ff75",
+    "heldout_requested_pair_indices_sha256": "a9bf040e03214ff7de7111f48c2fda9af551ad239b24c006059eec172d9bfb67"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_4",
+    "regime": "leave_resolution_out",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_4",
+    "regime": "leave_resolution_out",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.460531309709205,
+      -0.9945224463243438,
+      3.9593966788044925
+    ],
+    "intercept": 0.5656961232302049,
+    "scaler_mean": [
+      0.35942374098299756,
+      26.742960538227585,
+      9.714243994230491
+    ],
+    "scaler_scale": [
+      0.3538727436814192,
+      2.0725433313529877,
+      9.74694519993869
+    ],
+    "c": 1.0,
+    "n_iter": 21,
+    "score_key": null,
+    "quality_range_train": [
+      18.881971371377595,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 20.275122230249163,
+    "cosine_slope_max_train": 25.810201318345456,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_4",
+    "regime": "leave_resolution_out",
+    "fold": 4,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      7,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      5,
+      6
+    ],
+    "test_folds": [
+      4
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "a65859357191f837a1c3889cb9cff250fb261f576f7132d903644121154c3479",
+    "calibration_requested_pair_indices_sha256": "00481850083b16e79bba6db73ba510dbd8014737b7f7fbb32b80f5fec5a50b08",
+    "heldout_requested_pair_indices_sha256": "48f079562f6f7bc91f450fd30bd5f2a95c20f50fecada75aed1beab728e14755"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_5",
+    "regime": "leave_resolution_out",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_5",
+    "regime": "leave_resolution_out",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.30837796309697,
+      -0.7565895187875759,
+      3.6979636167477308
+    ],
+    "intercept": 0.8858210582250802,
+    "scaler_mean": [
+      0.3588775492949289,
+      26.744565495617785,
+      9.712398981153054
+    ],
+    "scaler_scale": [
+      0.35441470981285866,
+      2.0887766283421088,
+      9.776784539852288
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      18.881971371377595,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 19.29822075426448,
+    "cosine_slope_max_train": 24.452048867510676,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_5",
+    "regime": "leave_resolution_out",
+    "fold": 5,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      8,
+      9
+    ],
+    "calibration_folds": [
+      6,
+      7
+    ],
+    "test_folds": [
+      5
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "730b33897cda78facb00ef010c80b58e203933bfb3f0c7bc03cf5385c632ca4e",
+    "calibration_requested_pair_indices_sha256": "d63d998b85105df07cda9ab327f9154c81d9dcadeeabb2c5c192535cb175d964",
+    "heldout_requested_pair_indices_sha256": "ddeb5e7eba12f71946a52d007d0895e49e643944302acd4525f0f15e8e8dd8f2"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_6",
+    "regime": "leave_resolution_out",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_6",
+    "regime": "leave_resolution_out",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.321649445649792,
+      -0.7893189054186026,
+      3.688465449821021
+    ],
+    "intercept": 0.8270722735988039,
+    "scaler_mean": [
+      0.359010984399552,
+      26.745038520945037,
+      9.721504189161598
+    ],
+    "scaler_scale": [
+      0.35524603008965644,
+      2.0993827121070825,
+      9.80662115245089
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      18.964493400222057,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 19.298152910241146,
+    "cosine_slope_max_train": 24.318580719266695,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_6",
+    "regime": "leave_resolution_out",
+    "fold": 6,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      9
+    ],
+    "calibration_folds": [
+      7,
+      8
+    ],
+    "test_folds": [
+      6
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "b289307c7ca4a294ac5ad627391258ae82564d9d884a1be5146e452f2f12deae",
+    "calibration_requested_pair_indices_sha256": "3ac6867fe56eb512d2d90b9f93935834c3ce335b05d845377c2f5e4aa91bd9dd",
+    "heldout_requested_pair_indices_sha256": "7e47599ae22b3ff28fe7faa1c3934632bd1e0342a0524f59ba221da62eb72032"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_7",
+    "regime": "leave_resolution_out",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_7",
+    "regime": "leave_resolution_out",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.298898852474888,
+      -0.8306209806287106,
+      3.6568361168564323
+    ],
+    "intercept": 0.9930360646260826,
+    "scaler_mean": [
+      0.3585223233451045,
+      26.728762164860928,
+      9.704954900671149
+    ],
+    "scaler_scale": [
+      0.3544910889045037,
+      2.1129449473722883,
+      9.786420519442336
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 18.840272243724602,
+    "cosine_slope_max_train": 24.20096397273096,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_7",
+    "regime": "leave_resolution_out",
+    "fold": 7,
+    "fit_folds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "calibration_folds": [
+      8,
+      9
+    ],
+    "test_folds": [
+      7
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "ae84dff91fb290934c2472524f46c49ead645ab472e8fb8a7a16fc82ff5647af",
+    "calibration_requested_pair_indices_sha256": "712851566e54323fe8f8dc5ce2b5063f13f92aa5b234c5fd63f33b052bb2ca89",
+    "heldout_requested_pair_indices_sha256": "fbcb22a991536cc88ee99499e70d814392d46865a14c40d86f27b8f77d6c97af"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_8",
+    "regime": "leave_resolution_out",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_8",
+    "regime": "leave_resolution_out",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29393,
+    "n_conditions": 7,
+    "training_weight_sum": 4198.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.308648831906969,
+      -0.879453163751038,
+      3.645844903630609
+    ],
+    "intercept": 0.8329802400728845,
+    "scaler_mean": [
+      0.35793818690230983,
+      26.695158846724492,
+      9.671064491419724
+    ],
+    "scaler_scale": [
+      0.3534826575649384,
+      2.1026999214495197,
+      9.740538236303845
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.31243828844966
+    ],
+    "cosine_slope_min_train": 18.91380091084384,
+    "cosine_slope_max_train": 24.28355556687822,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29393,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_8",
+    "regime": "leave_resolution_out",
+    "fold": 8,
+    "fit_folds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calibration_folds": [
+      9,
+      0
+    ],
+    "test_folds": [
+      8
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29393,
+    "fit_unique_pairs_available": 4199,
+    "fit_pair_indices_sha256": "7090282c9e424eb5e7a04a4bc28bed9b8a0af310efd85fefb08c038bb43d03de",
+    "calibration_requested_pair_indices_sha256": "f83b7605821be6cc2ac6986db95d6de0341cfed64d92a355fcab04bd0911800a",
+    "heldout_requested_pair_indices_sha256": "f24d16d0e59b4a9bf150bef846625f82304753b83c1aa8bf673518bc40c648eb"
+  },
+  {
+    "method": "cosine_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "cosine_similarity",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/cosine_threshold/fold_9",
+    "regime": "leave_resolution_out",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "qmagface_threshold",
+    "model_type": "fixed_score",
+    "fit_rows_used": 0,
+    "score_key": "qmagface_score",
+    "feature_names": [],
+    "coefficients": [],
+    "intercept": null,
+    "scaler_mean": [],
+    "scaler_scale": [],
+    "c": null,
+    "n_iter": 0,
+    "training_rows": 0,
+    "n_conditions": 7,
+    "training_weight_sum": 0.0,
+    "quality_range_train": null,
+    "cosine_slope_min_train": null,
+    "cosine_slope_max_train": null,
+    "model_id": "leave_resolution_out/qmagface_threshold/fold_9",
+    "regime": "leave_resolution_out",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  },
+  {
+    "method": "logistic_interaction",
+    "training_rows": 29400,
+    "n_conditions": 7,
+    "training_weight_sum": 4199.999999999998,
+    "feature_names": [
+      "cosine_similarity",
+      "minimum_quality",
+      "cosine_x_quality"
+    ],
+    "coefficients": [
+      4.2915796021372,
+      -0.8392313410402581,
+      3.6315378522396413
+    ],
+    "intercept": 0.8324161332041026,
+    "scaler_mean": [
+      0.357903271294858,
+      26.68662529530795,
+      9.666941560646661
+    ],
+    "scaler_scale": [
+      0.3534497130437805,
+      2.10739234181565,
+      9.73396975880037
+    ],
+    "c": 1.0,
+    "n_iter": 22,
+    "score_key": null,
+    "quality_range_train": [
+      17.966161381665238,
+      32.507813115855434
+    ],
+    "cosine_slope_min_train": 18.84477482740293,
+    "cosine_slope_max_train": 24.269956948916537,
+    "model_type": "learned_logistic",
+    "fit_rows_used": 29400,
+    "model_id": "leave_resolution_out/logistic_interaction/fold_9",
+    "regime": "leave_resolution_out",
+    "fold": 9,
+    "fit_folds": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "calibration_folds": [
+      0,
+      1
+    ],
+    "test_folds": [
+      9
+    ],
+    "train_conditions": [
+      "original",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ],
+    "test_conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14"
+    ],
+    "fit_rows_available": 29400,
+    "fit_unique_pairs_available": 4200,
+    "fit_pair_indices_sha256": "b4149af259ccebffea0d5fa2685dcf83de5fd1c9d9b5d99e25b36f50bfac1031",
+    "calibration_requested_pair_indices_sha256": "b8d6724513355ca61abb94a09f23cf1fb4cce03c7fa98da3e7bc850dd5aab122",
+    "heldout_requested_pair_indices_sha256": "f764a853c78c669a6c48d466c6083cfd26eced7904ec8afe847c616a05fb6263"
+  }
+]

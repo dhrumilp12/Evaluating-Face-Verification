@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-21T20:26:45.031626+00:00",
+  "scope": "One fresh full operating-point CLI run; all six payloads compared byte for byte",
+  "command": "python scripts/project3_operating_run.py --output results/project3/reproduction_operating_check",
+  "execution_git_commit": "fd123275702cdde841d708ece7e9322456b15024",
+  "main_elapsed_seconds": 9.913329824999892,
+  "repeat_elapsed_seconds": 10.387185374000182,
+  "main_manifest_sha256": "6e4fc2026cd116e4d673da5dbef72812a33c29e709ad4ee2c693f1e553c63a56",
+  "repeat_manifest_sha256": "9892643b9f7783562f89fccf743307244ef1151a880f50ce50eb7c1233bf5f2a",
+  "payloads": [
+    {
+      "file": "aggregates.csv",
+      "sha256": "a224218d94d3878a92c0b7019299de6e267ec6e5c3d7e0889c8d7ea17234a80b",
+      "byte_identical": true
+    },
+    {
+      "file": "calibration.csv",
+      "sha256": "0898a385002f4104b2a8541e56fb5f0144b9aabd1a310dfee60c8ba0dd19b011",
+      "byte_identical": true
+    },
+    {
+      "file": "folds.csv",
+      "sha256": "728116af37f03eedd60827c269530cbad4c4fe717e59f83a23a5c2a01ff0a1fa",
+      "byte_identical": true
+    },
+    {
+      "file": "models.json",
+      "sha256": "14d2d485985dccb6a8634c8d3b1dd1a5094991afc572cf2a0a6a17622af41306",
+      "byte_identical": true
+    },
+    {
+      "file": "predictions.csv.gz",
+      "sha256": "e514024836867d97eef1c174a220fceb0c887d5795c5d446b79a1717fb983c1e",
+      "byte_identical": true
+    },
+    {
+      "file": "thresholds.json",
+      "sha256": "e0c1293e3a247b22cd1dba1d83b4393c2718e5dc78d128ae2c88ae01e506d0f0",
+      "byte_identical": true
+    }
+  ],
+  "preservation": {
+    "base_revision": "eb3da8a9cc048b502e17e5e03334974159b236dc",
+    "protected_tracked_files_checked": 116,
+    "changed_files": []
+  },
+  "metadata_note": "Timestamps, output-directory metadata and elapsed time are not payload equality criteria."
+}

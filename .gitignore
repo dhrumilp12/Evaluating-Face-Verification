@@ -131,6 +131,7 @@ celerybeat.pid
 .env
 .venv
 .venv-project2/
+.venv-project3/
 env/
 venv/
 ENV/
@@ -205,3 +206,4 @@ Thumbs.db
 # Re-rendered previews and optional duplicate score reanalyses
 /tmp/
 /results/project2/reanalysis*/
+/results/project3/reproduction*/
