@@ -130,3 +130,40 @@ calibration is the primary policy; a per-condition cap is an ablation. Both
 use a single global threshold at test time. The extension retains the existing
 accuracy-oriented results and will report achieved test FMR even when it
 exceeds the calibration target. This entry precedes its new measurements.
+
+## November 21, 2026 — measured target-FMR extension
+
+The addendum was committed as `538fca2`. Fourteen new tests passed before
+measurement, including an example where pooled calibration hides an individual
+condition's false-match tail. Implementation and tests were committed as
+`fd12327`, the execution revision recorded by the new
+[manifest](../../results/project3/operating_points/manifest.json).
+
+`python scripts/project3_operating_run.py` completed in 9.913 seconds. It
+created 30 learned fits and 60 fixed score definitions, 180 threshold
+configurations, 1,080 calibration rows, 1,440 fold rows, 144 aggregate rows,
+and 864,000 requested predictions (863,856 scored). It retained the original
+source-score hash and all specified methods, regimes, and policies.
+
+The new result clarifies the missing operating-point question. With mixed
+calibration, the learned score's pooled policy has mean 14-pixel FMR 3.667%
+and FNMR 27.575%, despite satisfying the 1% calibration-mixture constraint.
+The condition-cap policy lowers these test false matches from 110 to 33
+(FMR 1.100%) while increasing false nonmatches from 827 to 1,255
+(FNMR 41.846%). Capped QMagFace has fewer errors of both types at this condition:
+23 false matches and 1,180 false nonmatches. These results are retained without
+retuning. The [discussion](operating_points.md) includes the original-only and
+resolution-excluded results and the limits of the empirical constraint.
+
+The [independent audit](operating_points_validation.json) passed for every
+threshold and saved decision, with maximum reconstructed-score difference zero.
+One fresh CLI run to an ignored output directory reproduced all six payloads
+byte for byte in 10.387 seconds. The
+[reproduction receipt](operating_points_reproducibility.json) records this
+comparison and confirms that all 116 earlier tracked source, test, script,
+requirements, and result files checked against the first Project 3 package
+remain unchanged. Temporary repeat outputs were removed after comparison.
+
+The figure and analysis were generated from these measured outputs. There were
+no deviations from the operating-point addendum. The target constrains
+calibration data; observed test FMR is reported even when it exceeds 1%.

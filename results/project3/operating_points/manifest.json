@@ -1,0 +1,104 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-11-21T20:24:47.765551+00:00",
+  "scope": "Target-1%-FMR calibration on frozen scores with disjoint fitting, calibration, and test pair folds",
+  "project2_repository_commit": "81e5d0668ffc32bf8271fb89fcae2bc7de53e51f",
+  "execution_git_commit": "fd123275702cdde841d708ece7e9322456b15024",
+  "source": {
+    "directory": "/workspace/scratch/156a43c8c108/Evaluating-Face-Verification/results/project2/robustness",
+    "pair_scores_sha256": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "manifest_sha256": "4994572d03f6d4f6ae245a012ec361e69ec0c1b1672b1c14e60f9df03ad4822d"
+  },
+  "source_sha256": {
+    "src/project3_operating_points.py": "0e61dcc03da2bc5f90b245e9864d7a794ecb79921df8f777feb5c672fdb6a718",
+    "scripts/project3_operating_run.py": "792dca5e99f670ccfd1e910bd787a4cc869090ab8ec58e9fe669c04d909b2b68",
+    "src/project3_calibration.py": "abd93d4c6fa4cc59c4a039766e0a1a29d3cf7e6c0f045eabbcfe01458110a255",
+    "scripts/project3_run.py": "567bfc162648c685b05e8f9fd6ec2469c153fb52f8fb1f5ea0dbe74fb0c148d4",
+    "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+    "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+    "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "scikit-learn": "1.8.0",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "settings": {
+    "n_folds": 10,
+    "fit_fold_count": 7,
+    "calibration_fold_count": 2,
+    "test_fold_count": 1,
+    "calibration_fold_rule": "(test_fold+1)%10, (test_fold+2)%10",
+    "methods": [
+      "cosine_threshold",
+      "qmagface_threshold",
+      "logistic_interaction"
+    ],
+    "policies": [
+      "pooled",
+      "condition_cap"
+    ],
+    "primary_policy": "pooled",
+    "regimes": [
+      "original_only",
+      "mixed",
+      "leave_resolution_out"
+    ],
+    "target_fmr": 0.01,
+    "target_fmr_exact": "1/100",
+    "primary_c": 1.0,
+    "acceptance_rule": "score >= threshold",
+    "threshold_rule": "nextafter(descending_calibration_impostors[floor(exact_target*N)], +infinity)",
+    "condition_cap_rule": "maximum of per-condition target-FMR thresholds",
+    "training_variant_weight": "1 / number_of_fitting_conditions",
+    "refit_after_calibration": false,
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "tol": 1e-08,
+    "blas_threads": 1
+  },
+  "coverage": {
+    "requested_pairs_per_condition": 6000,
+    "scored_pairs_per_condition": 5999,
+    "conditions": [
+      "original",
+      "resolution_56",
+      "resolution_28",
+      "resolution_14",
+      "blur_0.7",
+      "blur_1.4",
+      "blur_2.1",
+      "brightness_0.75",
+      "brightness_0.5",
+      "brightness_0.25"
+    ]
+  },
+  "limitations": [
+    "Calibration constraints are empirical and do not guarantee held-out FMR.",
+    "Pooled calibration counts repeated, correlated degradation variants of the same impostor pairs.",
+    "LFW pair folds are not identity- or image-disjoint.",
+    "Mixed calibration sees the evaluation degradation types in other pairs.",
+    "The condition-cap policy protects observed calibration conditions only.",
+    "Learned decision scores are not validated probabilities."
+  ],
+  "completed_at_utc": "2026-11-21T20:24:57.674676+00:00",
+  "elapsed_seconds": 9.913329824999892,
+  "score_objects": 90,
+  "learned_fits": 30,
+  "fixed_score_definitions": 60,
+  "threshold_configurations": 180,
+  "prediction_rows": 864000,
+  "output_sha256": {
+    "aggregates.csv": "a224218d94d3878a92c0b7019299de6e267ec6e5c3d7e0889c8d7ea17234a80b",
+    "calibration.csv": "0898a385002f4104b2a8541e56fb5f0144b9aabd1a310dfee60c8ba0dd19b011",
+    "folds.csv": "728116af37f03eedd60827c269530cbad4c4fe717e59f83a23a5c2a01ff0a1fa",
+    "models.json": "14d2d485985dccb6a8634c8d3b1dd1a5094991afc572cf2a0a6a17622af41306",
+    "predictions.csv.gz": "e514024836867d97eef1c174a220fceb0c887d5795c5d446b79a1717fb983c1e",
+    "thresholds.json": "e0c1293e3a247b22cd1dba1d83b4393c2718e5dc78d128ae2c88ae01e506d0f0"
+  }
+}

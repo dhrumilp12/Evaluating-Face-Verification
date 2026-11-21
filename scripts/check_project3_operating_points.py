@@ -98,6 +98,11 @@ def check_run(run_dir, source_dir, root=ROOT):
     }
     target = manifest["settings"]["target_fmr"]
     need(target == .01, "This study specifies the 1% calibration target")
+    need(manifest["settings"]["fit_fold_count"] == 7 and
+         manifest["settings"]["calibration_fold_count"] == 2 and
+         manifest["settings"]["test_fold_count"] == 1 and
+         manifest["settings"]["refit_after_calibration"] is False,
+         "Manifest does not describe the declared 7/2/1 protocol")
     need(tuple(manifest["settings"]["methods"]) == METHODS, "Method set differs from protocol")
     need(tuple(manifest["settings"]["policies"]) == POLICIES, "Threshold policy set differs from protocol")
 
@@ -174,6 +179,8 @@ def check_run(run_dir, source_dir, root=ROOT):
         need(cap_threshold >= pooled_threshold, "Condition cap is below pooled threshold")
         for policy, operating_threshold in (("pooled", pooled_threshold), ("condition_cap", cap_threshold)):
             record = threshold_index[(regime, method, policy, fold)]
+            need(record["threshold"] == operating_threshold,
+                 f"Threshold must exactly exclude the boundary tie group: {location}/{policy}")
             observed = int(np.sum(pooled_negatives >= operating_threshold))
             expected = {
                 "threshold": operating_threshold, "target_fmr": target,
@@ -194,7 +201,8 @@ def check_run(run_dir, source_dir, root=ROOT):
                  "Calibration impostor membership differs")
             need(set(record["condition_thresholds"]) == set(by_condition), "Per-condition thresholds missing")
             for condition, detail in by_condition.items():
-                near(record["condition_thresholds"][condition], detail["threshold"], "condition threshold")
+                need(record["condition_thresholds"][condition] == detail["threshold"],
+                     "Per-condition threshold differs at the floating-point boundary")
                 fp = int(np.sum(detail["negatives"] >= operating_threshold))
                 genuine_scores = detail["scores"][detail["labels"] == 1]
                 fn = int(np.sum(genuine_scores < operating_threshold))
@@ -213,6 +221,11 @@ def check_run(run_dir, source_dir, root=ROOT):
         if regime == "original_only":
             need(pooled_threshold == cap_threshold, "Original-only threshold policies differ")
     need(learned_fits == 30, "Expected 30 learned fits and 60 fixed-score objects")
+    need(manifest["score_objects"] == len(models) and
+         manifest["learned_fits"] == learned_fits and
+         manifest["fixed_score_definitions"] == len(models)-learned_fits and
+         manifest["threshold_configurations"] == len(thresholds),
+         "Manifest model/threshold totals differ")
 
     seen = set()
     for row in read_csv(run_dir / "calibration.csv"):
@@ -265,7 +278,8 @@ def check_run(run_dir, source_dir, root=ROOT):
                                 np.array([decoded[i]["prediction"] for i in successful])),
                  "Held-out decision disagrees with calibrated threshold")
             for i in positions:
-                near(saved[i]["threshold"], threshold, "applied threshold")
+                need(float(saved[i]["threshold"]) == threshold,
+                     "Applied threshold differs from the recorded operating threshold")
             values = independent_metrics([decoded[i] for i in positions])
             values["threshold"] = threshold
             computed_folds[(*key, fold)] = values

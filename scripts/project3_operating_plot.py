@@ -58,7 +58,11 @@ def main():
             values = [100 * float(selected[m, policy][f"mean_{metric}"]) for m in methods]
             all_values.extend(values)
             bars = ax.bar(x + (j - .5) * .36, values, width=.34, color=colors[j], label=names[j], zorder=3)
-            ax.bar_label(bars, labels=[f"{v:.3f}" for v in values], padding=4, fontsize=9)
+            if metric == "fmr":
+                ax.bar_label(bars, labels=[f"{v:.3f}" for v in values], label_type="center",
+                             color="white", fontsize=9)
+            else:
+                ax.bar_label(bars, labels=[f"{v:.3f}" for v in values], padding=4, fontsize=9)
         ax.set_title(title, loc="left", fontsize=12, fontweight="bold", pad=12)
         ax.set_xticks(x, ["Cosine", "QMagFace", "Learned score"])
         ax.set_ylabel("Held-out rate (%)")
@@ -67,8 +71,8 @@ def main():
         ax.set_ylim(0, max(1.6, max(all_values) * 1.3) if metric == "fmr" else 100)
         if metric == "fmr":
             ax.axhline(1, color="#B44F24", linewidth=1.4, linestyle="--", zorder=2)
-            ax.text(.98, 1, "1% calibration target", transform=ax.get_yaxis_transform(),
-                    ha="right", va="bottom", color="#9B421E", fontsize=9)
+            ax.text(.98, .94, "Dashed line: 1% calibration target", transform=ax.transAxes,
+                    ha="right", va="top", color="#9B421E", fontsize=9)
     fig.suptitle("A calibration target changes the verification tradeoff", x=.075, ha="left",
                  y=.98, fontsize=16, fontweight="bold", color="#18324A")
     fig.text(.075, .89, "Mixed conditions; 14-pixel held-out probes; target calibration FMR = 1%", fontsize=12)

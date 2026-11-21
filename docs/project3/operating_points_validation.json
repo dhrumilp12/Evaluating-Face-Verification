@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-11-21T20:25:40.858332+00:00",
+  "scope": "Hashes, disjoint fitting/calibration/test roles, fitting-only scalers, calibration-only integer-budget thresholds, all held-out scores, decisions, counts and metrics",
+  "run_manifest_sha256": "6e4fc2026cd116e4d673da5dbef72812a33c29e709ad4ee2c693f1e553c63a56",
+  "checker_sha256": "a8c514b1d3abee0177b5c95f91db01bd7200966f9fe1773e50750fb5929dc34e",
+  "independent_helper_sha256": "fc24714e9914a04857d556001def76d86eefeed8f0ffcb010b38bbcc23a29191",
+  "source_sha256": {
+    "src/project3_operating_points.py": "0e61dcc03da2bc5f90b245e9864d7a794ecb79921df8f777feb5c672fdb6a718",
+    "scripts/project3_operating_run.py": "792dca5e99f670ccfd1e910bd787a4cc869090ab8ec58e9fe669c04d909b2b68",
+    "src/project3_calibration.py": "abd93d4c6fa4cc59c4a039766e0a1a29d3cf7e6c0f045eabbcfe01458110a255",
+    "scripts/project3_run.py": "567bfc162648c685b05e8f9fd6ec2469c153fb52f8fb1f5ea0dbe74fb0c148d4",
+    "src/project2_evaluation.py": "61808802906dc980969aeef1ef557d2cf2ac46a5afff39b8ffcbb3ded9350a35",
+    "src/evaluation.py": "aeb430d546c7ac05fd5cd5e316416f1b24bb0192dd1ee095740a57d03c3bda4b",
+    "src/score_analysis.py": "b0cc858d373109d94395fd0a765961150cbd09c04e80ee528865ccdd3f0a217e"
+  },
+  "execution_git_commit": "fd123275702cdde841d708ece7e9322456b15024",
+  "verified_source_files": 7,
+  "verified_output_files": 6,
+  "verified_score_objects": 90,
+  "verified_learned_fits": 30,
+  "verified_threshold_configurations": 180,
+  "verified_calibration_rows": 1080,
+  "verified_predictions": 864000,
+  "verified_scored_predictions": 863856,
+  "verified_fold_rows": 1440,
+  "verified_aggregate_rows": 144,
+  "maximum_reconstructed_score_difference": 0.0,
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0"
+    }
+  },
+  "limitations": "Calibration constraints are empirical. Held-out FMR may exceed the 1% target. Repeated degradation variants and overlapping images are not independent observations. No image inference was rerun."
+}

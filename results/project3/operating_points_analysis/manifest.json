@@ -1,0 +1,9 @@
+{
+  "source_run_manifest_sha256": "6e4fc2026cd116e4d673da5dbef72812a33c29e709ad4ee2c693f1e553c63a56",
+  "source_aggregates_sha256": "a224218d94d3878a92c0b7019299de6e267ec6e5c3d7e0889c8d7ea17234a80b",
+  "script_sha256": "45f7149332a9b5fcecf9572a1b555dbab7e4bd322bd961d7407f2be43a58a337",
+  "scope": "Mixed regime, resolution_14, mean-fold FMR/FNMR; no model fitting",
+  "output_sha256": {
+    "target_fmr_tradeoff.png": "1bed0b43fbb4e92d6b453a9d76e739eaba5fe1fd0f5e4528594308ba48de3a65"
+  }
+}
