@@ -1,5 +1,24 @@
 # Biometrics Projects: Face Verification
 
+## Project 3: Quality-aware calibration (capstone)
+
+[Start here](docs/project3/README.md) ·
+[Measured results](docs/project3/results.md) ·
+[Final presentation](docs/project3/presentation.pptx) ·
+[Presentation PDF](docs/project3/presentation.pdf)
+
+Project 3 studies a learned quality-dependent decision score on the same LFW
+comparisons from Project 2. It includes feature ablations, calibration controls,
+tests on excluded degradation families, and regularization sensitivity.
+At 14 pixels, recalibrated QMagFace reaches **85.748%** mean-fold accuracy and
+the new interaction model reaches **84.798%**. Calibration data explains much
+of the gain; false-match costs and limited transfer remain important.
+
+The [reproduction guide](docs/project3/README.md#reproduce-the-experiments)
+uses the committed score exports and needs no model download or GPU. The
+repository includes fitted models, predictions, independent checks, Git history,
+and a [brief AI-use statement](docs/project3/ai_usage.md).
+
 ## Project 2: methodology, ablation, and baseline comparison
 
 **Published method.** We reproduce the QMagFace comparison function from

@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "source": {
+    "run_manifest_sha256": "f34de3ab2b9fbd4657a5ad46f662c5b82ba28f7dc28cde59654705bddbacfbf5",
+    "run_output_sha256": {
+      "aggregates.csv": "d6749617043a56428b8ea70f2a3ba6222038d3e667503a7c364cced5dac6bd2e",
+      "folds.csv": "3304205c6bba3f36301eacfdd05f03dae7ee891343e648bbe28d1906801fd4c0",
+      "models.json": "b134dc56c5f9973bba4ae0858687c5efddb0639d228b19a854e0bbfb6bda8c87",
+      "paired_changes.csv": "ce1497c3e9b7a9c2bee307937b92193b24db479f662de4331e02cb35ca67cce7",
+      "predictions.csv.gz": "9c12bbffa4e8eae4cd1e5066bc126c50fe49728f9348f36ed217574200220857"
+    },
+    "pair_scores_sha256": "0aefe1fabb3baaa79e0e60d939d1fe913dc661dcd8f754a69dc82ea05c928bbc",
+    "summary_script_sha256": "b9d4f5b1d87d097dda7a545d040f494d99862b822ec49390f31e5c2610726c81"
+  },
+  "output_sha256": {
+    "decision_boundary.png": "edb41852a8a8f67c694990b2c2722b5f0d807b7374d750d6ebd3a4e144b63cb9",
+    "regularization_sensitivity.png": "5d10d9f3a53ddf3cc377e1d3e5f6aabb7f1e5614dcf49c4157637da39215a526",
+    "resolution14_errors.png": "452160d0f8f1762ffea4bc9cbe463d09cd1203d9a580a4b8c456b2bd49e38cce",
+    "resolution_accuracy.png": "c71ba20ea431ffb5d3e549c2dc28e2eea8f1e1b5c8f23dc73355ad644e728c18",
+    "summary.json": "9f771f8171a2fc940e021fd17e4d758d92adee40a6800d79af7e7de4f6ceb00a"
+  }
+}
